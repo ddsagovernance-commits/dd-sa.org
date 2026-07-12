@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>Introduction Video – DD&SA Explained in Four Minutes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="DD&SA – Direct Democracy & Sortition Assemblies. A resident-led democratic operating system for the United Kingdom." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Introduction Video – DD&SA Explained in Four Minutes" />
+  <meta property="og:description" content="DD&SA – Direct Democracy & Sortition Assemblies. A resident-led democratic operating system for the United Kingdom." />
+  <meta property="og:url" content="https://dd-sa.org/video/" />
+  <meta property="og:image" content="https://dd-sa.org/assets/resident-journey.png" />
+  <meta property="og:image:width" content="1536" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:site_name" content="DD&SA" />
+  <meta property="og:locale" content="en_GB" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Introduction Video – DD&SA Explained in Four Minutes" />
+  <meta name="twitter:description" content="DD&SA – Direct Democracy & Sortition Assemblies. A resident-led democratic operating system for the United Kingdom." />
+  <meta name="twitter:image" content="https://dd-sa.org/assets/resident-journey.png" />
+
+  <style>
+    :root {
+      --bg: #050814;
+      --accent: #ffcc33;
+      --accent-strong: #ffdf6b;
+      --text: #f5f7ff;
+      --muted: #c7cbe0;
+      --card: #101528;
+      --border: #1c2340;
+      --radius: 18px;
+      --shadow: 0 18px 45px rgba(0,0,0,0.55);
+      --font-base: 19px;
+      --font-small: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #151b38 0, #050814 55%, #02030a 100%);
+      color: var(--text);
+      font-size: var(--font-base);
+      line-height: 1.7;
+    }
+
+    /* HEADER + NAV */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(5, 8, 20, 0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px clamp(20px, 6vw, 60px);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 18px;
+    }
+
+    /* NEW NAV STYLE (very light blue) */
+    .nav-links a {
+      color: #d6e8ff;
+      font-weight: 600;
+      text-shadow: 0 0 6px rgba(0,0,0,0.55);
+      transition: color 0.2s ease;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-strong);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 140px clamp(20px, 6vw, 60px) 120px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 20%, rgba(56,189,248,0.25), rgba(168,85,247,0.25), rgba(34,197,94,0.25));
+      background-size: 200% 200%;
+      animation: neuralShift 18s ease-in-out infinite;
+    }
+
+    @keyframes neuralShift {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    /* PULSING TITLE */
+    .hero-title {
+      font-size: clamp(3rem, 5vw, 4.2rem);
+      margin-bottom: 10px;
+      line-height: 1.15;
+      text-shadow: 0 0 18px rgba(0,0,0,0.6);
+      animation: pulseGlow 6s ease-in-out infinite;
+    }
+
+    .hero-subtitle {
+      max-width: 820px;
+      margin: 0 auto 40px;
+      color: var(--muted);
+      font-size: 1.25rem;
+      text-shadow: 0 0 12px rgba(0,0,0,0.5);
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        opacity: 0.85;
+        text-shadow: 0 0 18px rgba(255,255,255,0.25);
+      }
+      50% {
+        opacity: 1;
+        text-shadow: 0 0 28px rgba(255,255,255,0.45);
+      }
+      100% {
+        opacity: 0.85;
+        text-shadow: 0 0 18px rgba(255,255,255,0.25);
+      }
+    }
+
+    .cta-main {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      padding: 16px 32px;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .cta-main:hover {
+      background: var(--accent-strong);
+    }
+
+    /* SECTION */
+    .section {
+      width: 100%;
+      padding: 80px clamp(20px, 6vw, 60px);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      color: var(--accent-strong);
+      font-size: 1.4rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .card a {
+      color: var(--accent-strong);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      padding: 40px clamp(20px, 6vw, 60px);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      background: #04060f;
+      font-size: var(--font-small);
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+  <link rel="stylesheet" href="/assets/neural-theme.css?v=2026-07-11c" />
+  <link rel="canonical" href="https://dd-sa.org/video/" />
+<style id="ddsa-enh">
+/* DD&SA enhancements: top-left back button + footer utility links */
+header nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header nav .nav-links{margin-left:auto}
+.ddsa-back{display:inline-flex;align-items:center;gap:.4em;
+  font-family:Georgia,"Times New Roman",serif;font-size:.82rem;letter-spacing:.02em;
+  color:var(--muted,#9aa6c4);text-decoration:none;padding:6px 13px;
+  border:1px solid rgba(196,154,42,.35);border-radius:999px;white-space:nowrap;
+  background:rgba(4,7,15,.4);transition:color .2s,border-color .2s;flex:0 0 auto}
+.ddsa-back:hover{color:var(--gold-hot,#ffd96b);border-color:var(--gold-hot,#ffd96b);text-decoration:none}
+.ddsa-back--fixed{position:fixed;top:12px;left:12px;z-index:9999}
+.ddsa-foot-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 18px;
+  justify-content:center;font-size:.9rem}
+.ddsa-foot-links a{color:var(--gold-hot,#ffd96b);text-decoration:none}
+.ddsa-foot-links a:hover{text-decoration:underline}
+</style>
+  <link rel="alternate" type="application/rss+xml" title="DD&amp;SA Essays" href="https://dd-sa.org/feed.xml" />
+</head>
+
+<body>
+<a class="ddsa-skip" href="#main">Skip to content</a>
+
+<header>
+  <nav>
+    <a class="ddsa-back" href="/index.html" onclick="if(history.length>1){history.back();return false;}" aria-label="Go back">&larr; Back</a>
+    <div style="font-weight:700;font-size:1.4rem;">DD&SA</div>
+    <input type="checkbox" id="navToggle" class="nav-toggle-checkbox" />
+    <label for="navToggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </label>
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/about/why-ddsa.html">Why DD&SA?</a>
+      <a href="/about/what-is-ddsa.html">What is DD&SA?</a>
+      <a href="/how-it-works/index.html">How it works</a>
+      <a href="/blueprint/index.html">The Blueprint</a>
+      <a href="/essays/">Essays</a>
+      <a href="/downloads.html">The Full Corpus</a>
+      <a href="/get-involved/">Get Involved</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="main" class="hero">
+  <h1 class="hero-title">Direct Democracy & Sortition Assemblies</h1>
+  <p class="hero-subtitle">A Resident‑Led Democratic Operating System</p>
+  <a class="cta-main" href="/explainer/index.html">Start with the Explainer Video</a>
+</section>
+
+<!-- MAIN CONTENT -->
+<section class="section">
+  <h2>Explore DD&SA</h2>
+
+  <div class="card-grid">
+
+    <div class="card">
+      <h3>The Blueprint</h3>
+      <p>The full architectural design of DD&SA — how the system works, how it scales, and how it maintains structural honesty.</p>
+      <a href="/blueprint/index.html">Read the Blueprint →</a>
+    </div>
+
+    <div class="card">
+      <h3>Essays</h3>
+      <p>Clear, persuasive explanations of the deeper logic behind DD&SA: truth, power, residents, and systems.</p>
+      <a href="/essays/index.html">Read the Essays →</a>
+    </div>
+
+    <div class="card">
+      <h3>Assemblies</h3>
+      <p>How sortition assemblies work, why they outperform elections, and how residents participate.</p>
+      <a href="/assemblies/index.html">Explore Assemblies →</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div>DD&SA – Direct Democracy & Sortition Assemblies</div>
+  <div>Resident‑led democratic innovation for the United Kingdom.</div>
+<div class="ddsa-subscribe" style="margin:16px 0 12px;">
+  <strong>Stay informed:</strong> one email a month as DD&amp;SA moves from blueprint to pilot.
+  <a href="/subscribe.html">Subscribe &rarr;</a> <a class="ddsa-unsub-link" href="/unsubscribe.html">Unsubscribe</a>
+</div>
+<div class="ddsa-foot-links">
+  <a href="/index.html">Home</a>
+  <a href="/start-here.html">Start Here</a>
+  <a href="/about/principles.html">Principles</a>
+  <a href="/assemblies/index.html">Sortition Assemblies</a>
+  <a href="/stratification.html">Stratification</a>
+  <a href="/video/">Introduction Video</a>
+  <a href="/downloads.html">The Full Corpus</a>
+  <a href="/glossary.html">Glossary</a>
+  <a href="/faq/">FAQ</a>
+  <a href="/scrutiny.html">Scrutiny Register</a>
+  <a href="/about/the-architect.html">About the Architect</a>
+  <a href="/subscribe.html">Subscribe</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/cite.html">Cite this work</a>
+  <a href="/about/transparency.html">Transparency</a>
+  <a href="/privacy.html">Privacy</a>
+  <a href="/get-involved/">Get Involved</a>
+</div>
+<div class="ddsa-legal-note" style="margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.82rem;line-height:1.6;color:#8b93b5;max-width:860px;margin-left:auto;margin-right:auto;text-align:center;">
+  This website provides general information about Direct Democracy &amp; Sortition Assemblies. It is not legal advice. All content is subject to revision as the project develops. DD&amp;SA is designed to be a community&#8209;driven initiative and does not claim to represent official government policy.
+  <a href="/about/transparency.html" style="white-space:nowrap;">Transparency &amp; how we work &rarr;</a>
+  <a href="/privacy.html" style="white-space:nowrap;">Privacy notice &rarr;</a>
+</div>
+</footer>
+
+  <script src="/assets/neural-bg.js" defer></script>
+</body>
+</html>

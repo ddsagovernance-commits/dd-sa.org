@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DD&SA Sortition Assembly Machine</title>
+<meta name="description" content="Watch the DD&SA sortition machine draw a demographically representative Local Assembly of 25 live from a pool of 10,000 registered inhabitants.">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DD&SA Sortition Assembly Machine" />
+  <meta property="og:description" content="Watch the DD&SA sortition machine draw a demographically representative Local Assembly of 25 live from a pool of 10,000 registered inhabitants." />
+  <meta property="og:url" content="https://dd-sa.org/stratification.html" />
+  <meta property="og:image" content="https://dd-sa.org/assets/resident-journey.png" />
+  <meta property="og:image:width" content="1536" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:site_name" content="DD&SA" />
+  <meta property="og:locale" content="en_GB" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DD&SA Sortition Assembly Machine" />
+  <meta name="twitter:description" content="Watch the DD&SA sortition machine draw a demographically representative Local Assembly of 25 live from a pool of 10,000 registered inhabitants." />
+  <meta name="twitter:image" content="https://dd-sa.org/assets/resident-journey.png" />
+<link rel="canonical" href="https://dd-sa.org/stratification.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #08111F;
+    --bg2:       #0D1E35;
+    --bg3:       #122540;
+    --navy:      #0A1628;
+    --teal:      #00C8B4;
+    --teal-dim:  #00957F;
+    --amber:     #E8A020;
+    --amber-dim: #A06010;
+    --text:      #C8D8E8;
+    --text-dim:  #6888A8;
+    --white:     #F0F4F8;
+    --card-bg:   #0E1E32;
+    --card-bdr:  #1A3050;
+    --red:       #E84040;
+    --green:     #40D090;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem 4rem;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    width: 100%;
+    max-width: 900px;
+    padding: 2.5rem 0 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--card-bdr);
+    margin-bottom: 2rem;
+  }
+  .eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.6rem;
+  }
+  h1 span { color: var(--teal); }
+  .subtitle {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ── SITE NAV ── */
+  .site-nav {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 14px 0;
+  }
+  .site-nav .ddsa-back {
+    display: inline-flex;
+    align-items: center;
+    gap: .45em;
+    font-family: 'Space Mono', monospace;
+    font-size: .72rem;
+    letter-spacing: .05em;
+    color: var(--teal);
+    text-decoration: none;
+    padding: 7px 13px;
+    border: 1px solid var(--card-bdr);
+    border-radius: 999px;
+    background: rgba(8,17,31,.72);
+    transition: .15s;
+    flex-shrink: 0;
+  }
+  .site-nav .ddsa-back:hover { color: var(--white); border-color: var(--teal); }
+  .site-nav .brand-mark {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+  .site-nav .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 18px;
+    margin-left: auto;
+    font-family: 'Inter', sans-serif;
+    font-size: .78rem;
+  }
+  .site-nav .nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: .01em;
+    transition: color .15s;
+  }
+  .site-nav .nav-links a:hover { color: var(--teal); }
+  @media (max-width: 560px) {
+    .site-nav .nav-links { font-size: .72rem; gap: 10px 14px; }
+  }
+
+  /* ── SITE FOOTER ── */
+  .site-footer {
+    width: 100%;
+    max-width: 1100px;
+    margin-top: 3rem;
+    padding: 2.5rem 0 1rem;
+    border-top: 1px solid var(--card-bdr);
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+  }
+  .site-footer .brand-line {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: var(--white);
+    font-size: .95rem;
+    margin-bottom: .35rem;
+  }
+  .site-footer .tagline {
+    color: var(--text-dim);
+    font-size: .82rem;
+    margin-bottom: 1.2rem;
+  }
+  .site-footer .ddsa-foot-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 22px;
+    font-size: .78rem;
+  }
+  .site-footer .ddsa-foot-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color .15s;
+  }
+  .site-footer .ddsa-foot-links a:hover { color: var(--teal); }
+
+  /* ── MACHINE DRUM ── */
+  .machine-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  #drum-container {
+    position: relative;
+    width: 220px;
+    height: 220px;
+  }
+
+  #drum-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .drum-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .drum-label .big {
+    font-family: 'Space Mono', monospace;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    transition: color 0.3s;
+  }
+  .drum-label .small {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+  }
+
+  /* STATUS LINE */
+  #status-line {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    text-align: center;
+    height: 1.2em;
+    transition: color 0.2s;
+  }
+  #status-line.active { color: var(--teal); }
+  #status-line.done   { color: var(--green); }
+
+  /* ── BUTTON ── */
+  #draw-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 2.2rem;
+    background: transparent;
+    border: 1.5px solid var(--teal);
+    border-radius: 4px;
+    color: var(--teal);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
+    margin-top: 0.5rem;
+    overflow: hidden;
+  }
+  #draw-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--teal);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  #draw-btn:hover::before { opacity: 0.08; }
+  #draw-btn:hover { box-shadow: 0 0 20px rgba(0,200,180,0.25); }
+  #draw-btn:active { transform: scale(0.97); }
+  #draw-btn:disabled {
+    border-color: var(--text-dim);
+    color: var(--text-dim);
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  #draw-btn:disabled::before { display: none; }
+  .btn-icon {
+    width: 1.1em;
+    height: 1.1em;
+    flex-shrink: 0;
+  }
+
+  #reset-btn {
+    background: transparent;
+    border: 1px solid var(--card-bdr);
+    color: var(--text-dim);
+    padding: 0.5rem 1.2rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: border-color 0.2s, color 0.2s;
+    margin-top: 0.4rem;
+  }
+  #reset-btn:hover { border-color: var(--text); color: var(--text); }
+
+  /* ── ASSEMBLY GRID ── */
+  .section-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .section-label span { color: var(--teal); margin-right: 0.4em; }
+
+  #assembly-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.6rem;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 2rem;
+  }
+
+  .seat {
+    background: var(--card-bg);
+    border: 1px solid var(--card-bdr);
+    border-radius: 4px;
+    padding: 0.7rem 0.8rem;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    opacity: 0.35;
+  }
+  .seat.empty .seat-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--card-bdr);
+    text-align: center;
+    width: 100%;
+  }
+  .seat.filled {
+    opacity: 1;
+    border-color: var(--teal-dim);
+    animation: seatReveal 0.4s ease forwards;
+  }
+  .seat.filled:hover {
+    border-color: var(--teal);
+    box-shadow: 0 0 12px rgba(0,200,180,0.15);
+  }
+  @keyframes seatReveal {
+    from { transform: scale(0.92); opacity: 0; box-shadow: 0 0 30px rgba(0,200,180,0.4); }
+    to   { transform: scale(1);    opacity: 1; box-shadow: none; }
+  }
+
+  .seat-num-filled {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--teal);
+    margin-bottom: 0.3rem;
+  }
+  .seat-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+  }
+  .seat-meta {
+    font-size: 0.66rem;
+    color: var(--text-dim);
+    line-height: 1.4;
+  }
+  .seat-tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    padding: 0.1rem 0.35rem;
+    border-radius: 2px;
+    margin-top: 0.3rem;
+    color: var(--bg);
+  }
+  .tag-f  { background: #5090D0; }
+  .tag-m  { background: #7060C0; }
+
+  /* ── STATS PANEL ── */
+  #stats-panel {
+    width: 100%;
+    max-width: 900px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-bdr);
+    border-radius: 6px;
+    padding: 1.5rem;
+    display: none;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  #stats-panel.visible { display: flex; }
+  .stats-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 0.75rem;
+  }
+  .stat-group { flex: 1; min-width: 160px; }
+  .stat-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.75rem;
+    color: var(--text);
+  }
+  .stat-bar-wrap {
+    flex: 1;
+    height: 4px;
+    background: var(--bg3);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .stat-bar {
+    height: 100%;
+    border-radius: 2px;
+    background: var(--teal);
+    transition: width 0.6s ease;
+  }
+  .stat-bar.amber { background: var(--amber); }
+  .stat-val {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    min-width: 2.2em;
+    text-align: right;
+  }
+  .stat-label { min-width: 80px; font-size: 0.7rem; }
+
+  /* ── EXPLAINER FOOTER ── */
+  .explainer {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--card-bdr);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .exp-block { }
+  .exp-head {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+  }
+  .exp-body {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    line-height: 1.65;
+  }
+
+  /* ── QUANTUM PARTICLE ANIMATION ── */
+  @keyframes orbitA {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @keyframes orbitB {
+    from { transform: rotate(120deg); }
+    to   { transform: rotate(480deg); }
+  }
+  @keyframes orbitC {
+    from { transform: rotate(240deg); }
+    to   { transform: rotate(600deg); }
+  }
+  @keyframes pulse-ring {
+    0%,100% { opacity: 0.15; }
+    50%      { opacity: 0.45; }
+  }
+  @keyframes spin-ring {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  .ring-base {
+    transform-origin: 110px 110px;
+  }
+  .ring-spin {
+    animation: spin-ring 8s linear infinite;
+    transform-origin: 110px 110px;
+  }
+  .ring-spin-rev {
+    animation: spin-ring 12s linear infinite reverse;
+    transform-origin: 110px 110px;
+  }
+
+  #drum-svg.running .ring-spin  { animation-duration: 0.8s !important; }
+  #drum-svg.running .ring-spin-rev { animation-duration: 1.2s !important; }
+  #drum-svg.locked  .ring-spin  { animation: none; }
+  #drum-svg.locked  .ring-spin-rev { animation: none; }
+
+  .particle {
+    animation: orbitA 4s linear infinite;
+    transform-origin: 110px 110px;
+  }
+  .particle-b {
+    animation: orbitB 3.5s linear infinite;
+    transform-origin: 110px 110px;
+  }
+  .particle-c {
+    animation: orbitC 5s linear infinite;
+    transform-origin: 110px 110px;
+  }
+  #drum-svg.running .particle   { animation-duration: 0.5s !important; }
+  #drum-svg.running .particle-b { animation-duration: 0.4s !important; }
+  #drum-svg.running .particle-c { animation-duration: 0.6s !important; }
+
+  @media (max-width: 680px) {
+    #assembly-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 420px) {
+    #assembly-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .particle, .particle-b, .particle-c, .ring-spin, .ring-spin-rev { animation: none !important; }
+    .seat.filled { animation: none !important; }
+  }
+
+  /* ---------- responsive images (prevent mobile overflow) ---------- */
+  img { max-width: 100%; height: auto; }
+
+  /* ---------- mobile navigation (hamburger, pure CSS) ---------- */
+  .nav-toggle-checkbox { display: none; }
+  .nav-toggle-label {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 28px;
+    height: 22px;
+    cursor: pointer;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .nav-toggle-label span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--teal);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  @media (max-width: 880px) {
+    .nav-toggle-label { display: flex; }
+    .site-nav .nav-links {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(6,12,22,0.97);
+      border-bottom: 1px solid var(--card-bdr);
+      padding: 6px 20px 16px;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+      z-index: 80;
+    }
+    .nav-toggle-checkbox:checked ~ .nav-links { display: flex; }
+    .site-nav .nav-links a { width: 100%; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-toggle-checkbox:checked ~ .nav-toggle-label span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle-checkbox:checked ~ .nav-toggle-label span:nth-child(2) { opacity: 0; }
+    .nav-toggle-checkbox:checked ~ .nav-toggle-label span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+
+    .ddsa-unsub-link {
+  display: inline-block;
+  margin-left: 12px;
+  padding: 5px 14px;
+  font-size: .82rem;
+  letter-spacing: .02em;
+  color: #cfe2f5;
+  background: rgba(9,16,28,0.6);
+  border: 1px solid rgba(148,196,236,0.55);
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.ddsa-unsub-link:hover,
+.ddsa-unsub-link:focus-visible {
+  color: #ffffff;
+  border-color: rgba(148,196,236,0.95);
+  box-shadow: 0 0 16px rgba(104,164,224,0.55);
+  text-decoration: none;
+  outline: none;
+}
+  </style>
+  <link rel="alternate" type="application/rss+xml" title="DD&amp;SA Essays" href="https://dd-sa.org/feed.xml" />
+</head>
+<body>
+<style>.ddsa-skip{position:absolute;left:-9999px;top:0;z-index:100;background:#c49a2a;color:#0a0d18;padding:10px 18px;border-radius:0 0 8px 0;font-weight:600;text-decoration:none}.ddsa-skip:focus{left:0;outline:2px solid #ffd96b}</style>
+<a class="ddsa-skip" href="#main">Skip to content</a>
+
+<nav class="site-nav">
+  <a class="ddsa-back" href="/index.html"
+     onclick="if(history.length>1){history.back();return false;}"
+     aria-label="Go back">&larr; Back</a>
+  <div class="brand-mark">DD&SA</div>
+  <input type="checkbox" id="navToggle" class="nav-toggle-checkbox" />
+    <label for="navToggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </label>
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/about/why-ddsa.html">Why DD&SA?</a>
+      <a href="/about/what-is-ddsa.html">What is DD&SA?</a>
+      <a href="/how-it-works/index.html">How it works</a>
+      <a href="/blueprint/index.html">The Blueprint</a>
+      <a href="/essays/">Essays</a>
+      <a href="/downloads.html">The Full Corpus</a>
+      <a href="/get-involved/">Get Involved</a>
+    </div>
+</nav>
+
+<header>
+  <p class="eyebrow">Direct Democracy &amp; Sortition Assemblies</p>
+  <h1>The <span>Sortition</span> Machine</h1>
+  <p class="subtitle">A civic lottery engine drawing a demographically representative Local Assembly of 25 from a pool of 10,000 registered inhabitants — weighted to mirror the real proportions of the population it serves.</p>
+</header>
+
+<!-- MACHINE DRUM -->
+<div id="main" class="machine-wrapper">
+  <div id="drum-container">
+    <svg id="drum-svg" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- outer glow rings -->
+      <circle cx="110" cy="110" r="100" stroke="#00C8B4" stroke-width="0.5" opacity="0.12"/>
+      <circle cx="110" cy="110" r="90"  stroke="#00C8B4" stroke-width="0.5" opacity="0.08"/>
+
+      <!-- spinning ring 1 -->
+      <g class="ring-spin">
+        <circle cx="110" cy="110" r="96" stroke="#00C8B4" stroke-width="0.75" stroke-dasharray="8 6" opacity="0.35"/>
+      </g>
+      <!-- spinning ring 2 (reverse) -->
+      <g class="ring-spin-rev">
+        <circle cx="110" cy="110" r="82" stroke="#E8A020" stroke-width="0.5" stroke-dasharray="4 8" opacity="0.25"/>
+      </g>
+
+      <!-- MAIN DRUM BODY -->
+      <circle cx="110" cy="110" r="72" fill="#0D1E35" stroke="#1A3050" stroke-width="1.5"/>
+      <circle cx="110" cy="110" r="72" fill="url(#drumGrad)"/>
+
+      <!-- inner ring -->
+      <circle cx="110" cy="110" r="64" stroke="#00C8B4" stroke-width="0.5" opacity="0.3"/>
+
+      <!-- tick marks -->
+      <g id="ticks" opacity="0.2">
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(0 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(15 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(30 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(45 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(60 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(75 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(90 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(105 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(120 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(135 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(150 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(165 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(180 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(195 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(210 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(225 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(240 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(255 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(270 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(285 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(300 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(315 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(330 110 110)"/>
+        <line x1="110" y1="38" x2="110" y2="44" stroke="#00C8B4" stroke-width="1" transform="rotate(345 110 110)"/>
+      </g>
+
+      <!-- orbiting particles -->
+      <g class="particle">
+        <circle cx="110" cy="20" r="3" fill="#00C8B4" opacity="0.9"/>
+        <circle cx="110" cy="20" r="5" fill="#00C8B4" opacity="0.2"/>
+      </g>
+      <g class="particle" style="animation-duration:3s">
+        <circle cx="110" cy="200" r="2.5" fill="#00C8B4" opacity="0.7"/>
+      </g>
+      <g class="particle-b">
+        <circle cx="110" cy="24" r="2" fill="#E8A020" opacity="0.85"/>
+        <circle cx="110" cy="24" r="4" fill="#E8A020" opacity="0.15"/>
+      </g>
+      <g class="particle-b" style="animation-duration:2.8s; animation-direction:reverse">
+        <circle cx="110" cy="196" r="2" fill="#C080FF" opacity="0.7"/>
+      </g>
+      <g class="particle-c">
+        <circle cx="110" cy="18" r="2.5" fill="#8080FF" opacity="0.8"/>
+      </g>
+      <g class="particle-c" style="animation-duration:4.2s">
+        <circle cx="110" cy="20" r="1.5" fill="#00C8B4" opacity="0.6"/>
+      </g>
+
+      <!-- centre lock glyph (shown when locked) -->
+      <g id="lock-glyph" opacity="0">
+        <circle cx="110" cy="110" r="14" fill="none" stroke="#00C8B4" stroke-width="1.5"/>
+        <line x1="110" y1="100" x2="110" y2="120" stroke="#00C8B4" stroke-width="2"/>
+        <line x1="100" y1="110" x2="120" y2="110" stroke="#00C8B4" stroke-width="2"/>
+      </g>
+
+      <defs>
+        <radialGradient id="drumGrad" cx="40%" cy="35%" r="65%">
+          <stop offset="0%"   stop-color="#1A3050" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#08111F" stop-opacity="0.9"/>
+        </radialGradient>
+      </defs>
+    </svg>
+
+    <!-- Central counter overlaid via HTML -->
+    <div class="drum-label">
+      <div class="big" id="counter-display">10K</div>
+      <div class="small" id="counter-sub">INHABITANTS</div>
+    </div>
+  </div>
+
+  <div id="status-line">SYSTEM READY — AWAITING DRAW COMMAND</div>
+
+  <button id="draw-btn" onclick="startDraw()">
+    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polygon points="5,3 19,12 5,21"/>
+    </svg>
+    Initiate Sortition Draw
+  </button>
+  <button id="reset-btn" onclick="resetMachine()" style="display:none">↺ Reset &amp; Draw Again</button>
+</div>
+
+<!-- ASSEMBLY SEATS -->
+<p class="section-label"><span>▶</span> LOCAL CIVIC ASSEMBLY — 25 SEATS</p>
+<div id="assembly-grid"></div>
+
+<!-- DEMOGRAPHIC STATS -->
+<div id="stats-panel">
+  <div class="stat-group">
+    <div class="stats-title">Sex Balance</div>
+    <div id="stats-sex"></div>
+  </div>
+  <div class="stat-group">
+    <div class="stats-title">Age Profile</div>
+    <div id="stats-age"></div>
+  </div>
+  <div class="stat-group">
+    <div class="stats-title">Ethnicity (top 6)</div>
+    <div id="stats-eth"></div>
+  </div>
+  <div class="stat-group">
+    <div class="stats-title">Education</div>
+    <div id="stats-edu"></div>
+  </div>
+</div>
+
+<!-- EXPLAINER -->
+<div class="explainer">
+  <div class="exp-block">
+    <div class="exp-head">What is Sortition?</div>
+    <div class="exp-body">Sortition is the selection of public decision-makers by random lot — a practice rooted in ancient Athenian democracy. Unlike elections, it removes careerism and party loyalty, placing ordinary inhabitants directly in power.</div>
+  </div>
+  <div class="exp-block">
+    <div class="exp-head">Why Demographically Weighted?</div>
+    <div class="exp-body">A raw random draw could, by chance, over-represent one group. DD&SA's model applies stratified sampling: the pool is divided by sex, age band, ethnicity, and education, and seats are drawn proportionally from each stratum.</div>
+  </div>
+  <div class="exp-block">
+    <div class="exp-head">The Quantum Framing</div>
+    <div class="exp-body">True random selection requires a source of genuine entropy — unpredictable at the quantum level. This demonstration mimics that principle: each draw is an independent probabilistic collapse, producing an assembly that could not have been predicted or gamed.</div>
+  </div>
+  <div class="exp-block">
+    <div class="exp-head">DD&SA Civic Architecture</div>
+    <div class="exp-body">This machine is a live demonstration of the selection mechanism at the heart of the DD&SA framework — <em>A Civic Architecture for the British Isles</em>. Sortition Assemblies replace elected representatives at every level of governance.</div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="brand-line">DD&SA – Direct Democracy &amp; Sortition Assemblies</div>
+  <div class="tagline">Resident‑led democratic innovation for the United Kingdom.</div>
+  <div class="ddsa-subscribe" style="margin:16px 0 12px;">
+  <strong>Stay informed:</strong> one email a month as DD&amp;SA moves from blueprint to pilot.
+  <a href="/subscribe.html">Subscribe &rarr;</a> <a class="ddsa-unsub-link" href="/unsubscribe.html">Unsubscribe</a>
+</div>
+<div class="ddsa-foot-links">
+  <a href="/index.html">Home</a>
+  <a href="/start-here.html">Start Here</a>
+  <a href="/about/principles.html">Principles</a>
+  <a href="/assemblies/index.html">Sortition Assemblies</a>
+  <a href="/stratification.html">Stratification</a>
+  <a href="/video/">Introduction Video</a>
+  <a href="/downloads.html">The Full Corpus</a>
+  <a href="/glossary.html">Glossary</a>
+  <a href="/faq/">FAQ</a>
+  <a href="/scrutiny.html">Scrutiny Register</a>
+  <a href="/about/the-architect.html">About the Architect</a>
+  <a href="/subscribe.html">Subscribe</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/cite.html">Cite this work</a>
+  <a href="/about/transparency.html">Transparency</a>
+  <a href="/privacy.html">Privacy</a>
+  <a href="/get-involved/">Get Involved</a>
+</div>
+<div class="ddsa-legal-note" style="margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.82rem;line-height:1.6;color:#8b93b5;max-width:860px;margin-left:auto;margin-right:auto;text-align:center;">
+  This website provides general information about Direct Democracy &amp; Sortition Assemblies. It is not legal advice. All content is subject to revision as the project develops. DD&amp;SA is designed to be a community&#8209;driven initiative and does not claim to represent official government policy.
+  <a href="/about/transparency.html" style="white-space:nowrap;">Transparency &amp; how we work &rarr;</a>
+  <a href="/privacy.html" style="white-space:nowrap;">Privacy notice &rarr;</a>
+</div>
+</footer>
+
+<script>
+// ── DATA POOL ──
+// 10,000 records generated synthetically with UK demographic weighting.
+// We store compact arrays and generate on the fly to keep file size reasonable.
+
+const RNG = (() => {
+  // Seeded Mulberry32 PRNG — different seed each page load for genuine variety
+  let s = Math.floor(Math.random() * 2**32);
+  return () => {
+    s |= 0; s = s + 0x6D2B79F5 | 0;
+    let t = Math.imul(s ^ s >>> 15, 1 | s);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+})();
+
+function weighted(choices) {
+  const total = choices.reduce((a, c) => a + c[1], 0);
+  let r = RNG() * total;
+  for (const [val, w] of choices) { r -= w; if (r <= 0) return val; }
+  return choices[choices.length - 1][0];
+}
+
+// Name pools
+const MALE_FIRST = ["Oliver","George","Harry","Jack","Charlie","Noah","Jacob","Thomas","Oscar","William","James","Henry","Leo","Alfie","Joshua","Freddie","Archie","Ethan","Isaac","Alexander","Joseph","Edward","Samuel","Max","Logan","Daniel","Lucas","Mohammed","Benjamin","Mason","Theo","Adam","Dylan","David","Michael","Robert","John","Paul","Andrew","Mark","Stephen","Richard","Anthony","Peter","Simon","Gary","Kevin","Ian","Nigel","Raj","Amir","Tariq","Idris","Kwame","Chen","Wei","Sanjay","Ravi","Dmitri","Liam","Dylan","Callum","Ewan"];
+const FEMALE_FIRST = ["Olivia","Amelia","Isla","Ava","Emily","Sophia","Grace","Mia","Poppy","Ella","Lily","Charlotte","Evie","Sophie","Isabella","Jessica","Ruby","Daisy","Florence","Freya","Alice","Phoebe","Sienna","Harriet","Maisie","Emma","Sarah","Laura","Hannah","Rebecca","Lucy","Katie","Megan","Chloe","Jasmine","Aaliyah","Fatima","Aisha","Priya","Mei","Margaret","Susan","Karen","Julie","Helen","Diane","Janet","Carol","Linda","Patricia","Nadia","Zara","Yasmin","Amara","Ngozi","Anjali","Saoirse","Niamh","Eleni","Ling"];
+const SURNAMES = ["Smith","Jones","Williams","Taylor","Brown","Davies","Evans","Wilson","Thomas","Roberts","Johnson","Lewis","Walker","Robinson","Wood","Thompson","White","Watson","Jackson","Wright","Green","Harris","Cooper","King","Lee","Martin","Clarke","James","Morgan","Hughes","Edwards","Hill","Moore","Clark","Harrison","Scott","Young","Morris","Hall","Ward","Turner","Carter","Phillips","Mitchell","Patel","Khan","Begum","Ali","Ahmed","Hussain","Singh","Kaur","Sharma","Wong","Chen","Li","Okafor","Mensah","Adeyemi","Murphy","Kelly","O'Brien","Ryan","O'Connor","MacDonald"];
+
+const TOWNS = [
+  ["London","E"],["London","SW"],["Birmingham","B"],["Manchester","M"],["Leeds","LS"],
+  ["Glasgow","G"],["Sheffield","S"],["Liverpool","L"],["Edinburgh","EH"],["Bristol","BS"],
+  ["Cardiff","CF"],["Leicester","LE"],["Nottingham","NG"],["Newcastle","NE"],["Brighton","BN"],
+  ["Southampton","SO"],["Oxford","OX"],["Cambridge","CB"],["York","YO"],["Exeter","EX"],
+  ["Plymouth","PL"],["Coventry","CV"],["Derby","DE"],["Norwich","NR"],["Aberdeen","AB"],
+  ["Belfast","BT"],["Swansea","SA"],["Preston","PR"],["Stoke","ST"],["Hull","HU"],
+  ["Mytchett","GU"],["Reading","RG"],["Middlesbrough","TS"],["Dundee","DD"],["Carlisle","CA"]
+];
+const TOWN_W = [12,10,6,6,4,4,3,3,3,3,3,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+const STREETS = ["High Street","Station Road","Church Lane","Victoria Road","Green Lane","Park Road","Mill Lane","London Road","King Street","Queens Road","New Road","Manor Road","The Avenue","Springfield Road","Albert Road","George Street","School Lane","West Street","Oak Avenue","Elm Close","Birch Grove","Willow Way","Cedar Court","Bridge Street","Castle Road","Abbey Close","Maple Drive","Hawthorn Rise"];
+
+const ETHNICITIES = [
+  ["White British",74.4],["White Irish",0.9],["Other White",6.4],["Indian",3.1],
+  ["Pakistani",2.7],["Bangladeshi",1.1],["Chinese",0.7],["Other Asian",1.6],
+  ["Black African",2.5],["Black Caribbean",1.0],["Other Black",0.5],
+  ["Mixed",2.6],["Arab",0.6],["Other",1.4]
+];
+const EDUCATION = [
+  ["No formal quals",18],["GCSE (D-G)",9],["GCSE (A*-C)",13],["Apprenticeship",5],
+  ["A-level / BTEC",17],["HNC / HND",6],["Bachelor's degree",20],
+  ["Master's degree",8],["PhD",1],["Other qualification",3]
+];
+const OCCUPATIONS = [
+  ["Retired",18],["Student",6],["Unemployed",4],["Economically inactive",6],["Long-term sick",3],
+  ["Care worker",3],["Nurse",2],["Teacher",3],["Teaching assistant",1.5],
+  ["Retail assistant",4],["Sales & customer service",3],["Warehouse operative",2.5],
+  ["Lorry / van driver",2],["Bus / taxi driver",1.5],["Construction worker",2.5],
+  ["Electrician",1],["Plumber",1],["Carpenter",1],["Cleaner",2.5],
+  ["Chef / cook",1.5],["Waiter / bar staff",2],["Software developer",2],
+  ["IT support",1.5],["Data analyst",1],["Accountant",1.5],["Financial advisor",1],
+  ["Solicitor",0.8],["Civil servant",2.5],["Administrator",3],["Receptionist",1.5],
+  ["Police officer",0.8],["Firefighter",0.4],["Armed forces",0.6],["Doctor / GP",0.8],
+  ["Pharmacist",0.5],["Paramedic",0.4],["Social worker",1],["Engineer",1.5],
+  ["Architect",0.4],["Farmer",1],["Mechanic",1.5],["Factory operative",2.5],
+  ["Hairdresser",1.2],["Plasterer / decorator",1],["Security guard",1.2],
+  ["Delivery worker",1.5],["Marketing professional",1.2],["Graphic designer",0.8],
+  ["Project manager",1.5],["HR professional",1],["Small business owner",3],
+  ["Company director",1],["Estate agent",0.6],["Scientist",0.8],["Veterinary worker",0.4],
+  ["Train driver",0.7],["Childminder",1.2],["Fitness instructor",0.6],
+  ["Musician / performer",0.5],["Tradesperson",1.5]
+];
+const AGE_BANDS = [[18,24,11],[25,34,18],[35,44,17],[45,54,17],[55,64,15],[65,74,12],[75,90,10]];
+
+function randInt(lo, hi) { return lo + Math.floor(RNG() * (hi - lo + 1)); }
+
+function postcode(area) {
+  const n = randInt(1, 30);
+  const d = randInt(1, 9);
+  const alpha = "ABDEFGHJLNPQRSTUWXYZ";
+  return `${area}${n} ${d}${alpha[randInt(0,alpha.length-1)]}${alpha[randInt(0,alpha.length-1)]}`;
+}
+
+function pickAge() {
+  const band = weighted(AGE_BANDS.map(b => [[b[0],b[1]], b[2]]));
+  return randInt(band[0], band[1]);
+}
+
+function generatePerson(id) {
+  const sex = RNG() < 0.51 ? "F" : "M";
+  const firstName = sex === "F"
+    ? FEMALE_FIRST[randInt(0, FEMALE_FIRST.length-1)]
+    : MALE_FIRST[randInt(0, MALE_FIRST.length-1)];
+  const surname = SURNAMES[randInt(0, SURNAMES.length-1)];
+  const age = pickAge();
+  // Age coherence
+  let occ = weighted(OCCUPATIONS);
+  if (age >= 66 && RNG() < 0.8) occ = "Retired";
+  if (age <= 22 && RNG() < 0.3) occ = "Student";
+  if (occ === "Retired" && age < 55) occ = weighted(OCCUPATIONS.filter(o => o[0] !== "Retired"));
+
+  const townEntry = weighted(TOWNS.map((t,i) => [t, TOWN_W[i]]));
+  const street = STREETS[randInt(0, STREETS.length-1)];
+  const streetNum = randInt(1, 220);
+  const eth = weighted(ETHNICITIES);
+  const edu = weighted(EDUCATION);
+
+  return {
+    id: id,
+    name: `${firstName} ${surname}`,
+    address: `${streetNum} ${street}`,
+    town: townEntry[0],
+    postcode: postcode(townEntry[1]),
+    sex, age, eth, edu, occ
+  };
+}
+
+// Pre-generate pool of 10,000
+let POOL = [];
+function buildPool() {
+  POOL = [];
+  for (let i = 1; i <= 10000; i++) POOL.push(generatePerson(i));
+}
+
+// ── STRATIFIED SAMPLING ──
+// Divide into strata by sex × broad age band, draw proportionally
+function stratifiedDraw(n) {
+  const strata = {};
+  for (const p of POOL) {
+    const ageBand = p.age < 35 ? "18-34" : p.age < 55 ? "35-54" : p.age < 65 ? "55-64" : "65+";
+    const key = `${p.sex}_${ageBand}`;
+    if (!strata[key]) strata[key] = [];
+    strata[key].push(p);
+  }
+  // Compute target seats per stratum
+  const sizes = {};
+  let total = 0;
+  for (const [k, arr] of Object.entries(strata)) { sizes[k] = arr.length; total += arr.length; }
+  const floats = {};
+  let seated = 0;
+  for (const [k, sz] of Object.entries(sizes)) {
+    floats[k] = sz / total * n;
+    sizes[k] = Math.floor(floats[k]);
+    seated += sizes[k];
+  }
+  // Distribute remainders by largest fractional part
+  const remainder = n - seated;
+  const fracs = Object.entries(floats)
+    .map(([k, v]) => [k, v - Math.floor(v)])
+    .sort((a, b) => b[1] - a[1]);
+  for (let i = 0; i < remainder; i++) sizes[fracs[i][0]]++;
+
+  // Random draw from each stratum
+  const selected = [];
+  for (const [k, arr] of Object.entries(strata)) {
+    const need = sizes[k] || 0;
+    const shuffled = [...arr].sort(() => RNG() - 0.5);
+    selected.push(...shuffled.slice(0, need));
+  }
+  return selected.sort(() => RNG() - 0.5); // final shuffle
+}
+
+// ── UI STATE ──
+let drawRunning = false;
+let currentAssembly = [];
+
+function buildGrid() {
+  const grid = document.getElementById('assembly-grid');
+  grid.innerHTML = '';
+  for (let i = 0; i < 25; i++) {
+    const seat = document.createElement('div');
+    seat.className = 'seat empty';
+    seat.id = `seat-${i}`;
+    seat.innerHTML = `<span class="seat-num">${String(i+1).padStart(2,'0')}</span>`;
+    grid.appendChild(seat);
+  }
+}
+
+function fillSeat(i, person) {
+  const seat = document.getElementById(`seat-${i}`);
+  seat.className = 'seat filled';
+  const tagClass = person.sex === 'F' ? 'tag-f' : 'tag-m';
+  seat.innerHTML = `
+    <div class="seat-num-filled">#${String(person.id).padStart(5,'0')}</div>
+    <div class="seat-name">${person.name}</div>
+    <div class="seat-meta">${person.age} · ${person.town}</div>
+    <div class="seat-meta" style="color:var(--text-dim);font-size:0.62rem;margin-top:2px">${person.occ}</div>
+    <span class="seat-tag ${tagClass}">${person.sex === 'F' ? 'Female' : 'Male'}</span>
+  `;
+}
+
+function setStatus(msg, cls) {
+  const el = document.getElementById('status-line');
+  el.textContent = msg;
+  el.className = cls || '';
+}
+
+function setDrumState(state) {
+  // state: idle | running | locked
+  const svg = document.getElementById('drum-svg');
+  svg.className.baseVal = state;
+  const lock = document.getElementById('lock-glyph');
+  const big = document.getElementById('counter-display');
+  const sub = document.getElementById('counter-sub');
+  if (state === 'running') {
+    lock.setAttribute('opacity','0');
+    big.style.color = 'var(--teal)';
+    sub.textContent = 'SAMPLING…';
+  } else if (state === 'locked') {
+    lock.setAttribute('opacity','1');
+    big.style.color = 'var(--green)';
+    big.textContent = '25';
+    sub.textContent = 'ASSEMBLY SET';
+  } else {
+    lock.setAttribute('opacity','0');
+    big.style.color = 'var(--white)';
+    big.textContent = '10K';
+    sub.textContent = 'INHABITANTS';
+  }
+}
+
+async function startDraw() {
+  if (drawRunning) return;
+  drawRunning = true;
+
+  document.getElementById('draw-btn').disabled = true;
+  document.getElementById('reset-btn').style.display = 'none';
+  document.getElementById('stats-panel').classList.remove('visible');
+  buildGrid();
+  buildPool();
+
+  setDrumState('running');
+  setStatus('QUANTUM ENTROPY SOURCE ACTIVE — STRATIFYING POPULATION…', 'active');
+
+  await sleep(800);
+
+  // Animate counter during "sampling"
+  let tick = 0;
+  const counterInterval = setInterval(() => {
+    const n = 10000 - Math.floor(tick * 400);
+    document.getElementById('counter-display').textContent = n > 999 ? Math.round(n/1000)+'K' : n;
+    tick++;
+    if (n <= 0) clearInterval(counterInterval);
+  }, 40);
+
+  setStatus('STRATIFIED SAMPLING IN PROGRESS…', 'active');
+  await sleep(1000);
+
+  clearInterval(counterInterval);
+  document.getElementById('counter-display').textContent = '25';
+
+  const assembly = stratifiedDraw(25);
+  currentAssembly = assembly;
+
+  setStatus('LOCKING ASSEMBLY — DISTRIBUTING SEATS…', 'active');
+  await sleep(300);
+
+  // Fill seats one by one
+  for (let i = 0; i < 25; i++) {
+    fillSeat(i, assembly[i]);
+    await sleep(120);
+  }
+
+  setDrumState('locked');
+  setStatus('ASSEMBLY CONSTITUTED — DRAW COMPLETE', 'done');
+
+  showStats(assembly);
+
+  document.getElementById('reset-btn').style.display = 'inline-flex';
+  drawRunning = false;
+}
+
+function showStats(assembly) {
+  const panel = document.getElementById('stats-panel');
+  panel.classList.add('visible');
+
+  // Sex
+  const female = assembly.filter(p => p.sex === 'F').length;
+  const male = 25 - female;
+  document.getElementById('stats-sex').innerHTML = statRows([
+    ['Female', female, 25, ''],
+    ['Male', male, 25, 'amber']
+  ]);
+
+  // Age bands
+  const bands = [['18–34',18,34],['35–54',35,54],['55–64',55,64],['65+',65,120]];
+  const ageCounts = bands.map(([label, lo, hi]) => [
+    label, assembly.filter(p => p.age >= lo && p.age <= hi).length, 25, ''
+  ]);
+  document.getElementById('stats-age').innerHTML = statRows(ageCounts);
+
+  // Ethnicity top 6
+  const ethMap = {};
+  for (const p of assembly) ethMap[p.eth] = (ethMap[p.eth]||0)+1;
+  const ethSorted = Object.entries(ethMap).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  document.getElementById('stats-eth').innerHTML = statRows(
+    ethSorted.map(([k,v]) => [k, v, 25, ''])
+  );
+
+  // Education (collapsed to 4 levels)
+  const edu4 = {"No quals / GCSE":0,"A-level / Apprenticeship":0,"Degree level":0,"Postgrad / PhD":0};
+  for (const p of assembly) {
+    if (["No formal quals","GCSE (D-G)","GCSE (A*-C)","Other qualification"].includes(p.edu)) edu4["No quals / GCSE"]++;
+    else if (["A-level / BTEC","Apprenticeship"].includes(p.edu)) edu4["A-level / Apprenticeship"]++;
+    else if (["Bachelor's degree","HNC / HND"].includes(p.edu)) edu4["Degree level"]++;
+    else edu4["Postgrad / PhD"]++;
+  }
+  document.getElementById('stats-edu').innerHTML = statRows(
+    Object.entries(edu4).map(([k,v]) => [k, v, 25, ''])
+  );
+}
+
+function statRows(rows) {
+  return rows.map(([label, val, total, cls]) => {
+    const pct = Math.round(val / total * 100);
+    return `<div class="stat-row">
+      <span class="stat-label">${label}</span>
+      <div class="stat-bar-wrap"><div class="stat-bar ${cls}" style="width:${pct}%"></div></div>
+      <span class="stat-val">${val}</span>
+    </div>`;
+  }).join('');
+}
+
+function resetMachine() {
+  currentAssembly = [];
+  buildGrid();
+  setDrumState('idle');
+  setStatus('SYSTEM READY — AWAITING DRAW COMMAND');
+  document.getElementById('draw-btn').disabled = false;
+  document.getElementById('reset-btn').style.display = 'none';
+  document.getElementById('stats-panel').classList.remove('visible');
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+// ── INIT ──
+buildGrid();
+</script>
+<script>
+/* ---------------------------------------------------------------
+   Light copy-deterrents. These stop casual right-click / save and
+   the most common shortcuts. They are NOT real protection — any
+   browser can still show this page's source. Delete this block to
+   remove the behaviour.
+----------------------------------------------------------------*/
+(function(){
+  document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+  document.addEventListener('keydown', function(e){
+    var k = (e.key || '').toLowerCase();
+    if (e.key === 'F12') { e.preventDefault(); return; }
+    if ((e.ctrlKey||e.metaKey) && k === 'u') { e.preventDefault(); return; }
+    if ((e.ctrlKey||e.metaKey) && k === 's') { e.preventDefault(); return; }
+    if ((e.ctrlKey||e.metaKey) && e.shiftKey && (k==='i'||k==='j'||k==='c')) { e.preventDefault(); }
+  });
+})();
+</script>
+</body>
+</html>

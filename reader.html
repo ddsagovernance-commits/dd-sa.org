@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reading Room – DD&SA</title>
+  <meta name="robots" content="noindex" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Read DD&SA corpus documents directly on the site, with adjustable text size and full-screen reading for accessibility." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Reading Room – DD&SA" />
+  <meta property="og:description" content="Read DD&SA corpus documents directly on the site, with adjustable text size and full-screen reading for accessibility." />
+  <meta property="og:url" content="https://dd-sa.org/reader.html" />
+  <meta property="og:image" content="https://dd-sa.org/assets/resident-journey.png" />
+  <meta property="og:image:width" content="1536" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:site_name" content="DD&SA" />
+  <meta property="og:locale" content="en_GB" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Reading Room – DD&SA" />
+  <meta name="twitter:description" content="Read DD&SA corpus documents directly on the site, with adjustable text size and full-screen reading for accessibility." />
+  <meta name="twitter:image" content="https://dd-sa.org/assets/resident-journey.png" />
+
+  <style>
+    :root {
+      --ink:        #04070f;
+      --navy:       #0a1228;
+      --navy-line:  #1b2a4a;
+      --gold:       #c49a2a;
+      --gold-hot:   #ffd96b;
+      --text:       #eef2fc;
+      --muted:      #9aa6c4;
+
+      /* museum-vitrine palette */
+      --brass-hi:   #e6c877;
+      --brass:      #b7943f;
+      --brass-dark: #6b5220;
+      --glass-edge: rgba(148,196,236,0.55);
+      --glass-glow: rgba(104,164,224,0.35);
+      --stone-hi:   #3a3f47;
+      --stone-lo:   #14161b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+      background: radial-gradient(ellipse 120% 80% at 50% -10%, #101a3a 0%, #070c1d 45%, #04070f 100%);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    a { color: var(--gold-hot); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---------- top bar ---------- */
+    .bar {
+      flex: 0 0 auto;
+      position: relative;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding: 12px clamp(14px, 3vw, 30px);
+      background: rgba(4,7,15,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196,154,42,0.25);
+    }
+
+    .brand {
+      font-family: Georgia, serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    /* ---------- go-to-page control (top left, beside Back) ---------- */
+    .goto-wrap { position: relative; flex: 0 0 auto; }
+    .goto-pop {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(10,14,28,0.98);
+      border: 1px solid var(--navy-line);
+      border-radius: 10px;
+      padding: 8px;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.55);
+      z-index: 60;
+    }
+    .goto-pop[hidden] { display: none; }
+    .goto-pop input {
+      width: 64px;
+      padding: 7px 8px;
+      border-radius: 7px;
+      border: 1px solid var(--navy-line);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.88rem;
+    }
+    .goto-pop input:focus { outline: none; border-color: var(--gold); }
+
+    .doc-title {
+      flex: 1 1 220px;
+      min-width: 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      opacity: 0.8;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-left: auto;
+    }
+
+    .ctl {
+      background: rgba(16,22,44,0.9);
+      border: 1px solid var(--navy-line);
+      color: var(--text);
+      border-radius: 9px;
+      padding: 8px 13px;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+      user-select: none;
+      font-family: inherit;
+    }
+    .ctl:hover { border-color: rgba(196,154,42,0.6); color: var(--gold-hot); }
+    .ctl.active { border-color: var(--gold); color: var(--gold-hot); background: rgba(196,154,42,0.12); }
+    .ctl:focus-visible { outline: 2px solid var(--gold-hot); outline-offset: 2px; }
+    .ctl:disabled { opacity: 0.4; cursor: default; }
+
+    .zoom-level {
+      min-width: 56px;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .page-indicator {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    /* download button stays top-right, inside .controls */
+    .btn-download {
+      background: linear-gradient(135deg, var(--gold), #a8821e);
+      border: none;
+      color: #0a0d18;
+      font-weight: 600;
+      border-radius: 999px;
+      padding: 9px 22px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      box-shadow: 0 4px 18px rgba(196,154,42,0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-family: inherit;
+    }
+    .btn-download:hover { transform: translateY(-1px); box-shadow: 0 8px 26px rgba(196,154,42,0.55); }
+    .btn-download:focus-visible { outline: 2px solid var(--gold-hot); outline-offset: 2px; }
+
+    .hint {
+      flex: 0 0 auto;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      padding: 8px 16px 0;
+      opacity: 0.75;
+    }
+
+    /* ================= vitrine stage ================= */
+    .vitrine-stage {
+      flex: 1 1 auto;
+      min-height: 0;
+      position: relative;
+      display: flex;
+      align-items: stretch;
+      gap: 16px;
+      padding: 20px clamp(10px, 3vw, 34px) 8px;
+    }
+    /* ceiling spotlight, like a single beam falling on the case */
+    .vitrine-stage::before {
+      content: "";
+      position: absolute;
+      top: -40px; left: 50%;
+      width: 60vw; max-width: 760px; height: 260px;
+      transform: translateX(-50%);
+      background: radial-gradient(ellipse 50% 100% at 50% 0%, rgba(200,220,255,0.16), rgba(200,220,255,0) 72%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .vitrine {
+      position: relative;
+      flex: 1 1 auto;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      border-radius: 22px;
+      padding: 4px;
+      background: linear-gradient(165deg, rgba(140,190,230,0.5), rgba(140,190,230,0.1) 45%, rgba(140,190,230,0.4));
+      box-shadow: 0 0 44px var(--glass-glow), 0 30px 70px rgba(0,0,0,0.6);
+      z-index: 1;
+    }
+    .vitrine-inner {
+      position: relative;
+      flex: 1 1 auto;
+      min-height: 0;
+      display: flex;
+      border-radius: 19px;
+      background: linear-gradient(165deg, #0b1220 0%, #060a15 60%, #05070f 100%);
+      overflow: hidden;
+      border: 1px solid rgba(148,196,236,0.28);
+    }
+    /* glass sheen streak */
+    .vitrine-inner::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -20%;
+      width: 45%; height: 100%;
+      background: linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 45%, rgba(255,255,255,0) 60%);
+      pointer-events: none;
+      z-index: 5;
+    }
+    /* brass corner brackets */
+    .corner {
+      position: absolute;
+      width: 22px; height: 22px;
+      z-index: 6;
+      pointer-events: none;
+    }
+    .corner::before, .corner::after { content: ""; position: absolute; background: linear-gradient(135deg, var(--brass-hi), var(--brass) 60%, var(--brass-dark)); }
+    .corner.tl { top: 6px; left: 6px; }
+    .corner.tr { top: 6px; right: 6px; }
+    .corner.bl { bottom: 6px; left: 6px; }
+    .corner.br { bottom: 6px; right: 6px; }
+    .corner.tl::before, .corner.tr::before, .corner.bl::before, .corner.br::before { width: 22px; height: 4px; top: 0; }
+    .corner.tl::after,  .corner.tr::after,  .corner.bl::after,  .corner.br::after  { width: 4px; height: 22px; left: 0; }
+    .corner.tl::before, .corner.tl::after { top: 0; left: 0; }
+    .corner.tr::before { right: 0; left: auto; }
+    .corner.tr::after  { right: 0; left: auto; top: 0; }
+    .corner.bl::before { bottom: 0; top: auto; }
+    .corner.bl::after  { bottom: 0; top: auto; left: 0; }
+    .corner.br::before { bottom: 0; top: auto; right: 0; left: auto; }
+    .corner.br::after  { bottom: 0; top: auto; right: 0; left: auto; }
+
+    /* ---------- viewer (scrolls inside the glass) ---------- */
+    #viewer {
+      flex: 1 1 auto;
+      min-height: 0;
+      width: 100%;
+      padding: 34px 14px 60px;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      position: relative;
+      z-index: 1;
+    }
+    #viewer:fullscreen { background: #181c26; }
+    #viewer:-webkit-full-screen { background: #181c26; }
+
+    .page-shell {
+      margin: 0 auto 30px;
+      background: #e9f2fb;
+      box-shadow: 0 16px 50px rgba(0,0,0,0.6);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    /* decorative parchment mat behind each page — purely cosmetic,
+       does not affect the shell's own box used for canvas sizing */
+    .page-shell::before {
+      content: "";
+      position: absolute;
+      inset: -12px;
+      border-radius: 8px;
+      background: linear-gradient(165deg, #efe3c4, #d9c89a);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(196,154,42,0.3);
+      z-index: -1;
+    }
+    /* very light blue comfort tint over the page for less eye strain:
+       multiply turns the PDF's white paper into soft blue while
+       leaving the text dark and crisp */
+    .page-shell::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #e9f2fb;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+    .page-shell canvas { display: block; width: 100%; height: 100%; }
+    .page-num {
+      position: absolute;
+      bottom: 6px; right: 10px;
+      font-size: 11px;
+      color: rgba(20,30,60,0.45);
+      pointer-events: none;
+    }
+
+    .status {
+      max-width: 640px;
+      margin: 80px auto;
+      text-align: center;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      padding: 0 20px;
+    }
+    .status .spin {
+      width: 34px; height: 34px;
+      margin: 0 auto 18px;
+      border: 3px solid rgba(196,154,42,0.25);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ---------- auto-scroll panel, to the right of the glass ---------- */
+    .autoscroll-panel {
+      flex: 0 0 auto;
+      width: 60px;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 14px 0;
+    }
+    .autoscroll-toggle {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #a8821e);
+      border: none;
+      color: #0a0d18;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(196,154,42,0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      flex: 0 0 auto;
+    }
+    .autoscroll-toggle:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(196,154,42,0.55); }
+    .autoscroll-toggle:focus-visible { outline: 2px solid var(--gold-hot); outline-offset: 2px; }
+    .autoscroll-toggle.playing { background: linear-gradient(135deg, #ff9d8f, #c85f52); }
+
+    .autoscroll-slider-wrap {
+      height: 160px;
+      width: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .autoscroll-slider-wrap input[type="range"] {
+      width: 140px;
+      transform: rotate(-90deg);
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+    .autoscroll-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ================= stone plinth + brass nameplate ================= */
+    .plinth {
+      flex: 0 0 auto;
+      display: flex;
+      justify-content: center;
+      padding: 10px clamp(14px, 3vw, 30px) 20px;
+      background: linear-gradient(180deg, var(--stone-hi) 0%, var(--stone-lo) 100%);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      box-shadow: inset 0 8px 18px rgba(0,0,0,0.4);
+    }
+    .nameplate {
+      margin-top: -22px;
+      max-width: 90%;
+      padding: 10px 26px;
+      border-radius: 6px;
+      background: linear-gradient(180deg, var(--brass-hi) 0%, var(--brass) 45%, var(--brass-dark) 100%);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -2px 3px rgba(0,0,0,0.35);
+      text-align: center;
+    }
+    .nameplate span {
+      font-family: Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(0.8rem, 1.6vw, 1.05rem);
+      letter-spacing: 0.02em;
+      color: #241a06;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.25);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+      max-width: 70vw;
+    }
+
+    @media (max-width: 860px) {
+      .vitrine-stage { flex-direction: column; }
+      .autoscroll-panel { flex-direction: row; width: auto; padding: 4px 0; }
+      .autoscroll-slider-wrap { height: 34px; width: 140px; }
+      .autoscroll-slider-wrap input[type="range"] { width: 120px; transform: none; }
+    }
+
+    @media (max-width: 720px) {
+      .doc-title { display: none; }
+      .hint { display: none; }
+      .nameplate span { max-width: 84vw; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #viewer { scroll-behavior: auto; }
+    }
+  </style>
+  <link rel="canonical" href="https://dd-sa.org/reader.html" />
+<style id="ddsa-enh">
+/* DD&SA enhancements: footer utility links */
+.ddsa-foot-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 18px;
+  justify-content:center;font-size:.9rem}
+.ddsa-foot-links a{color:var(--gold-hot,#ffd96b);text-decoration:none}
+.ddsa-foot-links a:hover{text-decoration:underline}
+</style>
+  <link rel="alternate" type="application/rss+xml" title="DD&amp;SA Essays" href="https://dd-sa.org/feed.xml" />
+</head>
+
+<body>
+<style>.ddsa-skip{position:absolute;left:-9999px;top:0;z-index:100;background:#c49a2a;color:#0a0d18;padding:10px 18px;border-radius:0 0 8px 0;font-weight:600;text-decoration:none}.ddsa-skip:focus{left:0;outline:2px solid #ffd96b}</style>
+<a class="ddsa-skip" href="#main">Skip to content</a>
+<div class="bar">
+  <a class="brand" href="/downloads.html" title="Back to The Full Corpus">‹ DD&amp;SA</a>
+
+  <div class="goto-wrap">
+    <button class="ctl" id="gotoBtn" title="Jump to a specific page" disabled>Go to page</button>
+    <span class="goto-pop" id="gotoPop" hidden>
+      <input type="number" id="gotoInput" min="1" placeholder="#" inputmode="numeric" />
+      <button class="ctl" id="gotoGo">Go</button>
+    </span>
+  </div>
+
+  <div class="doc-title" id="docTitle">Loading document…</div>
+
+  <div class="controls">
+    <span class="page-indicator" id="pageIndicator"></span>
+    <button class="ctl" id="zoomOut" title="Smaller (Ctrl + scroll down)" aria-label="Zoom out">−</button>
+    <span class="zoom-level" id="zoomLevel">100%</span>
+    <button class="ctl" id="zoomIn" title="Larger (Ctrl + scroll up)" aria-label="Zoom in">+</button>
+    <button class="ctl active" id="modeNormal" title="Comfortable reading width">Normal</button>
+    <button class="ctl" id="modeFull" title="Fill the whole screen for easier reading">Full Screen</button>
+    <button class="btn-download" id="btnDownload">Free Download</button>
+  </div>
+</div>
+
+<div class="hint" id="hint">Tip: hold <strong>Ctrl</strong> and scroll to resize · <strong>Ctrl Home</strong> / <strong>Ctrl End</strong> to jump to the start or end.</div>
+
+<div class="vitrine-stage" id="main" role="main">
+  <div class="vitrine">
+    <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+    <div class="vitrine-inner">
+      <div id="viewer">
+        <div class="status" id="status"><div class="spin"></div>Preparing the reading room…</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="autoscroll-panel">
+    <button class="autoscroll-toggle" id="autoscrollToggle" title="Start auto-scroll" aria-label="Start auto-scroll">▶</button>
+    <div class="autoscroll-slider-wrap">
+      <input type="range" id="autoscrollSpeed" min="1" max="10" value="4" aria-label="Auto-scroll speed" />
+    </div>
+    <span class="autoscroll-label">Speed</span>
+  </div>
+</div>
+
+<div class="plinth">
+  <div class="nameplate"><span id="nameplateText">Loading…</span></div>
+</div>
+
+<script src="/assets/pdfjs/pdf.min.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var viewer = document.getElementById("viewer");
+  var statusEl = document.getElementById("status");
+  var titleEl = document.getElementById("docTitle");
+  var nameplateEl = document.getElementById("nameplateText");
+  var zoomLevelEl = document.getElementById("zoomLevel");
+  var pageIndicator = document.getElementById("pageIndicator");
+
+  function fail(msg) {
+    statusEl.innerHTML = msg + '<br><br><a href="/downloads.html">‹ Back to The Full Corpus</a>';
+    nameplateEl.textContent = "Document unavailable";
+  }
+
+  /* ---------- resolve & validate the requested document ---------- */
+  var params = new URLSearchParams(window.location.search);
+  var doc = params.get("doc") || "";
+  try { doc = decodeURIComponent(doc); } catch (e) {}
+
+  // only same-site documents from known folders may be opened
+  var SAFE = /^\/(downloads|assemblies)\/[^?#]+\.pdf$/i;
+  if (!SAFE.test(doc)) {
+    fail("No document specified, or the document path is not recognised.");
+    return;
+  }
+
+  var fileName = doc.split("/").pop();
+  var niceTitle = params.get("title") ||
+      fileName.replace(/\.pdf$/i, "").replace(/^DDSA-[\w-]*\d+\w*[- ]*/i, "").replace(/_/g, " ").trim() ||
+      fileName;
+  titleEl.textContent = niceTitle;
+  nameplateEl.textContent = niceTitle;
+  document.title = niceTitle + " – DD&SA Reading Room";
+
+  /* ---------- free download button (stays top-right) ---------- */
+  document.getElementById("btnDownload").addEventListener("click", function () {
+    var a = document.createElement("a");
+    a.href = doc;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  });
+
+  if (!window.pdfjsLib) {
+    fail("The PDF reader could not load. You can still get the document with the Free Download button above.");
+    return;
+  }
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    "/assets/pdfjs/pdf.worker.min.js";
+
+  /* ---------- state ---------- */
+  var pdf = null;
+  var zoom = 1;                 // user zoom multiplier
+  var ZMIN = 0.5, ZMAX = 3;
+  var baseViewport = null;      // page 1 viewport at scale 1
+  var shells = [];
+  var rendering = {};
+  var io = null;
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+  function columnWidth() {
+    var fs = document.fullscreenElement === viewer;
+    var avail = viewer.clientWidth - 20;
+    return fs ? Math.min(avail, 1400) : Math.min(avail, 880);
+  }
+
+  function scaleNow() {
+    return (columnWidth() / baseViewport.width) * zoom;
+  }
+
+  function updateZoomLabel() {
+    zoomLevelEl.textContent = Math.round(zoom * 100) + "%";
+  }
+
+  /* ---------- build placeholders, render lazily ---------- */
+  function buildShells() {
+    viewer.querySelectorAll(".page-shell").forEach(function (n) { n.remove(); });
+    shells = [];
+    var s = scaleNow();
+    for (var i = 1; i <= pdf.numPages; i++) {
+      var shell = document.createElement("div");
+      shell.className = "page-shell";
+      shell.dataset.page = i;
+      shell.style.width = Math.floor(baseViewport.width * s) + "px";
+      shell.style.height = Math.floor(baseViewport.height * s) + "px";
+      var num = document.createElement("span");
+      num.className = "page-num";
+      num.textContent = i + " / " + pdf.numPages;
+      shell.appendChild(num);
+      viewer.appendChild(shell);
+      shells.push(shell);
+    }
+    rendering = {};
+    if (io) io.disconnect();
+    io = new IntersectionObserver(onIntersect, { root: viewer, rootMargin: "600px 0px" });
+    shells.forEach(function (sh) { io.observe(sh); });
+
+    // enable "go to page" once we know how many pages there are
+    gotoBtn.disabled = false;
+    gotoInput.max = pdf.numPages;
+  }
+
+  function onIntersect(entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) renderPage(parseInt(e.target.dataset.page, 10));
+    });
+  }
+
+  function renderPage(n) {
+    if (rendering[n]) return;
+    rendering[n] = true;
+    pdf.getPage(n).then(function (page) {
+      var s = scaleNow();
+      var vp = page.getViewport({ scale: s });
+      var canvas = document.createElement("canvas");
+      canvas.width = Math.floor(vp.width * DPR);
+      canvas.height = Math.floor(vp.height * DPR);
+      var shell = shells[n - 1];
+      shell.style.width = Math.floor(vp.width) + "px";
+      shell.style.height = Math.floor(vp.height) + "px";
+      var ctx = canvas.getContext("2d");
+      ctx.scale(DPR, DPR);
+      return page.render({ canvasContext: ctx, viewport: vp }).promise.then(function () {
+        var old = shell.querySelector("canvas");
+        if (old) old.remove();
+        shell.insertBefore(canvas, shell.firstChild);
+      });
+    }).catch(function () { rendering[n] = false; });
+  }
+
+  function rerenderAll() {
+    // keep reading position roughly stable
+    var anchor = currentPage();
+    buildShells();
+    updateZoomLabel();
+    if (anchor > 1 && shells[anchor - 1]) {
+      shells[anchor - 1].scrollIntoView({ block: "start" });
+    }
+  }
+
+  function currentPage() {
+    var mid = viewer.scrollTop + viewer.clientHeight / 2;
+    for (var i = 0; i < shells.length; i++) {
+      if (shells[i].offsetTop + shells[i].offsetHeight >= mid) return i + 1;
+    }
+    return shells.length || 1;
+  }
+
+  /* ---------- zoom controls ---------- */
+  function setZoom(z) {
+    zoom = Math.min(ZMAX, Math.max(ZMIN, z));
+    rerenderAll();
+  }
+
+  document.getElementById("zoomIn").addEventListener("click", function () { setZoom(zoom + 0.15); });
+  document.getElementById("zoomOut").addEventListener("click", function () { setZoom(zoom - 0.15); });
+
+  // Ctrl + scroll wheel = larger / smaller. Plain wheel (no Ctrl) is left
+  // completely alone, so normal mouse-wheel scrolling always works.
+  function wheelZoom(e) {
+    if (!e.ctrlKey) return;
+    e.preventDefault();
+    setZoom(zoom + (e.deltaY < 0 ? 0.12 : -0.12));
+  }
+  viewer.addEventListener("wheel", wheelZoom, { passive: false });
+  window.addEventListener("wheel", function (e) { if (e.ctrlKey) e.preventDefault(); }, { passive: false });
+
+  // keyboard zoom + jump-to-start/end for accessibility
+  window.addEventListener("keydown", function (e) {
+    if (!e.ctrlKey) return;
+    if (e.key === "+" || e.key === "=") { e.preventDefault(); setZoom(zoom + 0.15); }
+    else if (e.key === "-") { e.preventDefault(); setZoom(zoom - 0.15); }
+    else if (e.key === "0") { e.preventDefault(); setZoom(1); }
+    else if (e.key === "Home") { e.preventDefault(); stopAutoScroll(); viewer.scrollTo({ top: 0, behavior: "smooth" }); }
+    else if (e.key === "End") { e.preventDefault(); stopAutoScroll(); viewer.scrollTo({ top: viewer.scrollHeight, behavior: "smooth" }); }
+  });
+
+  var btnNormal = document.getElementById("modeNormal");
+  var btnFull = document.getElementById("modeFull");
+
+  btnNormal.addEventListener("click", function () {
+    if (document.fullscreenElement) document.exitFullscreen();
+    setZoom(1);
+  });
+
+  btnFull.addEventListener("click", function () {
+    if (viewer.requestFullscreen) {
+      viewer.requestFullscreen().catch(function () {});
+    } else if (viewer.webkitRequestFullscreen) {
+      viewer.webkitRequestFullscreen();
+    }
+  });
+
+  document.addEventListener("fullscreenchange", function () {
+    var fs = document.fullscreenElement === viewer;
+    btnFull.classList.toggle("active", fs);
+    btnNormal.classList.toggle("active", !fs);
+    rerenderAll();
+  });
+
+  viewer.addEventListener("scroll", function () {
+    if (!pdf) return;
+    pageIndicator.textContent = "Page " + currentPage() + " of " + pdf.numPages;
+  });
+
+  window.addEventListener("resize", function () {
+    clearTimeout(window.__rsz);
+    window.__rsz = setTimeout(rerenderAll, 200);
+  });
+
+  /* ---------- go to page (top-left, beside Back) ---------- */
+  var gotoBtn = document.getElementById("gotoBtn");
+  var gotoPop = document.getElementById("gotoPop");
+  var gotoInput = document.getElementById("gotoInput");
+  var gotoGo = document.getElementById("gotoGo");
+
+  function openGotoPop() {
+    gotoPop.hidden = false;
+    gotoInput.value = pdf ? String(currentPage()) : "";
+    gotoInput.focus();
+    gotoInput.select();
+  }
+  function closeGotoPop() { gotoPop.hidden = true; }
+  function jumpToPage() {
+    var n = parseInt(gotoInput.value, 10);
+    if (!pdf || isNaN(n)) return;
+    n = Math.min(pdf.numPages, Math.max(1, n));
+    if (shells[n - 1]) shells[n - 1].scrollIntoView({ block: "start" });
+    closeGotoPop();
+  }
+  gotoBtn.addEventListener("click", function () {
+    if (gotoPop.hidden) openGotoPop(); else closeGotoPop();
+  });
+  gotoGo.addEventListener("click", jumpToPage);
+  gotoInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") { e.preventDefault(); jumpToPage(); }
+    if (e.key === "Escape") { e.preventDefault(); closeGotoPop(); }
+  });
+  document.addEventListener("click", function (e) {
+    if (!gotoPop.hidden && !e.target.closest(".goto-wrap")) closeGotoPop();
+  });
+
+  /* ---------- auto-scroll, control panel to the right of the glass ---------- */
+  var autoscrollToggle = document.getElementById("autoscrollToggle");
+  var autoscrollSpeed = document.getElementById("autoscrollSpeed");
+  var autoScrolling = false;
+  var rafId = null;
+
+  function scrollStep() {
+    if (!autoScrolling) return;
+    var speed = parseInt(autoscrollSpeed.value, 10) || 1;
+    viewer.scrollTop += speed * 0.55;
+    if (viewer.scrollTop + viewer.clientHeight >= viewer.scrollHeight - 2) {
+      stopAutoScroll();
+      return;
+    }
+    rafId = requestAnimationFrame(scrollStep);
+  }
+  function startAutoScroll() {
+    if (autoScrolling) return;
+    autoScrolling = true;
+    autoscrollToggle.textContent = "❚❚";
+    autoscrollToggle.classList.add("playing");
+    autoscrollToggle.setAttribute("aria-label", "Pause auto-scroll");
+    autoscrollToggle.title = "Pause auto-scroll";
+    rafId = requestAnimationFrame(scrollStep);
+  }
+  function stopAutoScroll() {
+    if (!autoScrolling) return;
+    autoScrolling = false;
+    autoscrollToggle.textContent = "▶";
+    autoscrollToggle.classList.remove("playing");
+    autoscrollToggle.setAttribute("aria-label", "Start auto-scroll");
+    autoscrollToggle.title = "Start auto-scroll";
+    if (rafId) cancelAnimationFrame(rafId);
+  }
+  autoscrollToggle.addEventListener("click", function () {
+    autoScrolling ? stopAutoScroll() : startAutoScroll();
+  });
+  // manual scrolling (wheel / touch / drag) always takes back control
+  ["wheel", "touchstart", "pointerdown"].forEach(function (evt) {
+    viewer.addEventListener(evt, function () { stopAutoScroll(); }, { passive: true });
+  });
+
+  /* ---------- load (fetch first → tells 'not on server' apart from 'cannot render') ---------- */
+  fetch(doc, { cache: "no-store" }).then(function (resp) {
+    if (!resp.ok) {
+      fail("This document wasn’t found on the server (HTTP " + resp.status + "):<br>" +
+           '<code style="color:#9aa6c4;font-size:.85em">' + doc + "</code><br><br>" +
+           "If it’s in your local downloads folder but you’re seeing this on the live site, " +
+           "the PDF wasn’t included in the deployment — re-upload the <b>/downloads</b> folder.");
+      throw "handled";
+    }
+    return resp.arrayBuffer();
+  }).then(function (buf) {
+    return pdfjsLib.getDocument({ data: new Uint8Array(buf) }).promise;
+  }).then(function (p) {
+    pdf = p;
+    return pdf.getPage(1);
+  }).then(function (page1) {
+    baseViewport = page1.getViewport({ scale: 1 });
+    statusEl.remove();
+    buildShells();
+    updateZoomLabel();
+    pageIndicator.textContent = "Page 1 of " + pdf.numPages;
+  }).catch(function (err) {
+    if (err === "handled") return;
+    fail("The file was found but could not be displayed in the reader. " +
+         "You can still get it with the Free Download button above.");
+  });
+})();
+</script>
+
+</body>
+</html>

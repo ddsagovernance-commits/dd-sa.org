@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>Direct Democracy – Why Direct Voting and Sortition Must Operate Together</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="An examination of how direct voting complements sortition assemblies in the DD&SA model, and why the two mechanisms must operate together to maintain legitimacy." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Direct Democracy – Why Direct Voting and Sortition Must Operate Together" />
+  <meta property="og:description" content="An examination of how direct voting complements sortition assemblies in the DD&SA model, and why the two mechanisms must operate together to maintain legitimacy." />
+  <meta property="og:url" content="https://dd-sa.org/essays/direct-democracy.html" />
+  <meta property="og:image" content="https://dd-sa.org/assets/resident-journey.png" />
+  <meta property="og:image:width" content="1536" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:site_name" content="DD&SA" />
+  <meta property="og:locale" content="en_GB" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Direct Democracy – Why Direct Voting and Sortition Must Operate Together" />
+  <meta name="twitter:description" content="An examination of how direct voting complements sortition assemblies in the DD&SA model, and why the two mechanisms must operate together to maintain legitimacy." />
+  <meta name="twitter:image" content="https://dd-sa.org/assets/resident-journey.png" />
+
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-alt: #0b1022;
+      --accent: #ffcc33;
+      --accent-strong: #ffdf6b;
+      --text: #f5f7ff;
+      --muted: #c7cbe0;
+      --card: #101528;
+      --border: #1c2340;
+      --radius: 18px;
+      --radius-sm: 12px;
+      --radius-pill: 999px;
+      --shadow: 0 18px 45px rgba(0,0,0,0.55);
+
+      --font-base: 19px;
+      --font-small: 16px;
+      --font-section: 20px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #151b38 0, #050814 55%, #02030a 100%);
+      color: var(--text);
+      font-size: var(--font-base);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent-strong); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(5, 8, 20, 0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px clamp(20px, 6vw, 60px);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 18px;
+    }
+
+    .section {
+      width: 100%;
+      padding: 80px clamp(20px, 6vw, 60px);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      margin: 40px 0 16px;
+    }
+
+    p {
+      font-size: var(--font-section);
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    ul {
+      margin: 0 0 20px 30px;
+      color: var(--muted);
+      font-size: var(--font-section);
+    }
+
+    footer {
+      padding: 40px clamp(20px, 6vw, 60px);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      background: #04060f;
+      font-size: var(--font-small);
+      color: var(--muted);
+    }
+  </style>
+  <link rel="stylesheet" href="/assets/neural-theme.css?v=2026-07-11c" />
+  <link rel="canonical" href="https://dd-sa.org/essays/direct-democracy.html" />
+<style id="ddsa-enh">
+/* DD&SA enhancements: top-left back button + footer utility links */
+header nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header nav .nav-links{margin-left:auto}
+.ddsa-back{display:inline-flex;align-items:center;gap:.4em;
+  font-family:Georgia,"Times New Roman",serif;font-size:.82rem;letter-spacing:.02em;
+  color:var(--muted,#9aa6c4);text-decoration:none;padding:6px 13px;
+  border:1px solid rgba(196,154,42,.35);border-radius:999px;white-space:nowrap;
+  background:rgba(4,7,15,.4);transition:color .2s,border-color .2s;flex:0 0 auto}
+.ddsa-back:hover{color:var(--gold-hot,#ffd96b);border-color:var(--gold-hot,#ffd96b);text-decoration:none}
+.ddsa-back--fixed{position:fixed;top:12px;left:12px;z-index:9999}
+.ddsa-foot-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 18px;
+  justify-content:center;font-size:.9rem}
+.ddsa-foot-links a{color:var(--gold-hot,#ffd96b);text-decoration:none}
+.ddsa-foot-links a:hover{text-decoration:underline}
+</style>
+  <link rel="alternate" type="application/rss+xml" title="DD&amp;SA Essays" href="https://dd-sa.org/feed.xml" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Direct Democracy",
+  "description": "An examination of how direct voting complements sortition assemblies in the DD&SA model, and why the two mechanisms must operate together to maintain legitimacy.",
+  "url": "https://dd-sa.org/essays/direct-democracy.html",
+  "mainEntityOfPage": "https://dd-sa.org/essays/direct-democracy.html",
+  "datePublished": "2026-07-02",
+  "dateModified": "2026-07-11",
+  "inLanguage": "en-GB",
+  "author": {
+    "@type": "Person",
+    "name": "Ian R. Graham",
+    "url": "https://dd-sa.org/about/the-architect.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "DD&SA — Direct Democracy & Sortition Assemblies",
+    "url": "https://dd-sa.org/"
+  }
+}
+</script>
+</head>
+
+<body>
+<a class="ddsa-skip" href="#main">Skip to content</a>
+
+<header>
+  <nav>
+    <a class="ddsa-back" href="/index.html" onclick="if(history.length>1){history.back();return false;}" aria-label="Go back">&larr; Back</a>
+    <div style="font-weight:700;font-size:1.4rem;">DD&SA</div>
+    <input type="checkbox" id="navToggle" class="nav-toggle-checkbox" />
+    <label for="navToggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </label>
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/about/why-ddsa.html">Why DD&SA?</a>
+      <a href="/about/what-is-ddsa.html">What is DD&SA?</a>
+      <a href="/how-it-works/index.html">How it works</a>
+      <a href="/blueprint/index.html">The Blueprint</a>
+      <a href="/essays/">Essays</a>
+      <a href="/downloads.html">The Full Corpus</a>
+      <a href="/get-involved/">Get Involved</a>
+    </div>
+  </nav>
+</header>
+
+<section id="main" class="section">
+  <h1>Direct Democracy: Why Voting and Deliberation Must Operate Together</h1>
+
+  <p>
+    Direct democracy and sortition are often presented as rivals — one giving power to everyone, the other to a
+    randomly selected few. In the DD&SA model they are not rivals. They are two halves of a single mechanism, and
+    neither is legitimate without the other.
+  </p>
+
+  <p>
+    This essay explains why. It examines what direct voting does well, what it does badly, and how pairing it with
+    sortition-based deliberation resolves the weaknesses of both. As always, confirm political information with
+    trusted sources.
+  </p>
+
+  <h2>1. What Direct Voting Does Well</h2>
+
+  <p>
+    Direct voting has one unmatched property: it confers consent. When residents themselves approve a decision, no
+    one can claim the decision was imposed. Authority flows directly from the people affected, without passing
+    through a representative whose mandate is partial, bundled, and years out of date.
+  </p>
+
+  <p>
+    Direct voting is also a structural safeguard. A system in which residents hold the final vote cannot quietly
+    drift away from the public it serves. Every significant decision must, eventually, face the people.
+  </p>
+
+  <h2>2. What Direct Voting Does Badly</h2>
+
+  <p>
+    On its own, however, direct voting has well-documented failure modes:
+  </p>
+
+  <ul>
+    <li>complex questions are reduced to binary slogans</li>
+    <li>campaigns are dominated by money and messaging</li>
+    <li>misinformation spreads faster than correction</li>
+    <li>turnout skews toward the motivated and the mobilised</li>
+    <li>voters are asked to decide without access to tested evidence</li>
+  </ul>
+
+  <p>
+    A referendum without deliberation measures the success of campaigns, not the judgement of residents. The vote is
+    direct; the understanding behind it is not.
+  </p>
+
+  <h2>3. What Sortition Adds</h2>
+
+  <p>
+    Sortition assemblies supply precisely what mass voting lacks: time, evidence, and structured deliberation. A
+    representative sample of residents examines a question for weeks — hearing experts, testing opposing analyses,
+    and working through trade-offs that no campaign poster can carry.
+  </p>
+
+  <p>
+    The assembly's output is not a decree. It is an informed recommendation: a clear account of the options, the
+    evidence, and the reasoning, written by residents for residents.
+  </p>
+
+  <h2>4. What Sortition Lacks</h2>
+
+  <p>
+    Sortition alone has its own gap. However representative an assembly is statistically, its members were not
+    chosen by anyone. If its recommendations became binding without wider consent, residents would be governed by a
+    body they never authorised — and legitimacy would erode just as surely as it does under career politics.
+  </p>
+
+  <p>
+    Deliberation produces quality. It does not, by itself, produce consent.
+  </p>
+
+  <h2>5. The Combined Mechanism</h2>
+
+  <p>
+    DD&SA joins the two halves into a single cycle:
+  </p>
+
+  <ul>
+    <li>an assembly deliberates and publishes its recommendation, with all evidence open</li>
+    <li>residents read, question, and discuss that recommendation</li>
+    <li>residents then vote directly — to approve, reject, or send it back</li>
+  </ul>
+
+  <p>
+    The assembly supplies the understanding; the vote supplies the authority. Deliberation without voting is
+    unaccountable. Voting without deliberation is uninformed. Together, they produce decisions that are both
+    informed and consented to — the two properties a legitimate decision must have.
+  </p>
+
+  <h2>6. Why the Pairing Resists Manipulation</h2>
+
+  <p>
+    The combination is also harder to capture than either mechanism alone. A campaign that wishes to distort a public
+    vote must now contend with a published, evidence-based recommendation produced by ordinary residents with nothing
+    to gain. A lobby that wishes to influence an assembly must contend with the fact that its members are temporary,
+    unpredictable, and that every input they receive is published.
+  </p>
+
+  <p>
+    Each mechanism guards the other's weakest point.
+  </p>
+
+  <h2>Conclusion</h2>
+
+  <p>
+    Direct democracy is not a slogan in the DD&SA model, and sortition is not a substitute for the public's voice.
+    They are complementary components of one structure: residents deliberating in depth, and residents deciding in
+    number. Remove either, and legitimacy fails — through ignorance on one side, or through imposition on the other.
+  </p>
+
+  <p>
+    Keep both, and something rare becomes possible: decisions that are informed enough to be right, and consented to
+    enough to be respected.
+  </p>
+
+
+<div class="ddsa-signup" style="margin:40px 0 0;border-top:1px solid rgba(255,255,255,0.12);padding-top:22px;">
+  <p style="margin:0;">
+    If this argument held your attention, the
+    <a href="/downloads/DDSA-PUB-EXPL-001-Public_Explainer_Plain_English_Guide.pdf">plain-English explainer</a>
+    takes it further in ten minutes — and you can
+    <a href="/subscribe.html">subscribe for one email a month</a> as DD&amp;SA moves from blueprint to pilot.
+  </p>
+</div>
+
+</section>
+
+<footer>
+  <div>DD&SA – Direct Democracy & Sortition Assemblies</div>
+  <div>Resident‑led democratic innovation for the United Kingdom.</div>
+<div class="ddsa-subscribe" style="margin:16px 0 12px;">
+  <strong>Stay informed:</strong> one email a month as DD&amp;SA moves from blueprint to pilot.
+  <a href="/subscribe.html">Subscribe &rarr;</a> <a class="ddsa-unsub-link" href="/unsubscribe.html">Unsubscribe</a>
+</div>
+<div class="ddsa-foot-links">
+  <a href="/index.html">Home</a>
+  <a href="/start-here.html">Start Here</a>
+  <a href="/about/principles.html">Principles</a>
+  <a href="/assemblies/index.html">Sortition Assemblies</a>
+  <a href="/stratification.html">Stratification</a>
+  <a href="/video/">Introduction Video</a>
+  <a href="/downloads.html">The Full Corpus</a>
+  <a href="/glossary.html">Glossary</a>
+  <a href="/faq/">FAQ</a>
+  <a href="/scrutiny.html">Scrutiny Register</a>
+  <a href="/about/the-architect.html">About the Architect</a>
+  <a href="/subscribe.html">Subscribe</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/cite.html">Cite this work</a>
+  <a href="/about/transparency.html">Transparency</a>
+  <a href="/privacy.html">Privacy</a>
+  <a href="/get-involved/">Get Involved</a>
+</div>
+<div class="ddsa-legal-note" style="margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.82rem;line-height:1.6;color:#8b93b5;max-width:860px;margin-left:auto;margin-right:auto;text-align:center;">
+  This website provides general information about Direct Democracy &amp; Sortition Assemblies. It is not legal advice. All content is subject to revision as the project develops. DD&amp;SA is designed to be a community&#8209;driven initiative and does not claim to represent official government policy.
+  <a href="/about/transparency.html" style="white-space:nowrap;">Transparency &amp; how we work &rarr;</a>
+  <a href="/privacy.html" style="white-space:nowrap;">Privacy notice &rarr;</a>
+</div>
+</footer>
+
+<!-- DD&SA Comments Drawer (fixed right-hand tab, slides out on click) -->
+<button id="ddsaCommentsTab" class="ddsa-comments-tab" type="button" aria-expanded="false" aria-controls="ddsaCommentsPanel">
+  <span class="ddsa-comments-tab__icon" aria-hidden="true">&#128172;</span>
+  <span class="ddsa-comments-tab__label">Comments</span>
+</button>
+<div id="ddsaCommentsBackdrop" class="ddsa-comments-backdrop"></div>
+<aside id="ddsaCommentsPanel" class="ddsa-comments-panel" aria-hidden="true" aria-label="Comments">
+  <div class="ddsa-comments-panel__header">
+    <span>Comments</span>
+    <button id="ddsaCommentsClose" class="ddsa-comments-panel__close" type="button" aria-label="Close comments">&times;</button>
+  </div>
+  <div class="ddsa-comments-panel__body">
+    <p class="ddsa-comments-panel__hint">Thoughts, questions, challenges &mdash; have your say below.</p>
+    <div id="disqus_thread"></div>
+  </div>
+</aside>
+<script>
+(function () {
+  var tab = document.getElementById('ddsaCommentsTab');
+  var panel = document.getElementById('ddsaCommentsPanel');
+  var backdrop = document.getElementById('ddsaCommentsBackdrop');
+  var closeBtn = document.getElementById('ddsaCommentsClose');
+  var disqusLoaded = false;
+
+  function loadDisqus() {
+    if (disqusLoaded) return;
+    disqusLoaded = true;
+    window.disqus_config = function () {
+      this.page.url = "https://dd-sa.org/essays/direct-democracy.html";
+      this.page.identifier = "essays/direct-democracy";
+    };
+    var d = document, s = d.createElement('script');
+    s.src = 'https://dd-sa.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+
+  function openPanel() {
+    panel.classList.add('is-open');
+    backdrop.classList.add('is-open');
+    tab.setAttribute('aria-expanded', 'true');
+    panel.setAttribute('aria-hidden', 'false');
+    loadDisqus();
+  }
+  function closePanel() {
+    panel.classList.remove('is-open');
+    backdrop.classList.remove('is-open');
+    tab.setAttribute('aria-expanded', 'false');
+    panel.setAttribute('aria-hidden', 'true');
+  }
+
+  tab.addEventListener('click', function () {
+    if (panel.classList.contains('is-open')) { closePanel(); } else { openPanel(); }
+  });
+  closeBtn.addEventListener('click', closePanel);
+  backdrop.addEventListener('click', closePanel);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closePanel();
+  });
+})();
+</script>
+
+  <script src="/assets/neural-bg.js" defer></script>
+</body>
+</html>

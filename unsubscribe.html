@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>DD&SA – Unsubscribe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Unsubscribe from DD&SA updates. One field, one click, no questions." />
+  <meta name="robots" content="noindex" />
+  <style>
+
+  header nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  header nav .nav-links{margin-left:auto}
+  .brand-mark{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:.04em;color:var(--text)}
+  .ddsa-back{display:inline-flex;align-items:center;gap:.4em;font-family:var(--display);
+    font-size:.82rem;letter-spacing:.02em;color:var(--muted);text-decoration:none;padding:6px 13px;
+    border:1px solid rgba(196,154,42,.35);border-radius:999px;white-space:nowrap;
+    background:rgba(4,7,15,.4);transition:color .2s,border-color .2s;flex:0 0 auto}
+  .ddsa-back:hover{color:var(--gold-hot);border-color:var(--gold-hot);text-decoration:none}
+  .ddsa-foot-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;font-size:.9rem}
+  .ddsa-foot-links a{color:var(--gold-hot);text-decoration:none}
+  .ddsa-foot-links a:hover{text-decoration:underline}
+  .page-eyebrow{font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;text-align:center}
+  .fine{color:var(--muted);font-size:.95rem}
+  </style>
+  <link rel="stylesheet" href="/assets/neural-theme.css?v=2026-07-11c" />
+  <link rel="stylesheet" href="/assets/ddsa-forms.css?v=2026-07-11c" />
+  <link rel="alternate" type="application/rss+xml" title="DD&amp;SA Essays" href="https://dd-sa.org/feed.xml" />
+  <link rel="canonical" href="https://dd-sa.org/unsubscribe.html" />
+</head>
+<body>
+<a class="ddsa-skip" href="#main">Skip to content</a>
+<header>
+  <nav>
+    <a class="ddsa-back" href="/index.html" onclick="if(history.length>1){history.back();return false;}" aria-label="Go back">&larr; Back</a>
+    <div class="brand-mark">DD&SA</div>
+    <input type="checkbox" id="navToggle" class="nav-toggle-checkbox" />
+    <label for="navToggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </label>
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/about/why-ddsa.html">Why DD&SA?</a>
+      <a href="/about/what-is-ddsa.html">What is DD&SA?</a>
+      <a href="/how-it-works/index.html">How it works</a>
+      <a href="/blueprint/index.html">The Blueprint</a>
+      <a href="/essays/">Essays</a>
+      <a href="/downloads.html">The Full Corpus</a>
+      <a href="/get-involved/">Get Involved</a>
+    </div>
+  </nav>
+</header>
+<main class="content" id="main">
+  <p class="page-eyebrow">Mailing list</p>
+  <div class="ddsa-form-frame">
+    <h1 class="ddsa-form-heading">Unsubscribe</h1>
+    <p class="ddsa-form-sub">Enter the address you subscribed with and it will be removed from the DD&amp;SA list. No questions, no guilt trip.</p>
+    <form class="ddsa-form" data-success-message="Done — your address will be removed within 48 hours.">
+      <input type="hidden" name="subject" value="Unsubscribe request — dd-sa.org" />
+      <input type="hidden" name="from_name" value="DD&SA website — Unsubscribe form" />
+      <input type="text" name="ddsa_hp" class="ddsa-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <div class="ddsa-field">
+        <label class="sr-label" for="u-email">Email address</label>
+        <input type="email" id="u-email" name="email" placeholder="Email Address" data-required autocomplete="email" />
+        <span class="err-msg">Enter a valid email address.</span>
+      </div>
+
+      <button type="submit" class="ddsa-submit">
+        <span class="spinner"></span><span class="label-text">Unsubscribe</span>
+      </button>
+      <div class="ddsa-status" role="status" aria-live="polite"></div>
+    </form>
+    <p class="ddsa-fineprint">Removal is handled personally, not by an algorithm.<br />Changed your mind later? You can <a href="/subscribe.html">re-subscribe</a> any time.</p>
+  </div>
+  <p class="fine" style="text-align:center;max-width:460px;margin:22px auto 0">If the form doesn't work for any reason, email
+  <a href="/contact.html">via the contact page</a> with the subject &ldquo;Unsubscribe&rdquo; and you'll be removed just the same.</p>
+</main>
+<footer>
+  <div class="brand-line">DD&SA – Direct Democracy & Sortition Assemblies</div>
+  <div>Resident‑led democratic innovation for the United Kingdom.</div>
+  <div class="ddsa-subscribe" style="margin:16px 0 12px;">
+  <strong>Stay informed:</strong> one email a month as DD&amp;SA moves from blueprint to pilot.
+  <a href="/subscribe.html">Subscribe &rarr;</a> <a class="ddsa-unsub-link" href="/unsubscribe.html">Unsubscribe</a>
+</div>
+<div class="ddsa-foot-links">
+  <a href="/index.html">Home</a>
+  <a href="/start-here.html">Start Here</a>
+  <a href="/about/principles.html">Principles</a>
+  <a href="/assemblies/index.html">Sortition Assemblies</a>
+  <a href="/stratification.html">Stratification</a>
+  <a href="/video/">Introduction Video</a>
+  <a href="/downloads.html">The Full Corpus</a>
+  <a href="/glossary.html">Glossary</a>
+  <a href="/faq/">FAQ</a>
+  <a href="/scrutiny.html">Scrutiny Register</a>
+  <a href="/about/the-architect.html">About the Architect</a>
+  <a href="/subscribe.html">Subscribe</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/cite.html">Cite this work</a>
+  <a href="/about/transparency.html">Transparency</a>
+  <a href="/privacy.html">Privacy</a>
+  <a href="/get-involved/">Get Involved</a>
+</div>
+<div class="ddsa-legal-note" style="margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.82rem;line-height:1.6;color:#8b93b5;max-width:860px;margin-left:auto;margin-right:auto;text-align:center;">
+  This website provides general information about Direct Democracy &amp; Sortition Assemblies. It is not legal advice. All content is subject to revision as the project develops. DD&amp;SA is designed to be a community&#8209;driven initiative and does not claim to represent official government policy.
+  <a href="/about/transparency.html" style="white-space:nowrap;">Transparency &amp; how we work &rarr;</a>
+  <a href="/privacy.html" style="white-space:nowrap;">Privacy notice &rarr;</a>
+</div>
+</footer>
+  <script src="/assets/neural-bg.js" defer></script>
+  <script src="/assets/ddsa-forms.js?v=2026-07-11c" defer></script>
+</body>
+</html>

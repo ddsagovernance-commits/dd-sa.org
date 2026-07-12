@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DD&amp;SA Essays</title>
+    <link>https://dd-sa.org/essays/</link>
+    <atom:link href="https://dd-sa.org/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Structural analyses of representation, trust, deliberation, sortition, and democratic design — from Direct Democracy &amp; Sortition Assemblies.</description>
+    <language>en-gb</language>
+    <lastBuildDate>Sat, 11 Jul 2026 12:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Opinion and Deliberation – Two Different Things</title>
+      <link>https://dd-sa.org/essays/deliberation.html</link>
+      <guid isPermaLink="true">https://dd-sa.org/essays/deliberation.html</guid>
+      <description>An examination of the difference between opinion and deliberation, and why democracy depends on structured, evidence-based deliberation, not raw preference.</description>
+      <pubDate>Thu, 02 Jul 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Direct Democracy – Why Direct Voting and Sortition Must Operate Together</title>
+      <link>https://dd-sa.org/essays/direct-democracy.html</link>
+      <guid isPermaLink="true">https://dd-sa.org/essays/direct-democracy.html</guid>
+      <description>An examination of how direct voting complements sortition assemblies in the DD&amp;SA model, and why the two mechanisms must operate together to maintain legitimacy.</description>
+      <pubDate>Thu, 02 Jul 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The Limits of Elections – A Structural Critique</title>
+      <link>https://dd-sa.org/essays/limits-of-elections.html</link>
+      <guid isPermaLink="true">https://dd-sa.org/essays/limits-of-elections.html</guid>
+      <description>A structural examination of what elections can and cannot do, and why relying on elections alone cannot deliver deep democratic legitimacy or long-term governance.</description>
+      <pubDate>Thu, 02 Jul 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Representative Democracy – A Structural Examination</title>
+      <link>https://dd-sa.org/essays/representative-democracy.html</link>
+      <guid isPermaLink="true">https://dd-sa.org/essays/representative-democracy.html</guid>
+      <description>An examination of the structural limits of representative democracy and why trust continues to decline across modern systems.</description>
+      <pubDate>Thu, 02 Jul 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Why Sortition Works – A Structural Analysis</title>
+      <link>https://dd-sa.org/essays/sortition.html</link>
+      <guid isPermaLink="true">https://dd-sa.org/essays/sortition.html</guid>
+      <description>An examination of sortition as a democratic mechanism, and why random selection produces more representative, honest, and deliberative decision-making.</description>
+      <pubDate>Thu, 02 Jul 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Structural Honesty – Why Systems Shape Truth</title>
+      <link>https://dd-sa.org/essays/structural-honesty.html</link>
+      <guid isPermaLink="true">https://dd-sa.org/essays/structural-honesty.html</guid>
+      <description>An examination of structural honesty: why systems shape truth-telling, and why honesty depends on incentives, not personal virtue.</description>
+      <pubDate>Thu, 02 Jul 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>System Design – A Systems-Engineering Perspective on DD&amp;SA</title>
+      <link>https://dd-sa.org/essays/system-design.html</link>
+      <guid isPermaLink="true">https://dd-sa.org/essays/system-design.html</guid>
+      <description>A systems-engineering perspective on DD&amp;SA: feedback loops, failure modes, transparency requirements, and the logic of distributed authority.</description>
+      <pubDate>Thu, 02 Jul 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Why Trust Declines – A Structural Diagnosis</title>
+      <link>https://dd-sa.org/essays/trust-decline.html</link>
+      <guid isPermaLink="true">https://dd-sa.org/essays/trust-decline.html</guid>
+      <description>An examination of why trust in democratic institutions declines, and why the causes are structural rather than emotional or cultural.</description>
+      <pubDate>Thu, 02 Jul 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Truth in Public Life – Why Truth Collapses Under Party Competition</title>
+      <link>https://dd-sa.org/essays/truth-in-public-life.html</link>
+      <guid isPermaLink="true">https://dd-sa.org/essays/truth-in-public-life.html</guid>
+      <description>An examination of why truth collapses under party competition, and how DD&amp;SA restores a shared factual basis for public decision-making.</description>
+      <pubDate>Thu, 02 Jul 2026 09:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

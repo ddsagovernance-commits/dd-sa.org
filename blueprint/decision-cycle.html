@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>Decision Cycle – DD&SA Blueprint</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The Decision Cycle diagram illustrates the continuous governance process within Direct Democracy & Sortition Assemblies (DD&SA)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Decision Cycle – DD&SA Blueprint" />
+  <meta property="og:description" content="The Decision Cycle diagram illustrates the continuous governance process within Direct Democracy & Sortition Assemblies (DD&SA)." />
+  <meta property="og:url" content="https://dd-sa.org/blueprint/decision-cycle.html" />
+  <meta property="og:image" content="https://dd-sa.org/assets/resident-journey.png" />
+  <meta property="og:image:width" content="1536" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:site_name" content="DD&SA" />
+  <meta property="og:locale" content="en_GB" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Decision Cycle – DD&SA Blueprint" />
+  <meta name="twitter:description" content="The Decision Cycle diagram illustrates the continuous governance process within Direct Democracy & Sortition Assemblies (DD&SA)." />
+  <meta name="twitter:image" content="https://dd-sa.org/assets/resident-journey.png" />
+
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-alt: #0b1022;
+      --accent: #ffcc33;
+      --accent-strong: #ffdf6b;
+      --text: #f5f7ff;
+      --muted: #c7cbe0;
+      --card: #101528;
+      --border: #1c2340;
+      --radius: 18px;
+      --shadow: 0 18px 45px rgba(0,0,0,0.55);
+      --font-base: 19px;
+      --font-small: 16px;
+      --font-section: 20px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #151b38 0, #050814 55%, #02030a 100%);
+      color: var(--text);
+      font-size: var(--font-base);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent-strong); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(5, 8, 20, 0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px clamp(20px, 6vw, 60px);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 18px;
+    }
+
+    .section {
+      width: 100%;
+      padding: 80px clamp(20px, 6vw, 60px);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      margin-bottom: 20px;
+      line-height: 1.15;
+      text-align: center;
+    }
+
+    p {
+      font-size: var(--font-section);
+      color: var(--muted);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .diagram {
+      display: block;
+      margin: 60px auto;
+      max-width: 1000px;
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      padding: 40px clamp(20px, 6vw, 60px);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      background: #04060f;
+      font-size: var(--font-small);
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+  <link rel="stylesheet" href="/assets/neural-theme.css?v=2026-07-11c" />
+  <link rel="canonical" href="https://dd-sa.org/blueprint/decision-cycle.html" />
+<style id="ddsa-enh">
+/* DD&SA enhancements: top-left back button + footer utility links */
+header nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header nav .nav-links{margin-left:auto}
+.ddsa-back{display:inline-flex;align-items:center;gap:.4em;
+  font-family:Georgia,"Times New Roman",serif;font-size:.82rem;letter-spacing:.02em;
+  color:var(--muted,#9aa6c4);text-decoration:none;padding:6px 13px;
+  border:1px solid rgba(196,154,42,.35);border-radius:999px;white-space:nowrap;
+  background:rgba(4,7,15,.4);transition:color .2s,border-color .2s;flex:0 0 auto}
+.ddsa-back:hover{color:var(--gold-hot,#ffd96b);border-color:var(--gold-hot,#ffd96b);text-decoration:none}
+.ddsa-back--fixed{position:fixed;top:12px;left:12px;z-index:9999}
+.ddsa-foot-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 18px;
+  justify-content:center;font-size:.9rem}
+.ddsa-foot-links a{color:var(--gold-hot,#ffd96b);text-decoration:none}
+.ddsa-foot-links a:hover{text-decoration:underline}
+</style>
+  <link rel="alternate" type="application/rss+xml" title="DD&amp;SA Essays" href="https://dd-sa.org/feed.xml" />
+</head>
+
+<body>
+<a class="ddsa-skip" href="#main">Skip to content</a>
+
+<header>
+  <nav>
+    <a class="ddsa-back" href="/index.html" onclick="if(history.length>1){history.back();return false;}" aria-label="Go back">&larr; Back</a>
+    <div style="font-weight:700;font-size:1.4rem;">DD&SA</div>
+    <input type="checkbox" id="navToggle" class="nav-toggle-checkbox" />
+    <label for="navToggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </label>
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/about/why-ddsa.html">Why DD&SA?</a>
+      <a href="/about/what-is-ddsa.html">What is DD&SA?</a>
+      <a href="/how-it-works/index.html">How it works</a>
+      <a href="/blueprint/index.html">The Blueprint</a>
+      <a href="/essays/">Essays</a>
+      <a href="/downloads.html">The Full Corpus</a>
+      <a href="/get-involved/">Get Involved</a>
+    </div>
+  </nav>
+</header>
+
+<section id="main" class="section">
+  <h1>Decision Cycle</h1>
+  <p>
+    The Decision Cycle represents the continuous governance loop within DD&SA — from resident input to assembly deliberation,
+    recommendations, and direct approval. It visualises how participation and legitimacy reinforce each other through iteration.
+  </p>
+
+  <!-- Embed the diagram image here -->
+  <img src="/assets/decision-cycle.png" alt="DD&SA Decision Cycle Diagram" class="diagram" decoding="async" />
+
+  <p>
+    Each stage of the cycle is designed to maintain transparency and structural honesty:
+    residents contribute input, assemblies deliberate, recommendations are published, and residents approve outcomes.
+    The cycle then repeats, ensuring continuous accountability.
+  </p>
+</section>
+
+<footer>
+  <div>DD&SA – Direct Democracy & Sortition Assemblies</div>
+  <div>Resident‑led democratic innovation for the United Kingdom.</div>
+<div class="ddsa-subscribe" style="margin:16px 0 12px;">
+  <strong>Stay informed:</strong> one email a month as DD&amp;SA moves from blueprint to pilot.
+  <a href="/subscribe.html">Subscribe &rarr;</a> <a class="ddsa-unsub-link" href="/unsubscribe.html">Unsubscribe</a>
+</div>
+<div class="ddsa-foot-links">
+  <a href="/index.html">Home</a>
+  <a href="/start-here.html">Start Here</a>
+  <a href="/about/principles.html">Principles</a>
+  <a href="/assemblies/index.html">Sortition Assemblies</a>
+  <a href="/stratification.html">Stratification</a>
+  <a href="/video/">Introduction Video</a>
+  <a href="/downloads.html">The Full Corpus</a>
+  <a href="/glossary.html">Glossary</a>
+  <a href="/faq/">FAQ</a>
+  <a href="/scrutiny.html">Scrutiny Register</a>
+  <a href="/about/the-architect.html">About the Architect</a>
+  <a href="/subscribe.html">Subscribe</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/cite.html">Cite this work</a>
+  <a href="/about/transparency.html">Transparency</a>
+  <a href="/privacy.html">Privacy</a>
+  <a href="/get-involved/">Get Involved</a>
+</div>
+<div class="ddsa-legal-note" style="margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.82rem;line-height:1.6;color:#8b93b5;max-width:860px;margin-left:auto;margin-right:auto;text-align:center;">
+  This website provides general information about Direct Democracy &amp; Sortition Assemblies. It is not legal advice. All content is subject to revision as the project develops. DD&amp;SA is designed to be a community&#8209;driven initiative and does not claim to represent official government policy.
+  <a href="/about/transparency.html" style="white-space:nowrap;">Transparency &amp; how we work &rarr;</a>
+  <a href="/privacy.html" style="white-space:nowrap;">Privacy notice &rarr;</a>
+</div>
+</footer>
+
+  <script src="/assets/neural-bg.js" defer></script>
+</body>
+</html>

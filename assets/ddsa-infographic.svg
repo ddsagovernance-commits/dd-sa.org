@@ -1,0 +1,106 @@
+<svg width="1080" height="1350" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1726"/>
+      <stop offset="1" stop-color="#060a14"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.32" r="0.75">
+      <stop offset="0" stop-color="#68a4e0" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#68a4e0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1350" fill="url(#bg)"/>
+  <rect width="1080" height="1350" fill="url(#halo)"/>
+
+  <!-- Constellation accents -->
+  <g stroke="#94c4ec" stroke-opacity="0.35" stroke-width="1">
+    <line x1="70" y1="95" x2="150" y2="60"/><line x1="150" y1="60" x2="215" y2="105"/>
+    <line x1="930" y1="70" x2="990" y2="115"/><line x1="990" y1="115" x2="1030" y2="72"/>
+    <line x1="905" y1="1290" x2="965" y2="1258"/><line x1="80" y1="1265" x2="135" y2="1295"/>
+  </g>
+  <g fill="#94c4ec">
+    <circle cx="70" cy="95" r="3" fill-opacity="0.8"/><circle cx="150" cy="60" r="4" fill-opacity="0.9"/><circle cx="215" cy="105" r="2.5" fill-opacity="0.7"/>
+    <circle cx="930" cy="70" r="3" fill-opacity="0.8"/><circle cx="990" cy="115" r="4" fill-opacity="0.9"/><circle cx="1030" cy="72" r="2.5" fill-opacity="0.7"/>
+    <circle cx="905" cy="1290" r="3" fill-opacity="0.7"/><circle cx="965" cy="1258" r="2.5" fill-opacity="0.6"/>
+    <circle cx="80" cy="1265" r="2.5" fill-opacity="0.6"/><circle cx="135" cy="1295" r="3" fill-opacity="0.7"/>
+  </g>
+
+  <!-- Glowing frame (matches form cards) -->
+  <rect x="34" y="34" width="1012" height="1282" rx="30" fill="none" stroke="#68a4e0" stroke-opacity="0.18" stroke-width="7"/>
+  <rect x="36" y="36" width="1008" height="1278" rx="28" fill="none" stroke="#94c4ec" stroke-opacity="0.6" stroke-width="1.6"/>
+
+  <!-- Header -->
+  <text x="540" y="118" text-anchor="middle" font-family="Inter" font-weight="600" font-size="19" letter-spacing="4.5" fill="#C9A84C">DIRECT DEMOCRACY &amp; SORTITION ASSEMBLIES</text>
+  <text x="540" y="185" text-anchor="middle" font-family="Inter" font-weight="700" font-size="58" fill="#f2f6fb">Governance by civic lottery</text>
+  <text x="540" y="232" text-anchor="middle" font-family="Inter" font-size="25" fill="#aebccd">The same principle as jury duty — applied to running the country.</text>
+
+  <line x1="360" y1="268" x2="720" y2="268" stroke="#C9A84C" stroke-width="1.4" stroke-opacity="0.8"/>
+
+  <!-- Connecting spine -->
+  <line x1="146" y1="356" x2="146" y2="1000" stroke="#C9A84C" stroke-width="1.6" stroke-dasharray="2 8" stroke-opacity="0.55"/>
+
+  <!-- ============ STEP 1 ============ -->
+  <circle cx="146" cy="356" r="34" fill="#0d1726" stroke="#C9A84C" stroke-width="2"/>
+  <text x="146" y="369" text-anchor="middle" font-family="Inter" font-weight="700" font-size="34" fill="#C9A84C">1</text>
+  <!-- icon: lottery draw -->
+  <g transform="translate(232,326)">
+    <circle cx="30" cy="30" r="27" fill="none" stroke="#94c4ec" stroke-width="2.4"/>
+    <circle cx="21" cy="24" r="4" fill="#94c4ec" fill-opacity="0.55"/>
+    <circle cx="38" cy="20" r="4" fill="#94c4ec" fill-opacity="0.55"/>
+    <circle cx="26" cy="40" r="4" fill="#94c4ec" fill-opacity="0.55"/>
+    <circle cx="41" cy="37" r="5.5" fill="#C9A84C"/>
+  </g>
+  <text x="330" y="345" font-family="Inter" font-weight="600" font-size="30" fill="#f2f6fb">Your name goes in the draw</text>
+  <text x="330" y="381" font-family="Inter" font-size="21" fill="#aebccd">Every adult resident has an equal chance of selection — random,</text>
+  <text x="330" y="411" font-family="Inter" font-size="21" fill="#aebccd">like a jury, and balanced to mirror the whole population.</text>
+
+  <!-- ============ STEP 2 ============ -->
+  <circle cx="146" cy="571" r="34" fill="#0d1726" stroke="#C9A84C" stroke-width="2"/>
+  <text x="146" y="584" text-anchor="middle" font-family="Inter" font-weight="700" font-size="34" fill="#C9A84C">2</text>
+  <!-- icon: badge / fixed term -->
+  <g transform="translate(232,541)">
+    <rect x="6" y="4" width="48" height="52" rx="8" fill="none" stroke="#94c4ec" stroke-width="2.4"/>
+    <circle cx="30" cy="24" r="8" fill="none" stroke="#94c4ec" stroke-width="2.4"/>
+    <path d="M 16 46 Q 30 34 44 46" fill="none" stroke="#94c4ec" stroke-width="2.4"/>
+    <rect x="22" y="-2" width="16" height="8" rx="3" fill="#C9A84C"/>
+  </g>
+  <text x="330" y="560" font-family="Inter" font-weight="600" font-size="30" fill="#f2f6fb">You serve a fixed term</text>
+  <text x="330" y="596" font-family="Inter" font-size="21" fill="#aebccd">Full salary, your job protected, professional staff at your side.</text>
+  <text x="330" y="626" font-family="Inter" font-size="21" fill="#aebccd">Ordinary people, properly equipped.</text>
+
+  <!-- ============ STEP 3 ============ -->
+  <circle cx="146" cy="786" r="34" fill="#0d1726" stroke="#C9A84C" stroke-width="2"/>
+  <text x="146" y="799" text-anchor="middle" font-family="Inter" font-weight="700" font-size="34" fill="#C9A84C">3</text>
+  <!-- icon: deliberation bubbles -->
+  <g transform="translate(232,756)">
+    <path d="M 4 10 h 34 a 6 6 0 0 1 6 6 v 14 a 6 6 0 0 1 -6 6 h -20 l -9 9 v -9 h -5 a 6 6 0 0 1 -6 -6 v -14 a 6 6 0 0 1 6 -6 z" fill="none" stroke="#94c4ec" stroke-width="2.4"/>
+    <path d="M 30 34 h 24 a 6 6 0 0 1 6 6 v 10 a 6 6 0 0 1 -6 6 h -4 v 8 l -8 -8 h -12" fill="none" stroke="#C9A84C" stroke-width="2.4"/>
+  </g>
+  <text x="330" y="775" font-family="Inter" font-weight="600" font-size="30" fill="#f2f6fb">You hear the evidence, then decide</text>
+  <text x="330" y="811" font-family="Inter" font-size="21" fill="#aebccd">Expert briefings from every side. No parties, no whips, no donors —</text>
+  <text x="330" y="841" font-family="Inter" font-size="21" fill="#aebccd">nothing to obey except your own judgement.</text>
+
+  <!-- ============ STEP 4 ============ -->
+  <circle cx="146" cy="1000" r="34" fill="#0d1726" stroke="#C9A84C" stroke-width="2"/>
+  <text x="146" y="1013" text-anchor="middle" font-family="Inter" font-weight="700" font-size="34" fill="#C9A84C">4</text>
+  <!-- icon: return home -->
+  <g transform="translate(232,970)">
+    <path d="M 10 30 L 30 12 L 50 30 v 24 h -14 v -14 h -12 v 14 h -14 z" fill="none" stroke="#94c4ec" stroke-width="2.4" stroke-linejoin="round"/>
+    <path d="M 52 8 a 18 18 0 0 1 6 22" fill="none" stroke="#C9A84C" stroke-width="2.4"/>
+    <path d="M 54 32 l 4 -3 l 1 6 z" fill="#C9A84C"/>
+  </g>
+  <text x="330" y="989" font-family="Inter" font-weight="600" font-size="30" fill="#f2f6fb">You hand it back</text>
+  <text x="330" y="1025" font-family="Inter" font-size="21" fill="#aebccd">Your term ends and you go home. No career to protect, no seat to</text>
+  <text x="330" y="1055" font-family="Inter" font-size="21" fill="#aebccd">defend, no favours to repay.</text>
+
+  <!-- ============ Safeguard band ============ -->
+  <rect x="90" y="1096" width="900" height="150" rx="18" fill="#e8f0f9"/>
+  <text x="540" y="1142" text-anchor="middle" font-family="Inter" font-weight="700" font-size="24" letter-spacing="1.5" fill="#172233">THE OFF-SWITCH IS BUILT IN</text>
+  <text x="540" y="1180" text-anchor="middle" font-family="Inter" font-size="21" fill="#3b4a5e">If it ever fails, residents can reverse any decision —</text>
+  <text x="540" y="1211" text-anchor="middle" font-family="Inter" font-size="21" fill="#3b4a5e">or remove the whole system — using its own rules.</text>
+
+  <!-- Footer -->
+  <text x="540" y="1290" text-anchor="middle" font-family="Inter" font-weight="600" font-size="24" fill="#C9A84C">Read the complete design, free  •  dd-sa.org</text>
+</svg>

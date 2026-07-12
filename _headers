@@ -1,0 +1,41 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+
+/assets/*.png
+  Cache-Control: public, max-age=604800
+
+/assets/pdfjs/*
+  Cache-Control: public, max-age=2592000, immutable
+
+/downloads/*
+  Cache-Control: public, max-age=86400
+
+/video/*.mp4
+  Cache-Control: public, max-age=2592000
+
+/downloads/DDSA-CPF-001-Civic_Policing_Framework.pdf
+  X-Robots-Tag: noindex
+
+/downloads/DDSA-CPF-001-Civic_Policing_Framework-Original.pdf
+  X-Robots-Tag: noindex
+
+/downloads/DDSA-FOUND-BLU-002-Foundational_Blueprint_Second_Edition.pdf
+  X-Robots-Tag: noindex
+
+/downloads/DDSA-CORE-FBP-001-The_New_British_Isles_Foundational_Blueprint.pdf
+  X-Robots-Tag: noindex
+
+/assets/ddsa-forms.css
+  Cache-Control: no-cache
+
+/assets/ddsa-forms.js
+  Cache-Control: no-cache
+
+/assets/neural-bg.js
+  Cache-Control: no-cache
+
+/assets/neural-theme.css
+  Cache-Control: no-cache

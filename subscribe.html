@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>DD&SA – Subscribe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="One email a month as DD&SA moves from blueprint to pilot — subscribe to updates on the architecture, the corpus, and where it's being tested." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DD&SA – Subscribe" />
+  <meta property="og:description" content="One email a month as DD&SA moves from blueprint to pilot." />
+  <meta property="og:url" content="https://dd-sa.org/subscribe.html" />
+  <meta property="og:image" content="https://dd-sa.org/assets/subscribe-form-preview.png" />
+  <meta property="og:image:width" content="585" />
+  <meta property="og:image:height" content="942" />
+  <meta property="og:site_name" content="DD&SA" />
+  <meta property="og:locale" content="en_GB" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DD&SA – Subscribe" />
+  <meta name="twitter:description" content="One email a month as DD&SA moves from blueprint to pilot." />
+  <meta name="twitter:image" content="https://dd-sa.org/assets/subscribe-form-preview.png" />
+  <style>
+  header nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  header nav .nav-links{margin-left:auto}
+  .brand-mark{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:.04em;color:var(--text)}
+  .ddsa-back{display:inline-flex;align-items:center;gap:.4em;font-family:var(--display);
+    font-size:.82rem;letter-spacing:.02em;color:var(--muted);text-decoration:none;padding:6px 13px;
+    border:1px solid rgba(196,154,42,.35);border-radius:999px;white-space:nowrap;
+    background:rgba(4,7,15,.4);transition:color .2s,border-color .2s;flex:0 0 auto}
+  .ddsa-back:hover{color:var(--gold-hot);border-color:var(--gold-hot);text-decoration:none}
+  .ddsa-foot-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;font-size:.9rem}
+  .ddsa-foot-links a{color:var(--gold-hot);text-decoration:none}
+  .ddsa-foot-links a:hover{text-decoration:underline}
+
+  .page-eyebrow{font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;text-align:center}
+  </style>
+  <link rel="stylesheet" href="/assets/neural-theme.css?v=2026-07-11c" />
+  <link rel="stylesheet" href="/assets/ddsa-forms.css?v=2026-07-11c" />
+  <link rel="canonical" href="https://dd-sa.org/subscribe.html" />
+  <link rel="alternate" type="application/rss+xml" title="DD&amp;SA Essays" href="https://dd-sa.org/feed.xml" />
+</head>
+<body>
+<a class="ddsa-skip" href="#main">Skip to content</a>
+<header>
+  <nav>
+    <a class="ddsa-back" href="/index.html" onclick="if(history.length>1){history.back();return false;}" aria-label="Go back">&larr; Back</a>
+    <div class="brand-mark">DD&SA</div>
+    <input type="checkbox" id="navToggle" class="nav-toggle-checkbox" />
+    <label for="navToggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </label>
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/about/why-ddsa.html">Why DD&SA?</a>
+      <a href="/about/what-is-ddsa.html">What is DD&SA?</a>
+      <a href="/how-it-works/index.html">How it works</a>
+      <a href="/blueprint/index.html">The Blueprint</a>
+      <a href="/essays/">Essays</a>
+      <a href="/downloads.html">The Full Corpus</a>
+      <a href="/get-involved/">Get Involved</a>
+    </div>
+  </nav>
+</header>
+<main class="content" id="main">
+  <p class="page-eyebrow">Stay informed</p>
+  <div class="ddsa-form-frame">
+    <h1 class="ddsa-form-heading">Stay Informed</h1>
+    <p class="ddsa-form-sub">Subscribe to DD&amp;SA updates and news.</p>
+    <form class="ddsa-form" data-success-message="Subscribed. Look out for the next update.">
+      <input type="hidden" name="subject" value="Subscribe to DD&SA updates" />
+      <input type="hidden" name="from_name" value="DD&SA website — Subscribe form" />
+      <input type="text" name="ddsa_hp" class="ddsa-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <div class="ddsa-field">
+        <label class="sr-label" for="s-name">Name</label>
+        <input type="text" id="s-name" name="name" placeholder="Name" autocomplete="name" />
+      </div>
+
+      <div class="ddsa-field">
+        <label class="sr-label" for="s-email">Email address</label>
+        <input type="email" id="s-email" name="email" placeholder="Email Address" data-required autocomplete="email" />
+        <span class="err-msg">Enter a valid email address.</span>
+      </div>
+
+      <button type="submit" class="ddsa-submit">
+        <span class="spinner"></span><span class="label-text">Subscribe</span>
+      </button>
+      <div class="ddsa-status" role="status" aria-live="polite"></div>
+    </form>
+    <p class="ddsa-fineprint">We respect your privacy.<br />You will not see a browser app selector.</p>
+  </div>
+  <p class="ddsa-alt-contact">Prefer not to use the form? Copy the address and send from your own account:</p>
+  <p class="ddsa-alt-contact" style="margin-top:6px">
+    <button type="button" class="ddsa-email-copy" data-email="governance@dd-sa.org">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+      <span class="copy-label">governance@dd-sa.org</span>
+    </button>
+  </p>
+</main>
+<footer>
+  <div class="brand-line">DD&SA – Direct Democracy & Sortition Assemblies</div>
+  <div>Resident‑led democratic innovation for the United Kingdom.</div>
+<div class="ddsa-foot-links">
+  <a href="/index.html">Home</a>
+  <a href="/start-here.html">Start Here</a>
+  <a href="/about/principles.html">Principles</a>
+  <a href="/assemblies/index.html">Sortition Assemblies</a>
+  <a href="/stratification.html">Stratification</a>
+  <a href="/video/">Introduction Video</a>
+  <a href="/downloads.html">The Full Corpus</a>
+  <a href="/glossary.html">Glossary</a>
+  <a href="/faq/">FAQ</a>
+  <a href="/scrutiny.html">Scrutiny Register</a>
+  <a href="/about/the-architect.html">About the Architect</a>
+  <a href="/subscribe.html">Subscribe</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/cite.html">Cite this work</a>
+  <a href="/about/transparency.html">Transparency</a>
+  <a href="/privacy.html">Privacy</a>
+  <a href="/get-involved/">Get Involved</a>
+</div>
+<div class="ddsa-legal-note" style="margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.82rem;line-height:1.6;color:#8b93b5;max-width:860px;margin-left:auto;margin-right:auto;text-align:center;">
+  This website provides general information about Direct Democracy &amp; Sortition Assemblies. It is not legal advice. All content is subject to revision as the project develops. DD&amp;SA is designed to be a community&#8209;driven initiative and does not claim to represent official government policy.
+  <a href="/about/transparency.html" style="white-space:nowrap;">Transparency &amp; how we work &rarr;</a>
+  <a href="/privacy.html" style="white-space:nowrap;">Privacy notice &rarr;</a>
+</div>
+</footer>
+  <script src="/assets/neural-bg.js" defer></script>
+  <script src="/assets/ddsa-forms.js?v=2026-07-11c" defer></script>
+</body>
+</html>

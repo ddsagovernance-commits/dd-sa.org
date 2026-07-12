@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>DD&SA Essays – Understanding the Why Behind the System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The DD&SA Essays: clear, persuasive explanations of the principles, logic, and necessity of Direct Democracy & Sortition Assemblies." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DD&SA Essays – Understanding the Why Behind the System" />
+  <meta property="og:description" content="The DD&SA Essays: clear, persuasive explanations of the principles, logic, and necessity of Direct Democracy & Sortition Assemblies." />
+  <meta property="og:url" content="https://dd-sa.org/essays/" />
+  <meta property="og:image" content="https://dd-sa.org/assets/resident-journey.png" />
+  <meta property="og:image:width" content="1536" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:site_name" content="DD&SA" />
+  <meta property="og:locale" content="en_GB" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DD&SA Essays – Understanding the Why Behind the System" />
+  <meta name="twitter:description" content="The DD&SA Essays: clear, persuasive explanations of the principles, logic, and necessity of Direct Democracy & Sortition Assemblies." />
+  <meta name="twitter:image" content="https://dd-sa.org/assets/resident-journey.png" />
+
+  <style>
+    :root {
+      --bg: #050814;
+      --accent: #ffcc33;
+      --accent-strong: #ffdf6b;
+      --text: #f5f7ff;
+      --muted: #c7cbe0;
+      --card: #101528;
+      --border: #1c2340;
+      --radius: 16px;
+      --shadow: 0 18px 45px rgba(0,0,0,0.55);
+      --font-base: 19px;
+      --font-small: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #151b38 0, #050814 55%, #02030a 100%);
+      color: var(--text);
+      font-size: var(--font-base);
+      line-height: 1.7;
+    }
+
+    a { color: var(--accent-strong); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(5, 8, 20, 0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px clamp(20px, 6vw, 60px);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 18px;
+    }
+
+    /* Sticky TOC */
+    .essays-toc {
+      position: fixed;
+      top: 120px;
+      left: 40px;
+      width: 220px;
+      background: rgba(10, 14, 30, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 20px;
+      z-index: 200;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    .essays-toc h3 {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: var(--accent-strong);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .essays-toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .essays-toc li {
+      margin-bottom: 10px;
+    }
+
+    .essays-toc a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .essays-toc a:hover {
+      color: var(--accent-strong);
+    }
+
+    .essays-toc a.active {
+      color: var(--accent-strong);
+      font-weight: 600;
+    }
+
+    .section {
+      width: 100%;
+      padding: 80px clamp(20px, 6vw, 60px);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Higher specificity than neural-theme.css's later-loaded .section
+       rule, so the TOC gutter reliably applies instead of being
+       silently overridden by the shared stylesheet. */
+    body .section { padding-left: 300px; }
+
+    h1 {
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      margin: 40px 0 16px;
+    }
+
+    .essay-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin: 24px 0;
+      box-shadow: var(--shadow);
+    }
+
+    .essay-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+      color: var(--accent-strong);
+    }
+
+    .essay-card p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    footer {
+      padding: 40px clamp(20px, 6vw, 60px);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      background: #04060f;
+      font-size: var(--font-small);
+      color: var(--muted);
+    }
+
+    /* Below the site's nav breakpoint there isn't room for a 220px
+       fixed sidebar TOC plus a readable content column — hide the
+       floating TOC and let the section reclaim the full width.
+       Above this, the sidebar layout (fixed above) applies. */
+    @media (max-width: 880px) {
+      .essays-toc { display: none; }
+      body .section { padding-left: clamp(20px, 6vw, 60px); }
+    }
+  </style>
+  <link rel="stylesheet" href="/assets/neural-theme.css?v=2026-07-11c" />
+  <link rel="canonical" href="https://dd-sa.org/essays/" />
+<style id="ddsa-enh">
+/* DD&SA enhancements: top-left back button + footer utility links */
+header nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header nav .nav-links{margin-left:auto}
+.ddsa-back{display:inline-flex;align-items:center;gap:.4em;
+  font-family:Georgia,"Times New Roman",serif;font-size:.82rem;letter-spacing:.02em;
+  color:var(--muted,#9aa6c4);text-decoration:none;padding:6px 13px;
+  border:1px solid rgba(196,154,42,.35);border-radius:999px;white-space:nowrap;
+  background:rgba(4,7,15,.4);transition:color .2s,border-color .2s;flex:0 0 auto}
+.ddsa-back:hover{color:var(--gold-hot,#ffd96b);border-color:var(--gold-hot,#ffd96b);text-decoration:none}
+.ddsa-back--fixed{position:fixed;top:12px;left:12px;z-index:9999}
+.ddsa-foot-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 18px;
+  justify-content:center;font-size:.9rem}
+.ddsa-foot-links a{color:var(--gold-hot,#ffd96b);text-decoration:none}
+.ddsa-foot-links a:hover{text-decoration:underline}
+</style>
+  <link rel="alternate" type="application/rss+xml" title="DD&amp;SA Essays" href="https://dd-sa.org/feed.xml" />
+</head>
+
+<body>
+<a class="ddsa-skip" href="#main">Skip to content</a>
+
+<!-- Sticky TOC -->
+<nav class="essays-toc">
+  <h3>Essay Themes</h3>
+  <ul>
+    <li><a href="#truth">Truth & Structural Honesty</a></li>
+    <li><a href="#power">Power & Institutions</a></li>
+    <li><a href="#residents">Residents & Participation</a></li>
+    <li><a href="#systems">Systems & Governance</a></li>
+  </ul>
+</nav>
+
+<header>
+  <nav>
+    <a class="ddsa-back" href="/index.html" onclick="if(history.length>1){history.back();return false;}" aria-label="Go back">&larr; Back</a>
+    <div style="font-weight:700;font-size:1.4rem;">DD&SA</div>
+    <input type="checkbox" id="navToggle" class="nav-toggle-checkbox" />
+    <label for="navToggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </label>
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/about/why-ddsa.html">Why DD&SA?</a>
+      <a href="/about/what-is-ddsa.html">What is DD&SA?</a>
+      <a href="/how-it-works/index.html">How it works</a>
+      <a href="/blueprint/index.html">The Blueprint</a>
+      <a href="/essays/">Essays</a>
+      <a href="/downloads.html">The Full Corpus</a>
+      <a href="/get-involved/">Get Involved</a>
+    </div>
+  </nav>
+</header>
+
+<section id="main" class="section">
+  <h1>DD&SA Essays</h1>
+  <p>
+    These essays explain the deeper logic behind DD&SA — the philosophy, psychology, and structural reasoning that
+    make a resident‑led democratic system both necessary and achievable. They are written to persuade sceptical readers,
+    clarify misconceptions, and articulate the moral and practical foundations of the model.
+  </p>
+
+  <!-- TRUTH -->
+  <h2 id="truth">Truth & Structural Honesty</h2>
+
+  <div class="essay-card">
+    <h3><a href="/essays/structural-honesty.html">Structural Honesty</a></h3>
+    <p>
+      A system cannot produce honest outcomes if it is built on incentives to deceive. This essay explains why
+      structural honesty — not personal virtue — is the foundation of trustworthy governance.
+    </p>
+  </div>
+
+  <div class="essay-card">
+    <h3><a href="/essays/truth-in-public-life.html">Truth in Public Life</a></h3>
+    <p>
+      Why truth collapses under party competition, and how DD&SA restores a shared factual basis for decision‑making.
+    </p>
+  </div>
+
+  <div class="essay-card">
+    <h3><a href="/essays/trust-decline.html">Why Trust Declines</a></h3>
+    <p>
+      A structural diagnosis of collapsing public trust — why it is the predictable output of the current
+      system’s design, not a failure of individual character.
+    </p>
+  </div>
+
+  <!-- POWER -->
+  <h2 id="power">Power & Institutions</h2>
+
+  <div class="essay-card">
+    <h3><a href="/essays/limits-of-elections.html">The Limits of Elections</a></h3>
+    <p>
+      Elections concentrate power, distort incentives, and reward persuasion over reasoning. This essay outlines why
+      elections alone cannot deliver structural honesty or public legitimacy.
+    </p>
+  </div>
+
+  <div class="essay-card">
+    <h3><a href="/essays/representative-democracy.html">Representative Democracy</a></h3>
+    <p>
+      A clear, forensic explanation of why representative systems fail under modern conditions — and why the failure
+      is structural, not personal.
+    </p>
+  </div>
+
+  <!-- RESIDENTS -->
+  <h2 id="residents">Residents & Participation</h2>
+
+  <div class="essay-card">
+    <h3><a href="/essays/sortition.html">Sortition</a></h3>
+    <p>
+      A deep dive into the logic of random selection, why it works, and why it produces more legitimate outcomes than
+      competitive elections.
+    </p>
+  </div>
+
+  <div class="essay-card">
+    <h3><a href="/essays/deliberation.html">Deliberation</a></h3>
+    <p>
+      How structured, evidence‑based deliberation transforms ordinary residents into capable decision‑makers — and why
+      this process outperforms adversarial debate.
+    </p>
+  </div>
+
+  <!-- SYSTEMS -->
+  <h2 id="systems">Systems & Governance</h2>
+
+  <div class="essay-card">
+    <h3><a href="/essays/direct-democracy.html">Direct Democracy</a></h3>
+    <p>
+      A clear explanation of how direct voting complements sortition assemblies, and why the two must operate together
+      to maintain legitimacy.
+    </p>
+  </div>
+
+  <div class="essay-card">
+    <h3><a href="/essays/system-design.html">System Design</a></h3>
+    <p>
+      A systems‑engineering perspective on DD&SA: feedback loops, failure modes, transparency requirements, and the
+      logic of distributed authority.
+    </p>
+  </div>
+
+</section>
+
+<footer>
+  <div>DD&SA – Direct Democracy & Sortition Assemblies</div>
+  <div>Resident‑led democratic innovation for the United Kingdom.</div>
+<div class="ddsa-subscribe" style="margin:16px 0 12px;">
+  <strong>Stay informed:</strong> one email a month as DD&amp;SA moves from blueprint to pilot.
+  <a href="/subscribe.html">Subscribe &rarr;</a> <a class="ddsa-unsub-link" href="/unsubscribe.html">Unsubscribe</a>
+</div>
+<div class="ddsa-foot-links">
+  <a href="/index.html">Home</a>
+  <a href="/start-here.html">Start Here</a>
+  <a href="/about/principles.html">Principles</a>
+  <a href="/assemblies/index.html">Sortition Assemblies</a>
+  <a href="/stratification.html">Stratification</a>
+  <a href="/video/">Introduction Video</a>
+  <a href="/downloads.html">The Full Corpus</a>
+  <a href="/glossary.html">Glossary</a>
+  <a href="/faq/">FAQ</a>
+  <a href="/scrutiny.html">Scrutiny Register</a>
+  <a href="/about/the-architect.html">About the Architect</a>
+  <a href="/subscribe.html">Subscribe</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/cite.html">Cite this work</a>
+  <a href="/about/transparency.html">Transparency</a>
+  <a href="/privacy.html">Privacy</a>
+  <a href="/get-involved/">Get Involved</a>
+</div>
+<div class="ddsa-legal-note" style="margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.82rem;line-height:1.6;color:#8b93b5;max-width:860px;margin-left:auto;margin-right:auto;text-align:center;">
+  This website provides general information about Direct Democracy &amp; Sortition Assemblies. It is not legal advice. All content is subject to revision as the project develops. DD&amp;SA is designed to be a community&#8209;driven initiative and does not claim to represent official government policy.
+  <a href="/about/transparency.html" style="white-space:nowrap;">Transparency &amp; how we work &rarr;</a>
+  <a href="/privacy.html" style="white-space:nowrap;">Privacy notice &rarr;</a>
+</div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const tocLinks = document.querySelectorAll(".essays-toc a");
+  const sections = [...tocLinks].map(link => {
+    const id = link.getAttribute("href").substring(1);
+    return document.getElementById(id);
+  });
+
+  function onScroll() {
+    const scrollPos = window.scrollY + 200;
+
+    sections.forEach((section, index) => {
+      if (!section) return;
+
+      const top = section.offsetTop;
+      const bottom = top + section.offsetHeight;
+
+      if (scrollPos >= top && scrollPos < bottom) {
+        tocLinks.forEach(link => link.classList.remove("active"));
+        tocLinks[index].classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", onScroll);
+  onScroll();
+});
+</script>
+
+  <script src="/assets/neural-bg.js" defer></script>
+</body>
+</html>

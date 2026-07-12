@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>Direct Democracy & Sortition Assemblies (DD&SA) – A Civic Architecture for the British Isles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A complete, published alternative to Westminster: resident assemblies selected by civic lottery, deliberating in public under a written constitution with its own off-switch. Free to read." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Direct Democracy & Sortition Assemblies (DD&SA)" />
+  <meta property="og:description" content="A complete, published alternative to Westminster: resident assemblies selected by civic lottery, deliberating in public under a written constitution with its own off-switch. Free to read." />
+  <meta property="og:url" content="https://dd-sa.org/" />
+  <meta property="og:image" content="https://dd-sa.org/assets/resident-journey.png" />
+  <meta property="og:image:width" content="1536" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:site_name" content="DD&SA" />
+  <meta property="og:locale" content="en_GB" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Direct Democracy & Sortition Assemblies (DD&SA)" />
+  <meta name="twitter:description" content="A complete, published alternative to Westminster: resident assemblies selected by civic lottery, deliberating in public under a written constitution with its own off-switch. Free to read." />
+  <meta name="twitter:image" content="https://dd-sa.org/assets/resident-journey.png" />
+
+  <style>
+    :root {
+      --ink:        #04070f;   /* deepest field */
+      --navy:       #0a1228;   /* card field */
+      --navy-line:  #1b2a4a;   /* structure & borders */
+      --gold:       #c49a2a;   /* the signal colour */
+      --gold-hot:   #ffd96b;   /* pulse cores & hover */
+      --text:       #eef2fc;
+      --muted:      #9aa6c4;
+
+      --display: Georgia, "Times New Roman", serif;
+      --body: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+
+      --radius: 14px;
+      --max: 1100px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--body);
+      background: var(--ink);
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--gold-hot); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--gold-hot);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ---------- living background ---------- */
+    #neural {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      display: block;
+      background:
+        radial-gradient(ellipse 120% 80% at 50% -10%, #101a3a 0%, #070c1d 45%, #04070f 100%);
+    }
+
+    /* soft vignette so text always sits on a calm centre */
+    .veil {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: radial-gradient(ellipse 70% 60% at 50% 38%,
+                  rgba(4,7,15,0.0) 0%,
+                  rgba(4,7,15,0.18) 60%,
+                  rgba(4,7,15,0.55) 100%);
+    }
+
+    main, header, footer { position: relative; z-index: 2; }
+
+    /* ---------- header ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: linear-gradient(rgba(4,7,15,0.82), rgba(4,7,15,0.66));
+      border-bottom: 1px solid rgba(196,154,42,0.18);
+    }
+
+    nav {
+      position: relative;
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px clamp(20px, 5vw, 48px);
+    }
+
+    .brand {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand .node-dot {
+      width: 11px; height: 11px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 12px 2px rgba(196,154,42,0.65);
+      animation: heartbeat 3.2s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1);   box-shadow: 0 0 10px 2px rgba(196,154,42,0.45); }
+      50%      { transform: scale(1.25); box-shadow: 0 0 18px 5px rgba(196,154,42,0.85); }
+    }
+
+    .nav-links { display: flex; gap: clamp(14px, 3vw, 30px); font-size: 16px; flex-wrap: wrap; }
+    .nav-links a {
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      transition: color 0.25s ease;
+      position: relative;
+      padding-bottom: 3px;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--gold-hot); text-decoration: none; }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ---------- hero ---------- */
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px clamp(20px, 6vw, 60px) 70px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 0.82rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 26px;
+      opacity: 0;
+      animation: rise 1.1s ease 0.2s forwards;
+    }
+
+    .hero h1 {
+      font-family: var(--display);
+      font-size: clamp(2.6rem, 5.6vw, 4.4rem);
+      line-height: 1.08;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 26px;
+      opacity: 0;
+      animation: rise 1.1s ease 0.45s forwards;
+    }
+
+    .hero h1 .gilt {
+      background: linear-gradient(105deg, var(--gold) 0%, var(--gold-hot) 45%, var(--gold) 90%);
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shimmer 7s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .hero p.lede {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto 42px;
+      opacity: 0;
+      animation: rise 1.1s ease 0.7s forwards;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0;
+      animation: rise 1.1s ease 0.95s forwards;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 34px;
+      border-radius: 999px;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+    .btn:hover { text-decoration: none; transform: translateY(-2px); }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), #a8821e);
+      color: #0a0d18;
+      font-weight: 600;
+      box-shadow: 0 6px 26px rgba(196,154,42,0.35);
+    }
+    .btn-gold:hover { box-shadow: 0 10px 36px rgba(196,154,42,0.55); }
+
+    .btn-ghost {
+      border: 1px solid rgba(196,154,42,0.45);
+      color: var(--gold-hot);
+    }
+    .btn-ghost:hover { background: rgba(196,154,42,0.08); }
+
+    .scroll-hint {
+      margin-top: 64px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: rise 1.1s ease 1.3s forwards;
+    }
+    .scroll-hint::after {
+      content: "";
+      display: block;
+      width: 1px; height: 44px;
+      margin: 14px auto 0;
+      background: linear-gradient(var(--gold), transparent);
+      animation: drip 2.4s ease-in-out infinite;
+    }
+    @keyframes drip {
+      0%, 100% { transform: scaleY(0.4); transform-origin: top; opacity: 0.4; }
+      50%      { transform: scaleY(1);   opacity: 1; }
+    }
+
+    /* ---------- sections ---------- */
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 70px clamp(20px, 6vw, 60px) 90px;
+    }
+
+    .section-head {
+      max-width: 640px;
+      margin-bottom: 14px;
+    }
+
+    .section-head .kicker {
+      font-size: 0.78rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .section-head h2 {
+      font-family: var(--display);
+      font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      margin-top: 14px;
+      font-size: 1.05rem;
+    }
+
+    /* ---------- cards ---------- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 26px;
+      margin-top: 48px;
+    }
+
+    .card {
+      position: relative;
+      display: block;
+      background: linear-gradient(165deg, rgba(16,22,44,0.92), rgba(8,12,26,0.92));
+      border: 1px solid rgba(27,42,74,0.9);
+      border-radius: var(--radius);
+      padding: 32px 28px 30px;
+      color: var(--text);
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(26px);
+    }
+
+    .card.lit {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s ease, transform 0.7s ease,
+                  border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      text-decoration: none;
+      transform: translateY(-6px);
+      border-color: rgba(196,154,42,0.55);
+      box-shadow: 0 22px 50px rgba(0,0,0,0.55), 0 0 34px rgba(196,154,42,0.12);
+    }
+
+    /* synapse spark in the card corner */
+    .card .synapse {
+      position: absolute;
+      top: 26px; right: 24px;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: rgba(196,154,42,0.35);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover .synapse {
+      background: var(--gold-hot);
+      box-shadow: 0 0 14px 3px rgba(255,217,107,0.7);
+    }
+
+    /* faint dendrite tracery across each card */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 85% 12%, rgba(196,154,42,0.10), transparent 38%),
+        radial-gradient(circle at 8% 95%, rgba(27,42,74,0.55), transparent 45%);
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .card:hover::before { opacity: 1; }
+
+    .card h3 {
+      font-family: var(--display);
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.98rem;
+      position: relative;
+    }
+
+    .card .go {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      position: relative;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .card:hover .go { color: var(--gold-hot); transform: translateX(4px); }
+
+    /* ---------- footer ---------- */
+    footer {
+      border-top: 1px solid rgba(196,154,42,0.18);
+      background: rgba(3,5,11,0.85);
+      backdrop-filter: blur(8px);
+      padding: 44px clamp(20px, 6vw, 60px);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    footer .brand-line {
+      font-family: var(--display);
+      color: var(--text);
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    /* ---------- motion safety ---------- */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .card { opacity: 1; transform: none; }
+      .eyebrow, .hero h1, .hero p.lede, .cta-row, .scroll-hint { opacity: 1; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { min-height: 80vh; padding-top: 80px; }
+      .nav-links { font-size: 14px; gap: 14px; }
+    }
+
+    /* ---------- audience boxes (Academia / Press / General Public) ---------- */
+    .ddsa-audience {
+      --ddsa-form-glow: rgba(104,164,224,0.5);
+      --ddsa-form-border: rgba(148,196,236,0.6);
+      --ddsa-aud-gold: #ffd96b;
+      --ddsa-aud-muted: #c7cbe0;
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 70px 22px 40px;
+    }
+    .ddsa-audience-heading {
+      text-align: center;
+      font-family: var(--display);
+      font-size: clamp(1.5rem, 3.4vw, 2rem);
+      margin: 0 0 8px;
+    }
+    .ddsa-audience-sub {
+      text-align: center;
+      color: var(--ddsa-aud-muted);
+      font-size: 1rem;
+      margin: 0 0 38px;
+    }
+    .ddsa-audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+    @media (max-width: 820px) { .ddsa-audience-grid { grid-template-columns: 1fr; } }
+    .ddsa-aud-card {
+      position: relative;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 22px;
+      padding: 34px 22px 30px;
+      background: linear-gradient(165deg, rgba(13,23,38,0.98), rgba(6,10,20,0.98));
+      border: 1px solid rgba(148,196,236,0.25);
+      cursor: pointer;
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+    .ddsa-aud-card:hover,
+    .ddsa-aud-card:focus-visible {
+      transform: translateY(-4px);
+      border-color: var(--ddsa-form-border);
+      box-shadow:
+        0 0 0 1px rgba(148,196,236,0.12),
+        0 0 30px var(--ddsa-form-glow),
+        0 0 70px rgba(70,120,180,0.22),
+        0 18px 44px rgba(0,0,0,0.5);
+      outline: none;
+    }
+    .ddsa-aud-eyebrow {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      color: var(--ddsa-aud-gold);
+      margin: 0 0 10px;
+    }
+    .ddsa-aud-title {
+      font-family: var(--display);
+      font-size: 1.28rem;
+      margin: 0 0 8px;
+    }
+    .ddsa-aud-line {
+      color: var(--ddsa-aud-muted);
+      font-size: .93rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .ddsa-aud-panel {
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 18px);
+      transform: translateX(-50%) translateY(8px);
+      width: min(340px, 86vw);
+      border-radius: 20px;
+      background: linear-gradient(165deg, rgba(13,23,38,0.99), rgba(6,10,20,0.99));
+      border: 1px solid var(--ddsa-form-border);
+      box-shadow:
+        0 0 0 1px rgba(148,196,236,0.12),
+        0 0 34px var(--ddsa-form-glow),
+        0 0 80px rgba(70,120,180,0.22),
+        0 24px 60px rgba(0,0,0,0.55);
+      padding: 24px 24px 22px;
+      text-align: left;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .28s ease, transform .28s ease, visibility .28s;
+      z-index: 30;
+    }
+    .ddsa-aud-panel::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -9px;
+      width: 16px; height: 16px;
+      transform: translateX(-50%) rotate(45deg);
+      background: rgba(6,10,20,0.99);
+      border-right: 1px solid var(--ddsa-form-border);
+      border-bottom: 1px solid var(--ddsa-form-border);
+    }
+    .ddsa-aud-card:hover .ddsa-aud-panel,
+    .ddsa-aud-card:focus-visible .ddsa-aud-panel,
+    .ddsa-aud-card:focus-within .ddsa-aud-panel {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .ddsa-aud-panel h4 {
+      margin: 0 0 10px;
+      font-family: var(--display);
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+    .ddsa-aud-panel p {
+      margin: 0 0 10px;
+      font-size: .9rem;
+      line-height: 1.55;
+      color: var(--ddsa-aud-muted);
+    }
+    .ddsa-aud-panel p:last-child { margin-bottom: 0; }
+    .ddsa-aud-panel .gold { color: var(--ddsa-aud-gold); font-weight: 600; }
+    @media (max-width: 820px) {
+      .ddsa-aud-panel {
+        position: static;
+        transform: none;
+        width: auto;
+        margin-top: 16px;
+        display: none;
+        box-shadow: none;
+        border-color: rgba(148,196,236,0.35);
+      }
+      .ddsa-aud-panel::after { display: none; }
+      .ddsa-aud-card:hover .ddsa-aud-panel,
+      .ddsa-aud-card:focus-visible .ddsa-aud-panel,
+      .ddsa-aud-card:focus-within .ddsa-aud-panel {
+        display: block;
+        transform: none;
+      }
+    }
+    .ddsa-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(3,6,12,0.86);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 4vh 4vw;
+      z-index: 200;
+    }
+    .ddsa-lightbox.open { display: flex; }
+    .ddsa-lightbox img {
+      max-height: 92vh;
+      max-width: 92vw;
+      border-radius: 22px;
+      border: 1px solid var(--ddsa-form-border, rgba(148,196,236,0.6));
+      box-shadow: 0 0 44px rgba(104,164,224,0.5), 0 0 100px rgba(70,120,180,0.25);
+    }
+    .ddsa-lightbox-close {
+      position: absolute;
+      top: 22px; right: 26px;
+      background: none;
+      border: 1px solid rgba(148,196,236,0.5);
+      border-radius: 50%;
+      width: 44px; height: 44px;
+      color: #e8f0f9;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: box-shadow .2s ease;
+    }
+    .ddsa-lightbox-close:hover,
+    .ddsa-lightbox-close:focus-visible {
+      box-shadow: 0 0 18px rgba(104,164,224,0.6);
+      outline: none;
+    }
+    .ddsa-unsub-link {
+      display: inline-block;
+      margin-left: 12px;
+      padding: 5px 14px;
+      font-size: .82rem;
+      letter-spacing: .02em;
+      color: #cfe2f5;
+      background: rgba(9,16,28,0.6);
+      border: 1px solid rgba(148,196,236,0.55);
+      border-radius: 999px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .ddsa-unsub-link:hover,
+    .ddsa-unsub-link:focus-visible {
+      color: #ffffff;
+      border-color: rgba(148,196,236,0.95);
+      box-shadow: 0 0 16px rgba(104,164,224,0.55);
+      text-decoration: none;
+      outline: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ddsa-aud-card, .ddsa-aud-panel { transition: none; }
+    }
+
+  </style>
+  <link rel="canonical" href="https://dd-sa.org/" />
+<style id="ddsa-home-enh">
+.ddsa-foot-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;font-size:.9rem}
+.ddsa-foot-links a{color:var(--gold-hot);text-decoration:none}
+.ddsa-foot-links a:hover{text-decoration:underline}
+.ddsa-social-links{margin-top:18px;display:flex;gap:14px;justify-content:center}
+.ddsa-social-links a{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:999px;
+  border:1px solid rgba(196,154,42,0.35);color:var(--gold-hot);
+  transition:border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.ddsa-social-links a:hover{border-color:var(--gold-hot);background:rgba(196,154,42,0.1);transform:translateY(-2px)}
+.ddsa-social-links svg{width:17px;height:17px;fill:currentColor}
+
+/* ---------- responsive images (prevent mobile overflow) ---------- */
+img { max-width: 100%; height: auto; display: block; }
+
+/* ---------- mobile navigation (hamburger, pure CSS, no JS dependency) ---------- */
+.nav-toggle-checkbox { display: none; }
+.nav-toggle-label {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 55;
+}
+.nav-toggle-label span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--gold-hot);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+@media (max-width: 880px) {
+  .nav-toggle-label { display: flex; }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(6,9,20,0.97);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(196,154,42,0.25);
+    padding: 6px clamp(20px, 5vw, 48px) 18px;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+  }
+  .nav-toggle-checkbox:checked ~ .nav-links { display: flex; }
+  .nav-links a { width: 100%; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .nav-toggle-checkbox:checked ~ .nav-toggle-label span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle-checkbox:checked ~ .nav-toggle-label span:nth-child(2) { opacity: 0; }
+  .nav-toggle-checkbox:checked ~ .nav-toggle-label span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+</style>
+  <link rel="alternate" type="application/rss+xml" title="DD&amp;SA Essays" href="https://dd-sa.org/feed.xml" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Direct Democracy & Sortition Assemblies",
+  "alternateName": "DD&SA",
+  "url": "https://dd-sa.org/",
+  "description": "DD&SA – A resident-led democratic architecture combining direct democracy with sortition-based deliberation."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "DD&SA — Direct Democracy & Sortition Assemblies",
+  "url": "https://dd-sa.org/",
+  "email": "governance@dd-sa.org",
+  "sameAs": [
+    "https://x.com/DDandSA"
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Ian R. Graham",
+    "jobTitle": "Architect, DD&SA",
+    "url": "https://dd-sa.org/about/the-architect.html"
+  }
+}
+</script>
+</head>
+
+<body>
+<style>.ddsa-skip{position:absolute;left:-9999px;top:0;z-index:100;background:#c49a2a;color:#0a0d18;padding:10px 18px;border-radius:0 0 8px 0;font-weight:600;text-decoration:none}.ddsa-skip:focus{left:0;outline:2px solid #ffd96b}</style>
+<a class="ddsa-skip" href="#main">Skip to content</a>
+
+<canvas id="neural" aria-hidden="true"></canvas>
+<div class="veil" aria-hidden="true"></div>
+
+<header>
+  <nav>
+    <div class="brand"><span class="node-dot" aria-hidden="true"></span>DD&amp;SA</div>
+    <input type="checkbox" id="navToggle" class="nav-toggle-checkbox" />
+    <label for="navToggle" class="nav-toggle-label" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </label>
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/about/why-ddsa.html">Why DD&SA?</a>
+      <a href="/about/what-is-ddsa.html">What is DD&SA?</a>
+      <a href="/how-it-works/index.html">How it works</a>
+      <a href="/blueprint/index.html">The Blueprint</a>
+      <a href="/essays/">Essays</a>
+      <a href="/downloads.html">The Full Corpus</a>
+      <a href="/get-involved/">Get Involved</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="eyebrow">Resident‑led democratic innovation</div>
+    <h1>Direct Democracy &amp;<br /><span class="gilt">Sortition Assemblies</span></h1>
+    <p class="lede">A resident-led democratic architecture designed for structural honesty, transparency, and long-term decision-making.</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="/start-here.html">Start here</a>
+      <a class="btn btn-ghost" href="/about/what-is-ddsa.html">What is DD&amp;SA?</a>
+      <a class="btn btn-ghost" href="/blueprint/index.html">Read the Blueprint</a>
+    </div>
+    <div class="scroll-hint">Explore</div>
+  </section>
+
+
+  <section class="section">
+    <div class="section-head">
+      <span class="kicker">The model</span>
+      <h2>Explore the DD&amp;SA Model</h2>
+      <p>Four ways in — from a first introduction to the full structural blueprint.</p>
+    </div>
+
+    <div class="card-grid">
+      <a class="card" href="/about/what-is-ddsa.html">
+        <span class="synapse" aria-hidden="true"></span>
+        <h3>What is DD&amp;SA?</h3>
+        <p>An introduction to the architecture, principles, and purpose of Direct Democracy &amp; Sortition Assemblies.</p>
+        <span class="go">Begin here →</span>
+      </a>
+
+      <a class="card" href="/essays/">
+        <span class="synapse" aria-hidden="true"></span>
+        <h3>Essays</h3>
+        <p>Structural analyses of representation, trust, deliberation, sortition, and democratic design.</p>
+        <span class="go">Read the essays →</span>
+      </a>
+
+      <a class="card" href="/blueprint/index.html">
+        <span class="synapse" aria-hidden="true"></span>
+        <h3>Blueprint</h3>
+        <p>A detailed breakdown of how DD&amp;SA works in practice — assemblies, cycles, processes, and safeguards.</p>
+        <span class="go">Open the blueprint →</span>
+      </a>
+
+      <a class="card" href="/video/">
+        <span class="synapse" aria-hidden="true"></span>
+        <h3>Video Library</h3>
+        <p>Watch the DD&amp;SA explainer video and future visual resources.</p>
+        <span class="go">Watch →</span>
+      </a>
+
+      <a class="card" href="/downloads.html">
+        <span class="synapse" aria-hidden="true"></span>
+        <h3>The Full Corpus</h3>
+        <p>Sixty constitutional frameworks, architectures, and analyses — read each one on site, or download it free.</p>
+        <span class="go">Browse the corpus →</span>
+      </a>
+    </div>
+  </section>
+
+
+  <section class="ddsa-audience" aria-label="Where to start, by audience">
+    <h2 class="ddsa-audience-heading">Where should you start?</h2>
+    <p class="ddsa-audience-sub">Three doors into the same design. Pick the one that sounds like you.</p>
+
+    <div class="ddsa-audience-grid">
+
+      <a class="ddsa-aud-card" href="/audience/academia.html">
+        <p class="ddsa-aud-eyebrow">FOR ACADEMIA</p>
+        <h3 class="ddsa-aud-title">Try to break it</h3>
+        <p class="ddsa-aud-line">A standing challenge to political scientists, constitutional lawyers and institutional designers.</p>
+        <div class="ddsa-aud-panel" role="tooltip">
+          <h4>The challenge is open</h4>
+          <p>Start in the <span class="gold">Full Corpus</span>: 60+ published instruments and a complete written constitution. Every mechanism is specified. Nothing is hidden.</p>
+          <p>Your task: <span class="gold">debunk DD&amp;SA.</span> No independent critique has broken it yet &mdash; be the first.</p>
+          <p>But victory has a price. If you break it, you must build &mdash; something better than politics, and better than DD&amp;SA.</p>
+        </div>
+      </a>
+
+      <a class="ddsa-aud-card" href="/audience/press.html">
+        <p class="ddsa-aud-eyebrow">FOR THE PRESS</p>
+        <h3 class="ddsa-aud-title">The story, sourced</h3>
+        <p class="ddsa-aud-line">Key facts, quotable framings and cited data &mdash; ready to lift, verify and publish.</p>
+        <div class="ddsa-aud-panel" role="tooltip">
+          <h4>One line, then the evidence</h4>
+          <p><span class="gold">The story:</span> a complete, published replacement for Westminster &mdash; designed by one person, free to read, with its own off-switch built in.</p>
+          <p>The <span class="gold">Press page</span> has verifiable key facts and three framings that survive fact-checking.</p>
+          <p>Quotes and interviews: <span class="gold">governance@dd-sa.org</span> &mdash; answered directly by the architect.</p>
+        </div>
+      </a>
+
+      <a class="ddsa-aud-card" href="#" id="ddsa-public-card" aria-haspopup="dialog">
+        <p class="ddsa-aud-eyebrow">FOR EVERYONE</p>
+        <h3 class="ddsa-aud-title">The whole idea in one picture</h3>
+        <p class="ddsa-aud-line">No jargon, no homework &mdash; how governance by civic lottery actually works.</p>
+        <div class="ddsa-aud-panel" role="tooltip">
+          <h4>Four steps. One picture.</h4>
+          <p>You already trust twelve strangers, chosen at random, with justice itself. This picture shows what happens when the same principle runs the country.</p>
+          <p><span class="gold">Click this box to open it</span> &mdash; it takes less time than half a cup of tea.</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="brand-line">DD&amp;SA – Direct Democracy &amp; Sortition Assemblies</div>
+  <div>Resident‑led democratic innovation for the United Kingdom.</div>
+  <div class="ddsa-subscribe" style="margin:16px 0 12px;">
+  <strong>Stay informed:</strong> one email a month as DD&amp;SA moves from blueprint to pilot.
+  <a href="/subscribe.html">Subscribe &rarr;</a>
+</div>
+<div class="ddsa-foot-links">
+  <a href="/index.html">Home</a>
+  <a href="/start-here.html">Start Here</a>
+  <a href="/about/principles.html">Principles</a>
+  <a href="/assemblies/index.html">Sortition Assemblies</a>
+  <a href="/stratification.html">Stratification</a>
+  <a href="/video/">Introduction Video</a>
+  <a href="/downloads.html">The Full Corpus</a>
+  <a href="/glossary.html">Glossary</a>
+  <a href="/faq/">FAQ</a>
+  <a href="/scrutiny.html">Scrutiny Register</a>
+  <a href="/about/the-architect.html">About the Architect</a>
+  <a href="/subscribe.html">Subscribe</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/cite.html">Cite this work</a>
+  <a href="/about/transparency.html">Transparency</a>
+  <a href="/privacy.html">Privacy</a>
+  <a href="/get-involved/">Get Involved</a>
+</div>
+  <div class="ddsa-social-links">
+    <a href="https://x.com/DDandSA" target="_blank" rel="noopener" aria-label="DD&SA on X">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-7-6.2 7H1.3l8.1-9.3L1 2h7l4.9 6.4L18.9 2zm-2.4 18h2L8.6 4H6.5l9.9 16z"/></svg>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61591102651200" target="_blank" rel="noopener" aria-label="DD&SA on Facebook">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+    </a>
+  </div>
+<div class="ddsa-legal-note" style="margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.82rem;line-height:1.6;color:#8b93b5;max-width:860px;margin-left:auto;margin-right:auto;text-align:center;">
+  This website provides general information about Direct Democracy &amp; Sortition Assemblies. It is not legal advice. All content is subject to revision as the project develops. DD&amp;SA is designed to be a community&#8209;driven initiative and does not claim to represent official government policy.
+  <a href="/about/transparency.html" style="white-space:nowrap;">Transparency &amp; how we work &rarr;</a>
+  <a href="/privacy.html" style="white-space:nowrap;">Privacy notice &rarr;</a>
+</div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      (navigator.connection && navigator.connection.saveData === true);
+
+  /* ---------- scroll-reveal for cards ---------- */
+  var cards = document.querySelectorAll(".card");
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          var el = e.target;
+          setTimeout(function () { el.classList.add("lit"); },
+            120 * Array.prototype.indexOf.call(cards, el));
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.15 });
+    cards.forEach(function (c) { io.observe(c); });
+  } else {
+    cards.forEach(function (c) { c.classList.add("lit"); });
+  }
+
+  /* ---------- living neural canvas ---------- */
+  var canvas = document.getElementById("neural");
+  var ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0;
+  var nodes = [];
+  var pulses = [];
+  var mouse = { x: -9999, y: -9999, active: false };
+  var LINK_DIST = 150;
+  var running = true;
+  var lastT = 0;
+
+  function resize() {
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W * DPR;
+    canvas.height = H * DPR;
+    canvas.style.width = W + "px";
+    canvas.style.height = H + "px";
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    LINK_DIST = Math.max(120, Math.min(175, Math.sqrt(W * H) / 8));
+    seed();
+  }
+
+  function seed() {
+    var target = Math.round((W * H) / 16000);
+    target = Math.max(45, Math.min(130, target));
+    nodes = [];
+    for (var i = 0; i < target; i++) {
+      nodes.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.22,
+        vy: (Math.random() - 0.5) * 0.22,
+        r: 1.2 + Math.random() * 1.8,
+        phase: Math.random() * Math.PI * 2,     /* breathing offset */
+        speed: 0.6 + Math.random() * 0.9,        /* breathing speed */
+        charge: 0                                 /* glow when fired */
+      });
+    }
+    pulses = [];
+  }
+
+  /* a pulse travels from node a to node b, then may cascade */
+  function fire(a, b, depth) {
+    pulses.push({ a: a, b: b, t: 0, dur: 420 + Math.random() * 380, depth: depth || 0 });
+  }
+
+  function randomFire() {
+    if (nodes.length < 2 || reduceMotion) return;
+    var a = nodes[(Math.random() * nodes.length) | 0];
+    var best = null, bd = Infinity;
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+      if (n === a) continue;
+      var dx = n.x - a.x, dy = n.y - a.y, d = dx * dx + dy * dy;
+      if (d < bd && d < LINK_DIST * LINK_DIST) { bd = d; best = n; }
+    }
+    if (best) fire(a, best, 0);
+  }
+
+  function step(dt) {
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+
+      /* gentle drift */
+      n.x += n.vx * dt * 0.06;
+      n.y += n.vy * dt * 0.06;
+
+      /* cursor gravity — the screen notices you */
+      if (mouse.active) {
+        var dx = mouse.x - n.x, dy = mouse.y - n.y;
+        var d2 = dx * dx + dy * dy;
+        if (d2 < 180 * 180 && d2 > 1) {
+          var d = Math.sqrt(d2);
+          var f = (1 - d / 180) * 0.012 * dt;
+          n.x += (dx / d) * f;
+          n.y += (dy / d) * f;
+        }
+      }
+
+      /* soft wrap */
+      if (n.x < -30) n.x = W + 30; else if (n.x > W + 30) n.x = -30;
+      if (n.y < -30) n.y = H + 30; else if (n.y > H + 30) n.y = -30;
+
+      /* charge decay */
+      if (n.charge > 0) n.charge = Math.max(0, n.charge - dt * 0.0018);
+    }
+
+    /* advance pulses */
+    for (var p = pulses.length - 1; p >= 0; p--) {
+      var pu = pulses[p];
+      pu.t += dt;
+      if (pu.t >= pu.dur) {
+        pu.b.charge = 1;
+        /* cascade: a delivered signal may trigger the next synapse */
+        if (pu.depth < 3 && Math.random() < 0.55) {
+          var src = pu.b, best = null, bd = Infinity;
+          for (var k = 0; k < nodes.length; k++) {
+            var m = nodes[k];
+            if (m === src || m === pu.a) continue;
+            var ddx = m.x - src.x, ddy = m.y - src.y, dd = ddx * ddx + ddy * ddy;
+            if (dd < bd && dd < LINK_DIST * LINK_DIST) { bd = dd; best = m; }
+          }
+          if (best) fire(src, best, pu.depth + 1);
+        }
+        pulses.splice(p, 1);
+      }
+    }
+
+    /* keep the network thinking */
+    if (!reduceMotion && Math.random() < 0.02 && pulses.length < 14) randomFire();
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    var t = performance.now() / 1000;
+
+    /* connections */
+    for (var i = 0; i < nodes.length; i++) {
+      var a = nodes[i];
+      for (var j = i + 1; j < nodes.length; j++) {
+        var b = nodes[j];
+        var dx = a.x - b.x, dy = a.y - b.y;
+        var d2 = dx * dx + dy * dy;
+        if (d2 > LINK_DIST * LINK_DIST) continue;
+        var d = Math.sqrt(d2);
+        var alpha = (1 - d / LINK_DIST);
+        var glow = Math.max(a.charge, b.charge);
+        ctx.strokeStyle = glow > 0.05
+          ? "rgba(196,154,42," + (0.05 + alpha * 0.18 + glow * 0.25) + ")"
+          : "rgba(94,116,170," + (alpha * 0.16) + ")";
+        ctx.lineWidth = glow > 0.05 ? 0.9 : 0.6;
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.stroke();
+      }
+    }
+
+    /* travelling pulses — the visible "thoughts" */
+    for (var p = 0; p < pulses.length; p++) {
+      var pu = pulses[p];
+      var k = Math.min(1, pu.t / pu.dur);
+      /* ease in-out */
+      var e = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+      var x = pu.a.x + (pu.b.x - pu.a.x) * e;
+      var y = pu.a.y + (pu.b.y - pu.a.y) * e;
+
+      var g = ctx.createRadialGradient(x, y, 0, x, y, 9);
+      g.addColorStop(0, "rgba(255,217,107,0.95)");
+      g.addColorStop(0.4, "rgba(196,154,42,0.45)");
+      g.addColorStop(1, "rgba(196,154,42,0)");
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.arc(x, y, 9, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = "rgba(255,235,170,0.95)";
+      ctx.beginPath();
+      ctx.arc(x, y, 1.6, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    /* nodes — breathing */
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+      var breathe = 1 + 0.35 * Math.sin(t * n.speed + n.phase);
+      var r = n.r * breathe;
+      var lit = n.charge;
+
+      if (lit > 0.03) {
+        var hg = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * 7);
+        hg.addColorStop(0, "rgba(255,217,107," + (0.5 * lit) + ")");
+        hg.addColorStop(1, "rgba(255,217,107,0)");
+        ctx.fillStyle = hg;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, r * 7, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.fillStyle = lit > 0.03
+        ? "rgba(255,223,130," + (0.55 + 0.45 * lit) + ")"
+        : "rgba(150,170,215," + (0.35 + 0.3 * Math.sin(t * n.speed + n.phase)) + ")";
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, Math.max(0.6, r), 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function loop(now) {
+    if (!running) return;
+    var dt = Math.min(50, now - lastT || 16);
+    lastT = now;
+    step(dt);
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  /* static single frame for reduced-motion users */
+  function staticFrame() {
+    step(16);
+    draw();
+  }
+
+  window.addEventListener("resize", function () {
+    resize();
+    if (reduceMotion) staticFrame();
+  });
+
+  window.addEventListener("pointermove", function (e) {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+    mouse.active = true;
+  });
+  window.addEventListener("pointerleave", function () { mouse.active = false; });
+
+  /* a click sparks a cascade where you touch */
+  window.addEventListener("pointerdown", function (e) {
+    if (reduceMotion) return;
+    var best = null, bd = Infinity;
+    for (var i = 0; i < nodes.length; i++) {
+      var dx = nodes[i].x - e.clientX, dy = nodes[i].y - e.clientY;
+      var d = dx * dx + dy * dy;
+      if (d < bd) { bd = d; best = nodes[i]; }
+    }
+    if (best) { best.charge = 1; cascadeFrom(best); }
+  });
+
+  function cascadeFrom(a) {
+    var fired = 0;
+    for (var i = 0; i < nodes.length && fired < 3; i++) {
+      var n = nodes[i];
+      if (n === a) continue;
+      var dx = n.x - a.x, dy = n.y - a.y;
+      if (dx * dx + dy * dy < LINK_DIST * LINK_DIST) { fire(a, n, 1); fired++; }
+    }
+  }
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+      running = false;
+    } else if (!reduceMotion) {
+      running = true;
+      lastT = performance.now();
+      requestAnimationFrame(loop);
+    }
+  });
+
+  resize();
+  if (reduceMotion) {
+    staticFrame();
+  } else {
+    requestAnimationFrame(loop);
+  }
+})();
+</script>
+
+
+<div class="ddsa-lightbox" id="ddsa-lightbox" role="dialog" aria-modal="true" aria-label="DD&amp;SA explained in one picture">
+  <button class="ddsa-lightbox-close" id="ddsa-lightbox-close" aria-label="Close">&#10005;</button>
+  <img src="/assets/ddsa-infographic.png" alt="Infographic: Governance by civic lottery in four steps — your name goes in the draw, you serve a fixed term, you hear the evidence then decide, you hand it back. The off-switch is built in. dd-sa.org" loading="lazy">
+</div>
+<script>
+(function () {
+  var card  = document.getElementById('ddsa-public-card');
+  var box   = document.getElementById('ddsa-lightbox');
+  var close = document.getElementById('ddsa-lightbox-close');
+  if (!card || !box) return;
+  function open (e) { e.preventDefault(); box.classList.add('open'); close.focus(); }
+  function shut ()  { box.classList.remove('open'); card.focus(); }
+  card.addEventListener('click', open);
+  close.addEventListener('click', shut);
+  box.addEventListener('click', function (e) { if (e.target === box) shut(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && box.classList.contains('open')) shut();
+  });
+})();
+</script>
+</body>
+</html>
