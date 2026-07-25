@@ -15,6 +15,8 @@
 
 /video/*.mp4
   Cache-Control: public, max-age=2592000
+  Content-Type: video/mp4
+  Accept-Ranges: bytes
 
 /downloads/DDSA-CPF-001-Civic_Policing_Framework.pdf
   X-Robots-Tag: noindex
@@ -39,3 +41,24 @@
 
 /assets/neural-theme.css
   Cache-Control: no-cache
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/corpus/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+
+/feed.xml
+  Cache-Control: public, max-age=3600
+
+/reader
+  X-Robots-Tag: noindex
+
+/reader.html
+  X-Robots-Tag: noindex

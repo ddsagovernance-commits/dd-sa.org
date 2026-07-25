@@ -1,26 +1,26 @@
 <!DOCTYPE html>
+
 <html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
-  <title>Reading Room – DD&SA</title>
-  <meta name="robots" content="noindex" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Read DD&SA corpus documents directly on the site, with adjustable text size and full-screen reading for accessibility." />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Reading Room – DD&SA" />
-  <meta property="og:description" content="Read DD&SA corpus documents directly on the site, with adjustable text size and full-screen reading for accessibility." />
-  <meta property="og:url" content="https://dd-sa.org/reader.html" />
-  <meta property="og:image" content="https://dd-sa.org/assets/resident-journey.png" />
-  <meta property="og:image:width" content="1536" />
-  <meta property="og:image:height" content="1024" />
-  <meta property="og:site_name" content="DD&SA" />
-  <meta property="og:locale" content="en_GB" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Reading Room – DD&SA" />
-  <meta name="twitter:description" content="Read DD&SA corpus documents directly on the site, with adjustable text size and full-screen reading for accessibility." />
-  <meta name="twitter:image" content="https://dd-sa.org/assets/resident-journey.png" />
-
-  <style>
+<meta charset="utf-8"/>
+<title>Reading Room – DD&amp;SA</title>
+<meta content="noindex" name="robots"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Read DD&amp;SA corpus documents directly on the site, with adjustable text size and full-screen reading for accessibility." name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="Reading Room – DD&amp;SA" property="og:title"/>
+<meta content="Read DD&amp;SA corpus documents directly on the site, with adjustable text size and full-screen reading for accessibility." property="og:description"/>
+<meta content="https://dd-sa.org/reader" property="og:url"/>
+<meta content="https://dd-sa.org/assets/resident-journey.png" property="og:image"/>
+<meta content="1536" property="og:image:width"/>
+<meta content="1024" property="og:image:height"/>
+<meta content="DD&amp;SA" property="og:site_name"/>
+<meta content="en_GB" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Reading Room – DD&amp;SA" name="twitter:title"/>
+<meta content="Read DD&amp;SA corpus documents directly on the site, with adjustable text size and full-screen reading for accessibility." name="twitter:description"/>
+<meta content="https://dd-sa.org/assets/resident-journey.png" name="twitter:image"/>
+<style>
     :root {
       --ink:        #04070f;
       --navy:       #0a1228;
@@ -111,6 +111,8 @@
     .doc-title {
       flex: 1 1 220px;
       min-width: 0;
+      margin: 0;
+      font-weight: 400;
       font-size: 0.85rem;
       color: var(--muted);
       white-space: nowrap;
@@ -436,8 +438,12 @@
     @media (prefers-reduced-motion: reduce) {
       #viewer { scroll-behavior: auto; }
     }
-  </style>
-  <link rel="canonical" href="https://dd-sa.org/reader.html" />
+  
+.ddsa-breadcrumb{font-size:0.9rem;color:var(--muted,#9aa6c4);margin-bottom:18px;}
+.ddsa-breadcrumb a{color:var(--muted,#9aa6c4);}
+.ddsa-breadcrumb a:hover{color:var(--accent-strong,#ffdf6b);}
+</style>
+<link href="https://dd-sa.org/reader" rel="canonical"/>
 <style id="ddsa-enh">
 /* DD&SA enhancements: footer utility links */
 .ddsa-foot-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 18px;
@@ -445,61 +451,69 @@
 .ddsa-foot-links a{color:var(--gold-hot,#ffd96b);text-decoration:none}
 .ddsa-foot-links a:hover{text-decoration:underline}
 </style>
-  <link rel="alternate" type="application/rss+xml" title="DD&amp;SA Essays" href="https://dd-sa.org/feed.xml" />
-</head>
-
+<link href="https://dd-sa.org/feed.xml" rel="alternate" title="DD&amp;SA Essays" type="application/rss+xml"/>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dd-sa.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Reading Room",
+      "item": "https://dd-sa.org/reader"
+    }
+  ]
+}</script></head>
 <body>
 <style>.ddsa-skip{position:absolute;left:-9999px;top:0;z-index:100;background:#c49a2a;color:#0a0d18;padding:10px 18px;border-radius:0 0 8px 0;font-weight:600;text-decoration:none}.ddsa-skip:focus{left:0;outline:2px solid #ffd96b}</style>
 <a class="ddsa-skip" href="#main">Skip to content</a>
 <div class="bar">
-  <a class="brand" href="/downloads.html" title="Back to The Full Corpus">‹ DD&amp;SA</a>
-
-  <div class="goto-wrap">
-    <button class="ctl" id="gotoBtn" title="Jump to a specific page" disabled>Go to page</button>
-    <span class="goto-pop" id="gotoPop" hidden>
-      <input type="number" id="gotoInput" min="1" placeholder="#" inputmode="numeric" />
-      <button class="ctl" id="gotoGo">Go</button>
-    </span>
-  </div>
-
-  <div class="doc-title" id="docTitle">Loading document…</div>
-
-  <div class="controls">
-    <span class="page-indicator" id="pageIndicator"></span>
-    <button class="ctl" id="zoomOut" title="Smaller (Ctrl + scroll down)" aria-label="Zoom out">−</button>
-    <span class="zoom-level" id="zoomLevel">100%</span>
-    <button class="ctl" id="zoomIn" title="Larger (Ctrl + scroll up)" aria-label="Zoom in">+</button>
-    <button class="ctl active" id="modeNormal" title="Comfortable reading width">Normal</button>
-    <button class="ctl" id="modeFull" title="Fill the whole screen for easier reading">Full Screen</button>
-    <button class="btn-download" id="btnDownload">Free Download</button>
-  </div>
+<a class="brand" href="/corpus/" title="Back to The Full Corpus">‹ DD&amp;SA</a>
+<div class="goto-wrap">
+<button class="ctl" disabled="" id="gotoBtn" title="Jump to a specific page">Go to page</button>
+<span class="goto-pop" hidden="" id="gotoPop">
+<input id="gotoInput" inputmode="numeric" min="1" placeholder="#" type="number"/>
+<button class="ctl" id="gotoGo">Go</button>
+</span>
 </div>
-
+<nav aria-label="Breadcrumb" class="ddsa-breadcrumb"><a href="/">Home</a> › Reading Room</nav><h1 class="doc-title" id="docTitle">Loading document…</h1>
+<div class="controls">
+<span class="page-indicator" id="pageIndicator"></span>
+<button aria-label="Zoom out" class="ctl" id="zoomOut" title="Smaller (Ctrl + scroll down)">−</button>
+<span class="zoom-level" id="zoomLevel">100%</span>
+<button aria-label="Zoom in" class="ctl" id="zoomIn" title="Larger (Ctrl + scroll up)">+</button>
+<button class="ctl active" id="modeNormal" title="Comfortable reading width">Normal</button>
+<button class="ctl" id="modeFull" title="Fill the whole screen for easier reading">Full Screen</button>
+<button class="btn-download" id="btnDownload">Free Download</button>
+</div>
+</div>
 <div class="hint" id="hint">Tip: hold <strong>Ctrl</strong> and scroll to resize · <strong>Ctrl Home</strong> / <strong>Ctrl End</strong> to jump to the start or end.</div>
-
 <div class="vitrine-stage" id="main" role="main">
-  <div class="vitrine">
-    <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-    <div class="vitrine-inner">
-      <div id="viewer">
-        <div class="status" id="status"><div class="spin"></div>Preparing the reading room…</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="autoscroll-panel">
-    <button class="autoscroll-toggle" id="autoscrollToggle" title="Start auto-scroll" aria-label="Start auto-scroll">▶</button>
-    <div class="autoscroll-slider-wrap">
-      <input type="range" id="autoscrollSpeed" min="1" max="10" value="4" aria-label="Auto-scroll speed" />
-    </div>
-    <span class="autoscroll-label">Speed</span>
-  </div>
+<div class="vitrine">
+<span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+<div class="vitrine-inner">
+<div id="viewer">
+<div class="status" id="status"><div class="spin"></div>Preparing the reading room…</div>
 </div>
-
+</div>
+</div>
+<div class="autoscroll-panel">
+<button aria-label="Start auto-scroll" class="autoscroll-toggle" id="autoscrollToggle" title="Start auto-scroll">▶</button>
+<div class="autoscroll-slider-wrap">
+<input aria-label="Auto-scroll speed" id="autoscrollSpeed" max="10" min="1" type="range" value="4"/>
+</div>
+<span class="autoscroll-label">Speed</span>
+</div>
+</div>
 <div class="plinth">
-  <div class="nameplate"><span id="nameplateText">Loading…</span></div>
+<div class="nameplate"><span id="nameplateText">Loading…</span></div>
 </div>
-
 <script src="/assets/pdfjs/pdf.min.js"></script>
 <script>
 (function () {
@@ -513,7 +527,7 @@
   var pageIndicator = document.getElementById("pageIndicator");
 
   function fail(msg) {
-    statusEl.innerHTML = msg + '<br><br><a href="/downloads.html">‹ Back to The Full Corpus</a>';
+    statusEl.innerHTML = msg + '<br><br><a href="/corpus/">‹ Back to The Full Corpus</a>';
     nameplateEl.textContent = "Document unavailable";
   }
 
@@ -522,7 +536,14 @@
   var doc = params.get("doc") || "";
   try { doc = decodeURIComponent(doc); } catch (e) {}
 
-  // only same-site documents from known folders may be opened
+  // only same-site documents from known folders, or the DD&SA corpus
+  // bucket on Cloudflare R2, may be opened
+  var LEGACY_R2 = "https://pub-01292baa28674020ba36079e70cd3a31.r2.dev/";
+  // legacy inbound links used the R2 bucket URL: map them to the
+  // on-domain copy so old shares keep working
+  if (doc.indexOf(LEGACY_R2) === 0 && /\.pdf$/i.test(doc.split(/[?#]/)[0])) {
+    doc = "/downloads/" + doc.split("/").pop().split(/[?#]/)[0];
+  }
   var SAFE = /^\/(downloads|assemblies)\/[^?#]+\.pdf$/i;
   if (!SAFE.test(doc)) {
     fail("No document specified, or the document path is not recognised.");
@@ -816,6 +837,5 @@
   });
 })();
 </script>
-
 </body>
 </html>
