@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"/>
+<title>The Full Corpus – DD&amp;SA Document Library</title>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="The full DD&amp;SA corpus: fifty-nine constitutional frameworks, architectures, and analyses, organised by subject. Read on site or download free." name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="The Full Corpus – DD&amp;SA Document Library" property="og:title"/>
+<meta content="The full DD&amp;SA corpus: fifty-nine constitutional frameworks, architectures, and analyses, organised by subject. Read on site or download free." property="og:description"/>
+<meta content="https://dd-sa.org/corpus/" property="og:url"/>
+<meta content="https://dd-sa.org/assets/resident-journey.png" property="og:image"/>
+<meta content="1536" property="og:image:width"/>
+<meta content="1024" property="og:image:height"/>
+<meta content="DD&amp;SA" property="og:site_name"/>
+<meta content="en_GB" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="The Full Corpus – DD&amp;SA Document Library" name="twitter:title"/>
+<meta content="The full DD&amp;SA corpus: fifty-nine constitutional frameworks, architectures, and analyses, organised by subject. Read on site or download free." name="twitter:description"/>
+<meta content="https://dd-sa.org/assets/resident-journey.png" name="twitter:image"/>
+<style>
+    :root {
+      --bg: #050814;
+      --accent: #ffcc33;
+      --accent-strong: #ffdf6b;
+      --text: #f5f7ff;
+      --muted: #c7cbe0;
+      --card: #101528;
+      --border: #1c2340;
+      --radius: 18px;
+      --font-base: 19px;
+      --font-small: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #151b38 0, #050814 55%, #02030a 100%);
+      color: var(--text);
+      font-size: var(--font-base);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent-strong); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(5, 8, 20, 0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px clamp(20px, 6vw, 60px);
+    }
+
+    .nav-links { display: flex; gap: 28px; font-size: 18px; flex-wrap: wrap; }
+
+    .section {
+      width: 100%;
+      padding: 80px clamp(20px, 6vw, 60px);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 { font-size: clamp(2.4rem, 4vw, 3.4rem); margin-bottom: 14px; }
+
+    .lede { color: var(--muted); margin-bottom: 8px; }
+
+    .toc {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin: 18px 0 10px;
+      line-height: 2;
+    }
+
+    .corpus-search {
+      width: 100%;
+      max-width: 460px;
+      margin: 22px 0 6px;
+      padding: 13px 18px;
+      font-size: 1rem;
+      color: var(--text);
+      background: rgba(16,21,40,0.9);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      outline: none;
+      font-family: inherit;
+    }
+    .corpus-search:focus { border-color: var(--accent); }
+
+    h2 { font-size: 1.6rem; margin: 48px 0 6px; }
+
+    .downloads-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .downloads-grid a {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .doc-t { flex: 1; }
+
+    .pp {
+      font-size: 0.78rem;
+      color: var(--muted);
+      white-space: nowrap;
+      opacity: 0.8;
+    }
+
+    .hidden { display: none !important; }
+
+    footer {
+      padding: 40px clamp(20px, 6vw, 60px);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      background: #04060f;
+      font-size: var(--font-small);
+      color: var(--muted);
+      text-align: center;
+    }
+  
+.ddsa-breadcrumb{font-size:0.9rem;color:var(--muted);margin-bottom:18px;}
+.ddsa-breadcrumb a{color:var(--muted);}
+.ddsa-breadcrumb a:hover{color:var(--accent-strong);}
+</style>
+<link href="/assets/neural-theme.css?v=2026-07-11c" rel="stylesheet"/>
+<style id="ddsa-enh">
+/* DD&SA enhancements: top-left back button + footer utility links */
+header nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header nav .nav-links{margin-left:auto}
+.ddsa-back{display:inline-flex;align-items:center;gap:.4em;
+  font-family:Georgia,"Times New Roman",serif;font-size:.82rem;letter-spacing:.02em;
+  color:var(--muted,#9aa6c4);text-decoration:none;padding:6px 13px;
+  border:1px solid rgba(196,154,42,.35);border-radius:999px;white-space:nowrap;
+  background:rgba(4,7,15,.4);transition:color .2s,border-color .2s;flex:0 0 auto}
+.ddsa-back:hover{color:var(--gold-hot,#ffd96b);border-color:var(--gold-hot,#ffd96b);text-decoration:none}
+.ddsa-back--fixed{position:fixed;top:12px;left:12px;z-index:9999}
+.ddsa-foot-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 18px;
+  justify-content:center;font-size:.9rem}
+.ddsa-foot-links a{color:var(--gold-hot,#ffd96b);text-decoration:none}
+.ddsa-foot-links a:hover{text-decoration:underline}
+</style>
+<style id="ddsa-corpus-anim">
+.corpus-animated h2 .ddsa-h-label{position:relative;display:inline-block}
+.corpus-animated h2 .ddsa-h-label::after{content:"";position:absolute;left:0;right:0;
+  bottom:-.28em;height:3px;border-radius:2px;background:var(--ddsa-green,#1fdd6c);
+  opacity:0;pointer-events:none}
+.corpus-animated h2 .ddsa-h-label.ddsa-pulse::after{animation:ddsaHeadingPulse 2s ease-in-out}
+@keyframes ddsaHeadingPulse{0%,100%{opacity:0;box-shadow:0 0 0 0 var(--ddsa-green,#1fdd6c)}
+  18%,82%{opacity:1}50%{opacity:1;box-shadow:0 0 16px 3px var(--ddsa-green,#1fdd6c)}}
+.corpus-animated .downloads-grid a.ddsa-flash .doc-t{animation:ddsaTitleFlash 2s ease-in-out}
+@keyframes ddsaTitleFlash{50%{color:var(--ddsa-blue,#27b6ff);
+  text-shadow:0 0 10px var(--ddsa-blue,#27b6ff),0 0 22px var(--ddsa-blue,#27b6ff)}}
+@media (prefers-reduced-motion:reduce){
+  .corpus-animated h2 .ddsa-h-label::after{animation:none;opacity:0}
+  .corpus-animated .downloads-grid a.ddsa-flash .doc-t{animation:none}}
+</style>
+<link href="https://dd-sa.org/feed.xml" rel="alternate" title="DD&amp;SA Essays" type="application/rss+xml"/>
+<link href="https://dd-sa.org/corpus/" rel="canonical"/><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dd-sa.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "The Full Corpus",
+      "item": "https://dd-sa.org/corpus/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "The DD&SA Corpus",
+  "url": "https://dd-sa.org/corpus/",
+  "description": "The full DD&SA corpus: fifty-nine constitutional frameworks, architectures, and analyses.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "DD&SA",
+    "url": "https://dd-sa.org/"
+  }
+}</script></head>
+<body>
+<a class="ddsa-skip" href="#main">Skip to content</a>
+<header>
+<nav>
+<a aria-label="Go back" class="ddsa-back" href="/" onclick="if(history.length&gt;1){history.back();return false;}">← Back</a>
+<div style="font-weight:700;font-size:1.4rem;">DD&amp;SA</div>
+<input class="nav-toggle-checkbox" id="navToggle" type="checkbox"/>
+<label aria-label="Toggle navigation menu" class="nav-toggle-label" for="navToggle">
+<span></span><span></span><span></span>
+</label>
+<div class="nav-links">
+<a href="/">Home</a>
+<a href="/about/why-ddsa">Why DD&amp;SA?</a>
+<a href="/about/what-is-ddsa">What is DD&amp;SA?</a>
+<a href="/how-it-works/">How it works</a>
+<a href="/blueprint/">The Blueprint</a>
+<a href="/essays/">Essays</a>
+<a href="/corpus/">The Full Corpus</a>
+<a href="/get-involved/">Get Involved</a>
+</div>
+</nav>
+</header>
+<section class="section corpus-animated" id="main">
+<nav aria-label="Breadcrumb" class="ddsa-breadcrumb"><a href="/">Home</a> › The Full Corpus</nav><h1>The Full Corpus</h1>
+<p class="lede">
+    Fifty-nine constitutional frameworks, architectures, and analyses — the complete DD&amp;SA corpus, organised by subject.
+    Every document opens in the on-site reading room, where you can read at your own size or download it free.
+  </p>
+<input aria-label="Search the corpus" class="corpus-search" id="corpusSearch" placeholder="Search the corpus… e.g. justice, energy, pension" type="search"/>
+<p class="toc"><a href="#constitutional-foundations">Constitutional Foundations</a> · <a href="#the-blueprint">The Blueprint</a> · <a href="#governance-assemblies">Governance &amp; Assemblies</a> · <a href="#justice-policing">Justice &amp; Policing</a> · <a href="#security-defence-international">Security, Defence &amp; International</a> · <a href="#finance-economy">Finance &amp; Economy</a> · <a href="#health-education">Health &amp; Education</a> · <a href="#environment-agriculture">Environment &amp; Agriculture</a> · <a href="#housing-building-infrastructure">Housing, Building &amp; Infrastructure</a> · <a href="#transition-implementation">Transition &amp; Implementation</a> · <a href="#critiques-stress-tests">Critiques &amp; Stress-Tests</a> · <a href="#public-communications-guides">Public Communications &amp; Guides</a> · <a href="#reference">Reference</a></p>
+<h2 id="constitutional-foundations">Constitutional Foundations</h2>
+<div class="downloads-grid">
+<a href="/corpus/a-civic-architecture-for-the-british-isles-master-edition"><span class="doc-t">A Civic Architecture for the British Isles — Master Edition</span><span class="pp">65 pp.</span></a>
+<a href="/corpus/a-complete-constitutional-framework"><span class="doc-t">A Complete Constitutional Framework</span><span class="pp">36 pp.</span></a>
+<a href="/corpus/articles-of-the-constitution-of-the-british-isles"><span class="doc-t">Articles of the Constitution of the British Isles</span><span class="pp">85 pp.</span></a>
+<a href="/corpus/against-majoritarianism"><span class="doc-t">Against Majoritarianism</span><span class="pp">14 pp.</span></a>
+<a href="/corpus/the-crisis-continuity-volume"><span class="doc-t">The Crisis Continuity Volume</span><span class="pp">190 pp.</span></a>
+<a href="/corpus/the-leadership-crisis-continuity-volume-master"><span class="doc-t">The Leadership Crisis Continuity Volume — Master</span><span class="pp">77 pp.</span></a>
+<a href="/corpus/sovereign-quantum-ai-covenant"><span class="doc-t">Sovereign Quantum AI Covenant</span><span class="pp">30 pp.</span></a>
+<a href="/corpus/nationality-and-inhabitant-status-act"><span class="doc-t">Nationality and Inhabitant Status Act</span><span class="pp">30 pp.</span></a>
+</div>
+<h2 id="the-blueprint">The Blueprint</h2>
+<div class="downloads-grid">
+<a href="/corpus/foundational-blueprint-third-edition"><span class="doc-t">Foundational Blueprint — Third Edition</span><span class="pp">41 pp.</span></a>
+<a href="/corpus/foundational-blueprint-second-edition"><span class="doc-t">Foundational Blueprint — Second Edition</span><span class="pp">61 pp.</span></a>
+<a href="/corpus/the-new-british-isles-foundational-blueprint-revised"><span class="doc-t">The New British Isles Foundational Blueprint — Revised</span><span class="pp">68 pp.</span></a>
+<a href="/corpus/the-new-british-isles-foundational-blueprint"><span class="doc-t">The New British Isles Foundational Blueprint</span><span class="pp">54 pp.</span></a>
+</div>
+<h2 id="governance-assemblies">Governance &amp; Assemblies</h2>
+<div class="downloads-grid">
+<a href="/corpus/the-sortition-architecture"><span class="doc-t">The Sortition Architecture</span><span class="pp">23 pp.</span></a>
+<a href="/corpus/inter-assembly-co-ordination-framework"><span class="doc-t">Inter-Assembly Co-ordination Framework</span><span class="pp">27 pp.</span></a>
+<a href="/corpus/institutional-ecosystem-around-sortition-assemblies"><span class="doc-t">Institutional Ecosystem around Sortition Assemblies</span><span class="pp">28 pp.</span></a>
+<a href="/corpus/civic-operations-architecture"><span class="doc-t">Civic Operations Architecture</span><span class="pp">30 pp.</span></a>
+<a href="/corpus/emergency-governance-protocol"><span class="doc-t">Emergency Governance Protocol</span><span class="pp">15 pp.</span></a>
+<a href="/corpus/expert-pool-and-adversarial-briefing-protocol"><span class="doc-t">Expert Pool and Adversarial Briefing Protocol</span><span class="pp">14 pp.</span></a>
+<a href="/corpus/civic-transparency-and-institutional-integrity-architecture"><span class="doc-t">Civic Transparency and Institutional Integrity Architecture</span><span class="pp">31 pp.</span></a>
+</div>
+<h2 id="justice-policing">Justice &amp; Policing</h2>
+<div class="downloads-grid">
+<a href="/corpus/civic-justice-architecture-full-edition"><span class="doc-t">Civic Justice Architecture — Full Edition</span><span class="pp">79 pp.</span></a>
+<a href="/corpus/civic-justice-architecture-condensed"><span class="doc-t">Civic Justice Architecture — Condensed</span><span class="pp">31 pp.</span></a>
+<a href="/corpus/restorative-justice-framework"><span class="doc-t">Restorative Justice Framework</span><span class="pp">51 pp.</span></a>
+<a href="/corpus/civic-policing-framework-edition-2"><span class="doc-t">Civic Policing Framework — Edition 2</span><span class="pp">43 pp.</span></a>
+<a href="/corpus/civic-policing-framework"><span class="doc-t">Civic Policing Framework</span><span class="pp">33 pp.</span></a>
+<a href="/corpus/civic-policing-framework-original"><span class="doc-t">Civic Policing Framework — Original</span><span class="pp">33 pp.</span></a>
+<a href="/corpus/policing-framework-for-the-new-british-isles"><span class="doc-t">Policing Framework for the New British Isles</span><span class="pp">30 pp.</span></a>
+</div>
+<h2 id="security-defence-international">Security, Defence &amp; International</h2>
+<div class="downloads-grid">
+<a href="/corpus/civic-security-architecture"><span class="doc-t">Civic Security Architecture</span><span class="pp">29 pp.</span></a>
+<a href="/corpus/civic-security-and-intelligence-architecture"><span class="doc-t">Civic Security and Intelligence Architecture</span><span class="pp">30 pp.</span></a>
+<a href="/corpus/defence-posture-framework"><span class="doc-t">Defence Posture Framework</span><span class="pp">9 pp.</span></a>
+<a href="/corpus/complete-threat-and-vulnerability-register"><span class="doc-t">Complete Threat and Vulnerability Register</span><span class="pp">12 pp.</span></a>
+<a href="/corpus/international-civic-compact"><span class="doc-t">International Civic Compact</span><span class="pp">26 pp.</span></a>
+</div>
+<h2 id="finance-economy">Finance &amp; Economy</h2>
+<div class="downloads-grid">
+<a href="/corpus/ddandsa-economic-frameworks"><span class="doc-t">DD&amp;SA Economic Frameworks</span><span class="pp">101 pp.</span></a>
+<a href="/corpus/civic-commerce-architecture"><span class="doc-t">Civic Commerce Architecture</span><span class="pp">30 pp.</span></a>
+<a href="/corpus/civic-trade-compatibility-architecture"><span class="doc-t">Civic Trade Compatibility Architecture</span><span class="pp">14 pp.</span></a>
+<a href="/corpus/national-equity-fund-strategy"><span class="doc-t">National Equity Fund Strategy</span><span class="pp">22 pp.</span></a>
+<a href="/corpus/civic-pension-architecture"><span class="doc-t">Civic Pension Architecture</span><span class="pp">29 pp.</span></a>
+<a href="/corpus/local-sortition-assembly-funding-framework"><span class="doc-t">Local Sortition Assembly Funding Framework</span><span class="pp">25 pp.</span></a>
+</div>
+<h2 id="health-education">Health &amp; Education</h2>
+<div class="downloads-grid">
+<a href="/corpus/civic-health-architecture"><span class="doc-t">Civic Health Architecture</span><span class="pp">19 pp.</span></a>
+<a href="/corpus/national-health-crisis-response-framework-master-edition"><span class="doc-t">National Health Crisis Response Framework — Master Edition</span><span class="pp">20 pp.</span></a>
+<a href="/corpus/nbi-health-provision"><span class="doc-t">NBI Health Provision</span><span class="pp">10 pp.</span></a>
+<a href="/corpus/civic-education-and-formation-architecture"><span class="doc-t">Civic Education and Formation Architecture</span><span class="pp">95 pp.</span></a>
+</div>
+<h2 id="environment-agriculture">Environment &amp; Agriculture</h2>
+<div class="downloads-grid">
+<a href="/corpus/civic-environmental-restoration-framework"><span class="doc-t">Civic Environmental Restoration Framework</span><span class="pp">45 pp.</span></a>
+<!-- RESTORE WHEN PDF UPLOADED: National Farming Renaissance Framework (DDSA-AGR-FARM-001) — PDF missing from /downloads/ -->
+</div>
+<h2 id="housing-building-infrastructure">Housing, Building &amp; Infrastructure</h2>
+<div class="downloads-grid">
+<a href="/corpus/civic-homebuilding-framework"><span class="doc-t">Civic Homebuilding Framework</span><span class="pp">11 pp.</span></a>
+<a href="/corpus/affordable-homes-for-the-younger-generation"><span class="doc-t">Affordable Homes for the Younger Generation</span><span class="pp">12 pp.</span></a>
+<a href="/corpus/civic-building-and-forestry-sovereignty-framework"><span class="doc-t">Civic Building and Forestry Sovereignty Framework</span><span class="pp">14 pp.</span></a>
+<a href="/corpus/civic-high-street-and-amenities-architecture"><span class="doc-t">Civic High Street and Amenities Architecture</span><span class="pp">42 pp.</span></a>
+<a href="/corpus/engineering-brief"><span class="doc-t">Engineering Brief</span><span class="pp">4 pp.</span></a>
+</div>
+<h2 id="transition-implementation">Transition &amp; Implementation</h2>
+<div class="downloads-grid">
+<a href="/corpus/transition-pathway-from-the-current-system"><span class="doc-t">Transition Pathway from the Current System</span><span class="pp">14 pp.</span></a>
+<a href="/corpus/implementation-manual"><span class="doc-t">Implementation Manual</span><span class="pp">21 pp.</span></a>
+<a href="/corpus/full-production-roadmap"><span class="doc-t">Full Production Roadmap</span><span class="pp">3 pp.</span></a>
+</div>
+<h2 id="critiques-stress-tests">Critiques &amp; Stress-Tests</h2>
+<div class="downloads-grid">
+<a href="/corpus/framework-deep-critical-stress-test"><span class="doc-t">Framework Deep Critical Stress-Test</span><span class="pp">11 pp.</span></a>
+<a href="/corpus/adversarial-stress-test-deep-crit-002"><span class="doc-t">Adversarial Stress Test — DEEP-CRIT-002</span><span class="pp">16 pp.</span></a>
+<a href="/corpus/the-architecture-of-dissolution"><span class="doc-t">The Architecture of Dissolution</span><span class="pp">20 pp.</span></a>
+</div>
+<h2 id="public-communications-guides">Public Communications &amp; Guides</h2>
+<div class="downloads-grid">
+<a href="/corpus/public-explainer-plain-english-guide"><span class="doc-t">Public Explainer — Plain English Guide</span><span class="pp">5 pp.</span></a>
+<a href="/corpus/the-case-for-ddandsa"><span class="doc-t">The Case for DD&amp;SA</span><span class="pp">60 pp.</span></a>
+<a href="/corpus/public-blueprint-posts-1-10"><span class="doc-t">Public Blueprint Posts 1–10</span><span class="pp">74 pp.</span></a>
+<a href="/corpus/post-1-what-is-ddandsa"><span class="doc-t">Post 1 — What is DD&amp;SA?</span><span class="pp">39 pp.</span></a>
+</div>
+<h2 id="reference">Reference</h2>
+<div class="downloads-grid">
+<a href="/corpus/citations-and-sources"><span class="doc-t">Citations and Sources</span><span class="pp">17 pp.</span></a>
+<a href="/corpus/corpus-reconciliation-report"><span class="doc-t">Corpus Reconciliation Report</span><span class="pp">10 pp.</span></a>
+</div>
+</section>
+<footer>
+<div>DD&amp;SA – Direct Democracy &amp; Sortition Assemblies</div>
+<div>Resident‑led democratic innovation for the United Kingdom.</div>
+<div class="ddsa-subscribe" style="margin:16px 0 12px;">
+<strong>Stay informed:</strong> one email a month as DD&amp;SA moves from blueprint to pilot.
+  <a href="/subscribe">Subscribe →</a> <a class="ddsa-unsub-link" href="/unsubscribe">Unsubscribe</a> · <a href="/feed.xml">RSS</a>
+</div>
+<div class="ddsa-foot-links">
+<a href="/">Home</a>
+<a href="/start-here">Start Here</a>
+<a href="/about/principles">Principles</a>
+<a href="/assemblies/">Sortition Assemblies</a>
+<a href="/stratification">Stratification</a>
+<a href="/video/">Introduction Video</a>
+<a href="/corpus/">The Full Corpus</a>
+<a href="/glossary">Glossary</a>
+<a href="/faq/">FAQ</a>
+<a href="/scrutiny">Scrutiny Register</a>
+<a href="/about/the-architect">About the Architect</a>
+<a href="/subscribe">Subscribe</a>
+<a href="/contact">Contact</a>
+<a href="/cite">Cite this work</a>
+<a href="/about/transparency">Transparency</a>
+<a href="/privacy">Privacy</a>
+<a href="/get-involved/">Get Involved</a>
+</div>
+<div class="ddsa-legal-note" style="margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.82rem;line-height:1.6;color:#8b93b5;max-width:860px;margin-left:auto;margin-right:auto;text-align:center;">
+  This website provides general information about Direct Democracy &amp; Sortition Assemblies. It is not legal advice. All content is subject to revision as the project develops. DD&amp;SA is designed to be a community‑driven initiative and does not claim to represent official government policy.
+  <a href="/about/transparency" style="white-space:nowrap;">Transparency &amp; how we work →</a>
+<a href="/privacy" style="white-space:nowrap;">Privacy notice →</a>
+</div>
+</footer>
+<script>
+(function () {
+  var input = document.getElementById("corpusSearch");
+  if (!input) return;
+  input.addEventListener("input", function () {
+    var q = input.value.trim().toLowerCase();
+    document.querySelectorAll(".downloads-grid").forEach(function (grid) {
+      var any = false;
+      grid.querySelectorAll("a").forEach(function (a) {
+        var hit = !q || a.textContent.toLowerCase().indexOf(q) !== -1;
+        a.classList.toggle("hidden", !hit);
+        if (hit) any = true;
+      });
+      var h2 = grid.previousElementSibling;
+      grid.classList.toggle("hidden", !any);
+      if (h2 && h2.tagName === "H2") h2.classList.toggle("hidden", !any);
+    });
+  });
+})();
+</script>
+<script id="ddsa-corpus-seq">
+(function(){
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var root=document.querySelector('.corpus-animated'); if(!root) return;
+  root.querySelectorAll('h2').forEach(function(h){
+    if(!h.querySelector('.ddsa-h-label')){h.innerHTML='<span class="ddsa-h-label">'+h.innerHTML+'</span>';}
+  });
+  var nodes=Array.prototype.slice.call(root.querySelectorAll('.ddsa-h-label, .downloads-grid a'));
+  if(!nodes.length) return;
+  function visible(el){return el.offsetParent!==null;}
+  var STEP=2000,i=0,guard=0;
+  function next(){i=(i+1)%nodes.length;tick();}
+  function tick(){
+    var el=nodes[i];
+    if(!visible(el)){guard++;
+      if(guard>nodes.length){guard=0;setTimeout(next,400);return;}
+      return next();}
+    guard=0;
+    var heading=el.classList.contains('ddsa-h-label');
+    el.classList.add(heading?'ddsa-pulse':'ddsa-flash');
+    setTimeout(function(){el.classList.remove('ddsa-pulse','ddsa-flash');next();},STEP);
+  }
+  tick();
+})();
+</script>
+<script defer="" src="/assets/neural-bg.js"></script>
+</body>
+</html>
